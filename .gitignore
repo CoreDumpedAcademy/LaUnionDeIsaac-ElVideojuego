@@ -39,4 +39,5 @@ sysinfo.txt
 # Crashlytics generated file
 Assets/StreamingAssets/crashlytics-build.properties
 
+# Any file with "Personal" at the beginning used to develop something new
 Personal*
