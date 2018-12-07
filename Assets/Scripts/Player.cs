@@ -34,22 +34,74 @@ public class Player : MonoBehaviour {
         //obtenemos las direcciones que va a obtener el jugador
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-
+        
 
         
         //Hacemos que la velocidad del rigidbody sea la dirección * velocidad
         rb.velocity = new Vector2(h * speed,v*speed);
-        
-        //aplicamos las direcciones para que el animador sepa cuando hacer qué animación
-        anim.SetFloat("SpeedX", h);
-        anim.SetFloat("SpeedY", v);
 
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+
+            //aplicamos las direcciones para que el animador sepa cuando hacer qué animación
+
+            anim.SetBool("LH", false);
+            anim.SetFloat("SpeedY", 1);
+        }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+
+            //aplicamos las direcciones para que el animador sepa cuando hacer qué animación
+
+
+            anim.SetBool("LH", false);
+            anim.SetFloat("SpeedY", -1);
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+
+            //aplicamos las direcciones para que el animador sepa cuando hacer qué animación
+
+            anim.SetBool("LH", true);
+            anim.SetFloat("SpeedX", 1);
+            
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+
+            //aplicamos las direcciones para que el animador sepa cuando hacer qué animación
+
+            anim.SetBool("LH", true);
+            anim.SetFloat("SpeedX", -1);
+            
+        }
+        else if (!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow)&& !Input.GetKey(KeyCode.RightArrow)&& !Input.GetKey(KeyCode.LeftArrow))
+        {
+
+            //aplicamos las direcciones para que el animador sepa cuando hacer qué animación
+            if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            {
+                anim.SetBool("LH", true);
+            }
+            else if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+            {
+                anim.SetBool("LH", false);
+            }
+            anim.SetFloat("SpeedX", h);
+            anim.SetFloat("SpeedY", v);
+        }
+       
+
+
+
+
+        //manejamos el dash del personaje
         if (isDashing == false)
         {
 
             dashCooldown = dashCooldown - Time.deltaTime;
 
-            Debug.Log(dashCooldown);
+
 
             if (dashCooldown <= 0)
             {
