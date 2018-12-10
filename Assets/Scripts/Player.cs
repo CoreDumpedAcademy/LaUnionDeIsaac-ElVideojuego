@@ -14,6 +14,8 @@ public class Player : MonoBehaviour {
     public float dashSpeed;
     public float startDashTime;
     public bool isDashing = false;
+    public static float playerHealth;
+    public static int score;
 
     // Use this for initialization
     void Start () {
