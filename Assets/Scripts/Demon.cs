@@ -6,7 +6,7 @@ public class Demon : MonoBehaviour {
 
     public float speed;
     public float health;
-    public float damage;
+    public float DemonDamage;
 
     private Transform target;
     public float chaseRange;
@@ -43,7 +43,7 @@ public class Demon : MonoBehaviour {
             //Comprobar si ha pasado tiempo suficiente desde el ultimo ataque
             if(Time.time > lastAttackTime + attackDelay)
             {
-                target.SendMessage("TakeDamage", damage);
+                target.SendMessage("TakeDamage", DemonDamage);
                 //Guardar la ultima vez que ataco
                 lastAttackTime = Time.time;
             }
@@ -56,27 +56,27 @@ public class Demon : MonoBehaviour {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        if (h > 0 && h > v)
+        if (speed * h > 0 && speed * h > speed * v)
         {
             anim.SetFloat("XSpeed", 1);
             anim.SetFloat("YSpeed", 0);
         }
-        else if(h > 0 && h < v)
+        else if(speed * h > 0 && speed * h < speed * v)
         {
             anim.SetFloat("YSpeed", 1);
             anim.SetFloat("XSpeed", 0);
         }
-        else if(h < 0 && h < v)
+        else if(speed * h < 0 && speed * h < speed * v)
         {
             anim.SetFloat("XSpeed", -1);
             anim.SetFloat("YSpeed", 0);
         }
-        else if(h < 0 && h > v)
+        else if(speed * h < 0 && speed * h > speed * v)
         {
             anim.SetFloat("YSpeed", -1);
             anim.SetFloat("XSpeed", 0);
         }
-        else if(h == 0 && v == 0)
+        else if(speed * h == 0 && speed * v == 0)
         {
             anim.SetFloat("XSpeed", 0);
             anim.SetFloat("YSpeed", 0);
