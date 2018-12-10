@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Arrow
+  - Lava
+  - Demon
   layers:
   - Default
   - TransparentFX
