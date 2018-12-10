@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: LavaAttack
+  m_Name: LavaDanger
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,25 +20,15 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: 2161d303d84562d46abbecc598012949, type: 3}
-    - time: 0.2
+    - time: 0.41666666
       value: {fileID: 21300000, guid: 362fded3440700f47973ac3d4aa28148, type: 3}
-    - time: 0.4
+    - time: 0.8333333
       value: {fileID: 21300000, guid: 2161d303d84562d46abbecc598012949, type: 3}
-    - time: 0.64
-      value: {fileID: 21300002, guid: 2161d303d84562d46abbecc598012949, type: 3}
-    - time: 0.82
-      value: {fileID: 21300004, guid: 2161d303d84562d46abbecc598012949, type: 3}
-    - time: 1
-      value: {fileID: 21300006, guid: 2161d303d84562d46abbecc598012949, type: 3}
-    - time: 1.2
-      value: {fileID: 21300004, guid: 2161d303d84562d46abbecc598012949, type: 3}
-    - time: 1.4
-      value: {fileID: 21300002, guid: 2161d303d84562d46abbecc598012949, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 50
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -56,17 +46,12 @@ AnimationClip:
     - {fileID: 21300000, guid: 2161d303d84562d46abbecc598012949, type: 3}
     - {fileID: 21300000, guid: 362fded3440700f47973ac3d4aa28148, type: 3}
     - {fileID: 21300000, guid: 2161d303d84562d46abbecc598012949, type: 3}
-    - {fileID: 21300002, guid: 2161d303d84562d46abbecc598012949, type: 3}
-    - {fileID: 21300004, guid: 2161d303d84562d46abbecc598012949, type: 3}
-    - {fileID: 21300006, guid: 2161d303d84562d46abbecc598012949, type: 3}
-    - {fileID: 21300004, guid: 2161d303d84562d46abbecc598012949, type: 3}
-    - {fileID: 21300002, guid: 2161d303d84562d46abbecc598012949, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.42
+    m_StopTime: 0.84999996
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
