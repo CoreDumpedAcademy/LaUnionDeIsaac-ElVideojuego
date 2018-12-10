@@ -6,7 +6,7 @@ public class Demon : MonoBehaviour {
 
     public float speed;
     public float health;
-    public float DemonDamage;
+    public float damage;
 
     private Transform target;
     public float chaseRange;
@@ -43,7 +43,7 @@ public class Demon : MonoBehaviour {
             //Comprobar si ha pasado tiempo suficiente desde el ultimo ataque
             if(Time.time > lastAttackTime + attackDelay)
             {
-                target.SendMessage("TakeDamage", DemonDamage);
+                target.SendMessage("TakeDamage", damage);
                 //Guardar la ultima vez que ataco
                 lastAttackTime = Time.time;
             }
@@ -83,16 +83,23 @@ public class Demon : MonoBehaviour {
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Arrow"))
+        {
+            TakeDamage();
+        }
+    }
+
     //Muerte del enemigo
-    public void TakeDamage(int damage)
+    public void TakeDamage()
     {
         //Restar vida al enemigo
-        health -= damage;
+        health -= 10;
         if(health <= 0)
         {
             //Matar al enemigo
             Destroy(this.gameObject);
-            
         }
 
     }
