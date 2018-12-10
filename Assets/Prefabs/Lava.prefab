@@ -9,71 +9,62 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1936905436276478}
+  m_RootGameObject: {fileID: 1892818614104110}
   m_IsPrefabAsset: 1
---- !u!1 &1936905436276478
+--- !u!1 &1892818614104110
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4481474692276066}
-  - component: {fileID: 212113955402909936}
-  - component: {fileID: 58682051362513584}
-  - component: {fileID: 114921568610304358}
+  - component: {fileID: 4383398964786108}
+  - component: {fileID: 212102309009328306}
+  - component: {fileID: 95482098183788862}
   m_Layer: 0
-  m_Name: wingdemonprojectile
+  m_Name: Lava
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4481474692276066
+--- !u!4 &4383398964786108
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1936905436276478}
+  m_GameObject: {fileID: 1892818614104110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.76, y: 1.48, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalPosition: {x: -2.59, y: -2.51, z: -0.09375}
+  m_LocalScale: {x: 11.249885, y: 9.38175, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58682051362513584
-CircleCollider2D:
+--- !u!95 &95482098183788862
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1936905436276478}
+  m_GameObject: {fileID: 1892818614104110}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.004599452, y: -0.013798356}
-  serializedVersion: 2
-  m_Radius: 0.16640872
---- !u!114 &114921568610304358
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1936905436276478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d0d8a3952f100847a3bbfbb4d68eb0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!212 &212113955402909936
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5317d6afe94eca4428653117aa12f952, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &212102309009328306
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1936905436276478}
+  m_GameObject: {fileID: 1892818614104110}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -103,7 +94,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5cf57c27dc1ec364598d87fd8f14fd44, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2161d303d84562d46abbecc598012949, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -8,69 +8,95 @@ public class Demon : MonoBehaviour {
     public float health;
     public float damage;
 
-    public Transform target;
+    private Transform target;
     public float chaseRange;
 
     public float attackRange;
     private float lastAttackTime;
     public float attackDelay;
 
-    
+    private Rigidbody2D rb;
+    private Animator anim;
 
-	// Use this for initialization
-	void Start () {
-		
+    // Use this for initialization
+    void Start () {
+
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+
+        //Movimiento
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        //Chaising
-        //Get the distance to the target and check if the distance is enough to chase the target
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        if(distanceToTarget < chaseRange)
-        {
-            //Start chasing the target
-            Vector3 targetDir = target.position - transform.position;
-            float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90f;
-            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 180);
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+         //Fin del movimiento
 
-            transform.Translate(Vector3.up * Time.deltaTime * speed);
-        }
-        //End of chaising
+        //Ataque
 
-        //Attack
-
-        //Check if the player is close to attack
+        //Comprobar si el jugador esta lo suficientemente cerca para atacar
         float distanceToAttack = Vector3.Distance(transform.position, target.position);
         if(distanceToAttack < attackRange)
         {
-            //Check to see if enoght time has passed since the last attack
+            //Comprobar si ha pasado tiempo suficiente desde el ultimo ataque
             if(Time.time > lastAttackTime + attackDelay)
             {
                 target.SendMessage("TakeDamage", damage);
-                //Record the time we attacked
+                //Guardar la ultima vez que ataco
                 lastAttackTime = Time.time;
             }
             
         }
- 
-        //End of Attack
+
+        //Fin del ataque
+
+        //Animaciones
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+
+        if (h > 0 && h > v)
+        {
+            anim.SetFloat("XSpeed", 1);
+            anim.SetFloat("YSpeed", 0);
+        }
+        else if(h > 0 && h < v)
+        {
+            anim.SetFloat("YSpeed", 1);
+            anim.SetFloat("XSpeed", 0);
+        }
+        else if(h < 0 && h < v)
+        {
+            anim.SetFloat("XSpeed", -1);
+            anim.SetFloat("YSpeed", 0);
+        }
+        else if(h < 0 && h > v)
+        {
+            anim.SetFloat("YSpeed", -1);
+            anim.SetFloat("XSpeed", 0);
+        }
+        else if(h == 0 && v == 0)
+        {
+            anim.SetFloat("XSpeed", 0);
+            anim.SetFloat("YSpeed", 0);
+        }
     }
-   
-    //Demon dead
+
+    //Muerte del enemigo
     public void TakeDamage(int damage)
     {
-        //substract the life of the enemy
+        //Restar vida al enemigo
         health -= damage;
         if(health <= 0)
         {
-            //kill the enemy
+            //Matar al enemigo
             Destroy(this.gameObject);
-            //Drop a random item
+            
         }
 
     }
-    //End of demon dead
+    //Fin de muerte del enemigo
+
+  
 }
