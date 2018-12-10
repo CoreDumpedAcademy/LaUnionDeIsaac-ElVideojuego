@@ -42,5 +42,5 @@ Assets/StreamingAssets/crashlytics-build.properties
 # Any file with "Personal" at the beginning used to develop something new
 Personal*
 
-# Meta Files
-*.meta
+# MetaFiles
+*.meta 
