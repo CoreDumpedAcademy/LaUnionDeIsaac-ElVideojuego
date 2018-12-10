@@ -8,6 +8,7 @@ TagManager:
   - Lava
   - Demon
   - Wall
+  - Enemy
   layers:
   - Default
   - TransparentFX

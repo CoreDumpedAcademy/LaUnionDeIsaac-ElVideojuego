@@ -93,18 +93,18 @@ TextureImporter:
       name: wingdemon_back_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 3
-        width: 46
-        height: 42
+        x: 0
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2dc92df32fa96b43bbcc9c0fe748be4
+      spriteID: ffbe68ff96283ef47995b4657e7346ee
       vertices: []
       indices: 
       edges: []
@@ -113,18 +113,18 @@ TextureImporter:
       name: wingdemon_back_1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 3
-        width: 44
-        height: 41
+        x: 48
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33e28e5d4e418d64abd045795f9bf488
+      spriteID: 047707e84c2ca1a42b2a433aaf6d21eb
       vertices: []
       indices: 
       edges: []
@@ -133,18 +133,18 @@ TextureImporter:
       name: wingdemon_back_2
       rect:
         serializedVersion: 2
-        x: 99
-        y: 3
-        width: 42
-        height: 40
+        x: 96
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6c37de27774440498a7813ae475c613
+      spriteID: 5c6225fcd231f3c42805661300af3288
       vertices: []
       indices: 
       edges: []
