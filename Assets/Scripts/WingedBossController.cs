@@ -16,8 +16,12 @@ public class WingedBossController : MonoBehaviour {
     public float timeBtwShots; //tiempo entre disparo y disparo
     public GameObject projectile;
 
-	// Use this for initialization
-	void Start () {
+    private Animator anim;
+
+
+    // Use this for initialization
+    void Start () {
+        anim = GetComponent<Animator>();
         // hacemos que el target sea el lugar donde se encuentra el jugador (GameObject con tag "Player")
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         timeLeftBtwShots = timeBtwShots;
@@ -27,32 +31,96 @@ public class WingedBossController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Vector2.Distance(transform.position, target.position) > stopDistance) //mientras la distancia entre miniboss y jugador sea mayor que la stopDistance
-        {  // movemos el miniboss a donde se encuentre el target
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        } else if (Vector2.Distance(transform.position, target.position) < stopDistance && (Vector2.Distance(transform.position, target.position) > retreatDistance))
-        { //si el jugador se acerca a más de la distancia mínima pero no está lo suficientemente cerca para llegar a ser la distancia de "tirar pa atrás"
-            transform.position = this.transform.position; //el miniboss se queda quieto
-        }
-        else if(Vector2.Distance(transform.position, target.position) < retreatDistance) 
-        { //movemos al miniboss en dirección contraria al target
-            transform.position = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);
-        }
+        moveTwdPlayer(); // función que hace que persiga al jugador y huya de él 
+        movement(); // función que controla las animaciones del boss (work in progress)
 
-        if(timeLeftBtwShots <= 0)
+        if(timeLeftBtwShots <= 0) //nos aseguramos de que el enemigo lance bolas cada timeBtwShots segundos
         {
             Instantiate(projectile, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
             timeLeftBtwShots = timeBtwShots;
         }
         else
         {
-            timeLeftBtwShots -= Time.deltaTime; // de esta manera nos aseguramos de que el enemigo lance bolas cada timeBtwShots segundos
+            timeLeftBtwShots -= Time.deltaTime; 
         }
 	}
 
+
+    private void movement()
+    {
+
+        if (target.position.y>transform.position.y) // si el enemigo se encuentra arriba
+        {
+            anim.SetBool("Vertical", true);
+            anim.SetFloat("moveV", -1);
+        }
+        else if (target.position.y<transform.position.y) // si el enemigo se encuentra abajo
+        {
+            anim.SetBool("Vertical", true);
+            anim.SetFloat("moveV", 1);
+        }
+        else if (target.position.x>transform.position.x) // si el enemigo se encuentra a la derecha
+        {
+            anim.SetBool("Vertical", false);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (target.position.x<transform.position.x) // si el enemigo se encuentra a la izquierda
+        {
+            anim.SetBool("Vertical", false);
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+
+        /*float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+
+        if (h > 0 && h > v)
+        {
+            anim.SetFloat("XSpeed", 1);
+            anim.SetFloat("YSpeed", 0);
+        }
+        else if (h > 0 && h < v)
+        {
+            anim.SetFloat("YSpeed", 1);
+            anim.SetFloat("XSpeed", 0);
+        }
+        else if (h < 0 && h < v)
+        {
+            anim.SetFloat("XSpeed", -1);
+            anim.SetFloat("YSpeed", 0);
+        }
+        else if (h < 0 && h > v)
+        {
+            anim.SetFloat("YSpeed", -1);
+            anim.SetFloat("XSpeed", 0);
+        }
+        else if (h == 0 && v == 0)
+        {
+            anim.SetFloat("XSpeed", 0);
+            anim.SetFloat("YSpeed", 0);
+        }
+    }*/
+
+}
+
+    private void moveTwdPlayer() //movement towards player
+    {
+        if (Vector2.Distance(transform.position, target.position) > stopDistance) //mientras la distancia entre miniboss y jugador sea mayor que la stopDistance
+        {  // movemos el miniboss a donde se encuentre el target
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
+        else if (Vector2.Distance(transform.position, target.position) < stopDistance && (Vector2.Distance(transform.position, target.position) > retreatDistance))
+        { //si el jugador se acerca a más de la distancia mínima pero no está lo suficientemente cerca para llegar a ser la distancia de "tirar pa atrás"
+            transform.position = this.transform.position; //el miniboss se queda quieto
+        }
+        else if (Vector2.Distance(transform.position, target.position) < retreatDistance)
+        { //movemos al miniboss en dirección contraria al target
+            transform.position = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Arrow"))
         {
             TakeDamage();
         }
@@ -62,7 +130,6 @@ public class WingedBossController : MonoBehaviour {
     {
         Debug.Log("aaa");
         health-=10;
-        transform.Find("BarSprite").localScale = new Vector3(health/healthMax, 1);
         if (health <= 0)
         {
             Destroy(gameObject);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class WBossProjectile : MonoBehaviour {
 
     private float speed=5;
-
+    public float damage;
     private Transform player;
     private Vector2 target;
 	// Use this for initialization
@@ -30,6 +30,7 @@ public class WBossProjectile : MonoBehaviour {
     {
         if (collision.CompareTag("Player"))
         {
+            player.SendMessage("TakeDamage", damage);
             DestroyProjectile();
         }
     }
