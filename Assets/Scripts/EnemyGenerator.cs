@@ -15,14 +15,18 @@ public class EnemyGenerator : MonoBehaviour {
 
     private Vector3 pos;
     public GameObject[] obj;
+    public bool maxEnemiesInstantiated = false;
 
     public float count = 0.2f;
+    public float count2 = 1f;
 
     // Use this for initialization
     void Start () {
         numberEnemies = 20;
         enemiesSpawned = 0;
-        count = 0.5f;
+        count = 0.1f;
+        count2 = 1f;
+        maxEnemiesInstantiated = false;
 	}
 	
 	// Update is called once per frame
@@ -53,7 +57,7 @@ public class EnemyGenerator : MonoBehaviour {
     public void EnemySpawn()
     {
         gos = GameObject.FindGameObjectsWithTag("Enemy");
-        if (gos.Length < 20)
+        if (gos.Length < 30 && maxEnemiesInstantiated == false)
         {
             
 
@@ -71,8 +75,16 @@ public class EnemyGenerator : MonoBehaviour {
 
                 }
                 enemiesSpawned++;
-            
-          
+
+
+        }
+        else
+        {
+            count2 = count2 - Time.deltaTime;
+            if (count2 <= 0)
+            {
+                maxEnemiesInstantiated = true;
+            }            
         }
     }
 }

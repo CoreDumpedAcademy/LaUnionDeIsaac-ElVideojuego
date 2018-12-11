@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour {
 
     private float percentageOfHealth;
-    private RectTransform rt;
+    public RectTransform rt;
     // Use this for initialization
     void Start () {
         rt = GetComponent<RectTransform>();      		
@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour {
     //Función que agranda o disminuye la barra de vida en base a la vida del personaje
     public void SetHealth(float playerHealth)
     {
+        rt = GetComponent<RectTransform>();
         percentageOfHealth = playerHealth / 200f;
         rt.sizeDelta = new Vector2(rt.sizeDelta.x * percentageOfHealth, rt.sizeDelta.y);
         transform.position = new Vector3(transform.position.x * percentageOfHealth + 0.02f, transform.position.y, transform.position.z);
