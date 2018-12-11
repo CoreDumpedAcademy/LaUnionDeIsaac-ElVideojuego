@@ -6,11 +6,13 @@ public class PlayerCollider : MonoBehaviour {
 
     private float touchDamage;
     private float fireballDamage;
-    public PlayerHealth PH;
+    private PlayerHealth PH;
+    public GameObject pH;
 
     // Use this for initialization
     void Start () {
         //touchDamage = Demon.demonDamage;
+        PH = pH.GetComponent<PlayerHealth>();
 	}
 	
 	// Update is called once per frame

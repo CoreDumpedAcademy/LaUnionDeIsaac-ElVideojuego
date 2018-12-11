@@ -9,6 +9,7 @@ TagManager:
   - Demon
   - Wall
   - Enemy
+  - Floor
   layers:
   - Default
   - TransparentFX

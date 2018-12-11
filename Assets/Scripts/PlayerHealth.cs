@@ -5,12 +5,10 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour {
 
     private float percentageOfHealth;
-    RectTransform rt;
+    private RectTransform rt;
     // Use this for initialization
     void Start () {
-        rt = GetComponent<RectTransform>();
-        
-		
+        rt = GetComponent<RectTransform>();      		
 	}
 	
 	// Update is called once per frame

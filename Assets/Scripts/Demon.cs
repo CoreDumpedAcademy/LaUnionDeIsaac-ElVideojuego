@@ -17,12 +17,16 @@ public class Demon : MonoBehaviour {
 
     private Rigidbody2D rb;
     private Animator anim;
+    public bool notInMap = true;
+    private float count = 0.2f;
 
     // Use this for initialization
     void Start () {
 
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        notInMap = true;
 
         //Movimiento
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -48,6 +52,13 @@ public class Demon : MonoBehaviour {
                 lastAttackTime = Time.time;
             }
             
+        }
+
+        count = count - Time.deltaTime;
+
+        if(count <= 0 && notInMap == true)
+        {
+            Destroy(gameObject);
         }
 
         //Fin del ataque
@@ -88,6 +99,18 @@ public class Demon : MonoBehaviour {
         if (collision.CompareTag("Arrow"))
         {
             TakeDamage();
+        }
+
+        
+        
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+
+            notInMap = false;
         }
     }
 
