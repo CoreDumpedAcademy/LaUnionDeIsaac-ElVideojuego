@@ -11,7 +11,7 @@ public class EnemyGenerator : MonoBehaviour {
     private float z;
 
     private bool isColliding;
-    GameObject[] gos;
+    public GameObject[] gos;
 
     private Vector3 pos;
     public GameObject[] obj;
@@ -52,9 +52,10 @@ public class EnemyGenerator : MonoBehaviour {
     //Función que elige la posición en la que aparecen los enemigos
     public void EnemySpawn()
     {
-        while (gos.Length < 20)
+        gos = GameObject.FindGameObjectsWithTag("Enemy");
+        if (gos.Length < 20)
         {
-            gos = GameObject.FindGameObjectsWithTag("Enemy");
+            
 
             x = Random.Range(-49f, 49f);
                 y = Random.Range(-49f, 49f);
