@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
     public static float playerHealth;
     public static int score;
 
+    public PlayerHealth PH;
+
     // Use this for initialization
     void Start () {
 
@@ -25,8 +27,10 @@ public class Player : MonoBehaviour {
         anim = GetComponent<Animator>();
 
         dashTime = startDashTime;
-        
 
+        //Le proporcionamos la vida inicial al personaje
+        playerHealth = 200f;
+        PH.SetHealth(playerHealth);
     }
 	
 	// Update is called once per frame
