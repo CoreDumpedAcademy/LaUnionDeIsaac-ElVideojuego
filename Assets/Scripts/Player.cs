@@ -17,7 +17,8 @@ public class Player : MonoBehaviour {
     public static float playerHealth;
     public static int score;
 
-    public PlayerHealth PH;
+    private PlayerHealth PH;
+    public GameObject pH;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +26,9 @@ public class Player : MonoBehaviour {
         //Traemos los componentes de player
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        //obtenemos el script del objeto PlayerHealth
+        PH = pH.GetComponent<PlayerHealth>();
 
         dashTime = startDashTime;
 

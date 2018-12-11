@@ -6,14 +6,14 @@ public class LevelGenerator : MonoBehaviour {
 	enum gridSpace {empty, floor, wall};
 	gridSpace[,] grid;
 	int roomHeight, roomWidth;
-	Vector2 roomSizeWorldUnits = new Vector2(60,60);
+	Vector2 roomSizeWorldUnits = new Vector2(100,100);
 	float worldUnitsInOneGridCell = 1.28f;
 	struct walker{
 		public Vector2 dir;
 		public Vector2 pos;
 	}
 	List<walker> walkers;
-	float chanceWalkerChangeDir = 0.5f, chanceWalkerSpawn = 0.05f;
+	float chanceWalkerChangeDir = 0.5f, chanceWalkerSpawn = 0.04f;
 	float chanceWalkerDestoy = 0.05f;
 	int maxWalkers = 10;
 	float percentToFill = 0.4f; 
