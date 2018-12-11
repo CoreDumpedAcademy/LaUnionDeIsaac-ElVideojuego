@@ -6,7 +6,7 @@ public class Demon : MonoBehaviour {
 
     public float speed;
     public float health;
-    public float damage;
+    public float demonDamage;
 
     private Transform target;
     public float chaseRange;
@@ -47,7 +47,7 @@ public class Demon : MonoBehaviour {
             //Comprobar si ha pasado tiempo suficiente desde el ultimo ataque
             if(Time.time > lastAttackTime + attackDelay)
             {
-                target.SendMessage("TakeDamage", damage);
+                target.SendMessage("TakeDamage", demonDamage);
                 //Guardar la ultima vez que ataco
                 lastAttackTime = Time.time;
             }
