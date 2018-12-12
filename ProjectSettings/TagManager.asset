@@ -10,6 +10,8 @@ TagManager:
   - Wall
   - Enemy
   - Floor
+  - Key
+  - Portal
   layers:
   - Default
   - TransparentFX
