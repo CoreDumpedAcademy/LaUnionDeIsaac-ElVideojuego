@@ -239,6 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f66eb08413cc4b44b94eac55a72991b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rt: {fileID: 0}
 --- !u!114 &194028101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1098,9 +1099,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberEnemies: 50
   enemiesSpawned: 0
+  gos: []
   obj:
   - {fileID: 1926412494145430, guid: ebc0fb19eca798a4ea87a8b29596ec37, type: 2}
+  maxEnemiesInstantiated: 0
   count: 0.2
+  count2: 1
 --- !u!4 &1723066282
 Transform:
   m_ObjectHideFlags: 0

@@ -110,10 +110,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   health: 30
-  damage: 0
-  chaseRange: 0
+  demonDamage: 0
+  chaseRange: 7
   attackRange: 0
   attackDelay: 0
+  notInMap: 1
 --- !u!212 &212461014994443090
 SpriteRenderer:
   m_ObjectHideFlags: 1

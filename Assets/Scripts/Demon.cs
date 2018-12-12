@@ -35,7 +35,14 @@ public class Demon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        float distance = Vector3.Distance(target.transform.position, transform.position);
+        Vector3 dir = (target.transform.position - transform.position).normalized;
+
+        if(distance < chaseRange)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
+        
          //Fin del movimiento
 
         //Ataque
@@ -64,30 +71,32 @@ public class Demon : MonoBehaviour {
         //Fin del ataque
 
         //Animaciones
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        
+        if(distance < chaseRange)
+        {
+            if(dir.x > 0 && dir.x > dir.y)
+            {
+                anim.SetFloat("XSpeed", 1);
+                anim.SetFloat("YSpeed", 0);
+            }
+            else if(dir.x > 0 && dir.x < dir.y)
+            {
+                anim.SetFloat("XSpeed", 0);
+                anim.SetFloat("YSpeed", 1);
+            }
+            else if (dir.x < 0 && dir.x > dir.y)
+            {
+                anim.SetFloat("XSpeed", 0);
+                anim.SetFloat("YSpeed", -1);
+            }
+            else if (dir.x < 0 && dir.x < dir.y)
+            {
+                anim.SetFloat("XSpeed", -1);
+                anim.SetFloat("YSpeed", 0);
+            }
 
-        if (speed * h > 0 && speed * h > speed * v)
-        {
-            anim.SetFloat("XSpeed", 1);
-            anim.SetFloat("YSpeed", 0);
         }
-        else if(speed * h > 0 && speed * h < speed * v)
-        {
-            anim.SetFloat("YSpeed", 1);
-            anim.SetFloat("XSpeed", 0);
-        }
-        else if(speed * h < 0 && speed * h < speed * v)
-        {
-            anim.SetFloat("XSpeed", -1);
-            anim.SetFloat("YSpeed", 0);
-        }
-        else if(speed * h < 0 && speed * h > speed * v)
-        {
-            anim.SetFloat("YSpeed", -1);
-            anim.SetFloat("XSpeed", 0);
-        }
-        else if(speed * h == 0 && speed * v == 0)
+        else
         {
             anim.SetFloat("XSpeed", 0);
             anim.SetFloat("YSpeed", 0);
@@ -128,5 +137,14 @@ public class Demon : MonoBehaviour {
     }
     //Fin de muerte del enemigo
 
-  
+    //Muestra el rango de vision del enemigo en el editor
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
+    }
+
+
+
+
 }
