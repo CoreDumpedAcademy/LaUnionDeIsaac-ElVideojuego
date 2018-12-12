@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
     public float startDashTime;
     public bool isDashing = false;
     public static float playerHealth;
+    public bool isPlayerDead;
     public static int score;
 
     private PlayerHealth PH;
@@ -100,10 +101,26 @@ public class Player : MonoBehaviour {
             anim.SetFloat("SpeedX", h);
             anim.SetFloat("SpeedY", v);
         }
-       
 
 
+        //Muerte del jugador
+        if(playerHealth <= 0)
+        {
+            isPlayerDead = true;
+        }
+        else
+        {
+            isPlayerDead = false;
+        }
 
+        if (isPlayerDead)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
 
         //manejamos el dash del personaje
         if (isDashing == false)
