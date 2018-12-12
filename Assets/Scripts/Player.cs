@@ -18,6 +18,8 @@ public class Player : MonoBehaviour {
     public bool isPlayerDead;
     public static int score;
 
+    public static bool hasKey;
+
     private PlayerHealth PH;
     public GameObject pH;
 

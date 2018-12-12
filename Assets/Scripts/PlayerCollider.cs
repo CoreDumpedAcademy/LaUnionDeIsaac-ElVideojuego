@@ -9,6 +9,7 @@ public class PlayerCollider : MonoBehaviour {
     private PlayerHealth PH;
     public GameObject pH;
 
+
     // Use this for initialization
     void Start () {
         //touchDamage = Demon.demonDamage;
@@ -32,6 +33,19 @@ public class PlayerCollider : MonoBehaviour {
         {
             Player.playerHealth = Player.playerHealth - fireballDamage;
             PH.SetHealth(Player.playerHealth);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Key")
+        {
+            Player.hasKey = true;
+        }
+
+        if (collision.gameObject.tag == "Portal")
+        {
+            Player.hasKey = false;
         }
     }
 }
