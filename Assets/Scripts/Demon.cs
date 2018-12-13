@@ -60,6 +60,7 @@ public class Demon : MonoBehaviour {
             }
             
         }
+        //Fin del ataque
 
         count = count - Time.deltaTime;
 
@@ -68,31 +69,31 @@ public class Demon : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        //Fin del ataque
+        
 
         //Animaciones
         
         if(distance < chaseRange)
         {
-            if(dir.x > 0 && dir.x > dir.y)
+            if(target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
             {
                 anim.SetFloat("XSpeed", 1);
-                anim.SetFloat("YSpeed", 0);
+                anim.SetBool("Vertical", false);
             }
-            else if(dir.x > 0 && dir.x < dir.y)
+            else if(target.position.y > transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
             {
-                anim.SetFloat("XSpeed", 0);
+                anim.SetBool("Vertical", true);
                 anim.SetFloat("YSpeed", 1);
             }
-            else if (dir.x < 0 && dir.x > dir.y)
+            else if (target.position.y < transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
             {
-                anim.SetFloat("XSpeed", 0);
+                anim.SetBool("Vertical", true);
                 anim.SetFloat("YSpeed", -1);
             }
-            else if (dir.x < 0 && dir.x < dir.y)
+            else if (target.position.x < transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
             {
                 anim.SetFloat("XSpeed", -1);
-                anim.SetFloat("YSpeed", 0);
+                anim.SetBool("Vertical", false);
             }
 
         }
@@ -102,7 +103,8 @@ public class Demon : MonoBehaviour {
             anim.SetFloat("YSpeed", 0);
         }
     }
-
+       
+    //Muerte del enemigo
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Arrow"))
@@ -142,6 +144,7 @@ public class Demon : MonoBehaviour {
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
 
