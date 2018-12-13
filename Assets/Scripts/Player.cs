@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
     public static float playerHealth;
     public bool isPlayerDead;
     public static int score;
+    public float cont = 0.1f;
+    private bool spawn = true;
 
     public static bool hasKey;
 
@@ -38,11 +40,24 @@ public class Player : MonoBehaviour {
         //Le proporcionamos la vida inicial al personaje
         playerHealth = 200f;
         PH.SetHealth(playerHealth);
+
+        cont = 0.1f;
+        spawn = true;
+
     }
 	
 	// Update is called once per frame
 	void Update () {
 
+        //spawnear jugador
+        cont = cont - Time.deltaTime;
+        if (cont<=0 && spawn)
+        {
+            Debug.Log(LevelGenerator.playerSpawn);
+            transform.position = LevelGenerator.playerSpawn;
+            spawn = false;
+        }
+            
 
         //obtenemos las direcciones que va a obtener el jugador
         float h = Input.GetAxisRaw("Horizontal");

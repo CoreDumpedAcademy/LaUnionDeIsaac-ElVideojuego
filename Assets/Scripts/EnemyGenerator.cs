@@ -24,8 +24,8 @@ public class EnemyGenerator : MonoBehaviour {
     void Start () {
         numberEnemies = 20;
         enemiesSpawned = 0;
-        count = 0.1f;
-        count2 = 1f;
+        count = 0;
+        count2 = 0f;
         maxEnemiesInstantiated = false;
 	}
 	

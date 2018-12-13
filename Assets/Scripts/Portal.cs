@@ -50,6 +50,11 @@ public class Portal : MonoBehaviour {
         {
             notInMap = false;
         }
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
     }
 
     //permite pasar al siguiente piso si el jugador tiene la llave

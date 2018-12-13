@@ -55,6 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4287666550697654}
   - component: {fileID: 70043409941175140}
+  - component: {fileID: 114797191643754020}
   m_Layer: 0
   m_Name: PlayerCol
   m_TagString: Untagged
@@ -172,6 +173,8 @@ MonoBehaviour:
   dashSpeed: 35
   startDashTime: 0.1
   isDashing: 0
+  isPlayerDead: 0
+  pH: {fileID: 0}
 --- !u!114 &114429614433012704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,6 +192,18 @@ MonoBehaviour:
   arrowDown: {fileID: 1445477346537320, guid: 7a1f3deb9bda1c64583b701f0b3ee858, type: 2}
   shotSpeed: 0.3
   player: {fileID: 1702036255633696}
+--- !u!114 &114797191643754020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1910147492213966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ac9fc78c9ff294d853874a2cef8d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pH: {fileID: 0}
 --- !u!212 &212798437543402318
 SpriteRenderer:
   m_ObjectHideFlags: 1
