@@ -5,7 +5,7 @@ using UnityEngine;
 public class WingedBossController : MonoBehaviour {
 
     public float speed; // la velocidad con la que perseguirá el miniboss al target
-    private float health; // la vida a tiempo real del miniboss
+    private float health=150; // la vida a tiempo real del miniboss
     public float healthMax; // vida total del miniboss
 
     private Transform target; //el objetivo al que el miniboss perseguirá 
@@ -31,6 +31,7 @@ public class WingedBossController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        //transform.LookAt(target);
         moveTwdPlayer(); // función que hace que persiga al jugador y huya de él 
         movement(); // función que controla las animaciones del boss (work in progress)
 
@@ -48,59 +49,29 @@ public class WingedBossController : MonoBehaviour {
 
     private void movement()
     {
-
-        if (target.position.y>transform.position.y) // si el enemigo se encuentra arriba
+        // si player a la derecha del boss y más importante eje x
+        if (target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
+        {
+            anim.SetBool("Vertical", false);
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }// si player encima del boss y más importante eje y
+        else if (target.position.y > transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
         {
             anim.SetBool("Vertical", true);
-            anim.SetFloat("moveV", -1);
-        }
-        else if (target.position.y<transform.position.y) // si el enemigo se encuentra abajo
+            anim.SetFloat("YSpeed", 1);
+        }// si plater más abajo del boss y mas importante eje y
+        else if (target.position.y < transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
         {
             anim.SetBool("Vertical", true);
-            anim.SetFloat("moveV", 1);
-        }
-        else if (target.position.x>transform.position.x) // si el enemigo se encuentra a la derecha
+            anim.SetFloat("YSpeed", -1);
+        }  // si player a la izquierda del boss y más importante eje x
+        else if (target.position.x < transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
         {
             anim.SetBool("Vertical", false);
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (target.position.x<transform.position.x) // si el enemigo se encuentra a la izquierda
-        {
-            anim.SetBool("Vertical", false);
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
-        }
 
-        /*float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-
-        if (h > 0 && h > v)
-        {
-            anim.SetFloat("XSpeed", 1);
-            anim.SetFloat("YSpeed", 0);
-        }
-        else if (h > 0 && h < v)
-        {
-            anim.SetFloat("YSpeed", 1);
-            anim.SetFloat("XSpeed", 0);
-        }
-        else if (h < 0 && h < v)
-        {
-            anim.SetFloat("XSpeed", -1);
-            anim.SetFloat("YSpeed", 0);
-        }
-        else if (h < 0 && h > v)
-        {
-            anim.SetFloat("YSpeed", -1);
-            anim.SetFloat("XSpeed", 0);
-        }
-        else if (h == 0 && v == 0)
-        {
-            anim.SetFloat("XSpeed", 0);
-            anim.SetFloat("YSpeed", 0);
-        }
-    }*/
-
-}
+    }
 
     private void moveTwdPlayer() //movement towards player
     {
@@ -128,7 +99,6 @@ public class WingedBossController : MonoBehaviour {
 
     void TakeDamage()
     {
-        Debug.Log("aaa");
         health-=10;
         if (health <= 0)
         {

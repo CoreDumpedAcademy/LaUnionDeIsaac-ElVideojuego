@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WBossProjectile : MonoBehaviour {
 
-    private float speed=5;
+    private float speed=10;
     public float damage;
     private Transform player;
     private Vector2 target;
