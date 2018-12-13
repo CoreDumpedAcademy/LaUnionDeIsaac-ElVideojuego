@@ -26,7 +26,7 @@ public class PortalGenerator : MonoBehaviour {
         numberPortals = 1;
         PortalsSpawned = 0;
         count = 0.1f;
-        count2 = 1f;
+        count2 = 0.2f;
         maxPortalsInstantiated = false;
     }
 
@@ -47,7 +47,7 @@ public class PortalGenerator : MonoBehaviour {
 
 
 
-        Debug.Log(gos.Length);
+
     }
     //Función que hace aparecer portales
     void Spawn()
@@ -83,7 +83,18 @@ public class PortalGenerator : MonoBehaviour {
         else
         {
             
-            maxPortalsInstantiated = true;
+            
+
+            if(gos.Length == 0)
+            {
+                maxPortalsInstantiated = false;
+            }
+            else
+            {
+                maxPortalsInstantiated = true;
+            }
+            
+            Debug.Log(gos.Length);
             
         }
     }

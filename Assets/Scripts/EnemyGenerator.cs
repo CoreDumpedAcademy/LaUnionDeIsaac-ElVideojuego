@@ -45,7 +45,7 @@ public class EnemyGenerator : MonoBehaviour {
 
         
 
-        Debug.Log(gos.Length);
+
     }
     //Función que hace aparecer enemigos
     void Spawn()

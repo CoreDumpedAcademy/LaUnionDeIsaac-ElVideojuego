@@ -26,11 +26,11 @@ public class Portal : MonoBehaviour {
         //detecta si el jugador tiene la llave para cambiar la animación de cerrado a abierto
         if (Player.hasKey)
         {
-            anim.SetBool("Unlocked", true);
+            anim.SetBool("Unlock", true);
         }
         else
         {
-            anim.SetBool("Unlocked", false);
+            anim.SetBool("Unlock", false);
         }
 
         //Si el portal al aparecer no aparece en el mapa, este se borra y se genera otro
