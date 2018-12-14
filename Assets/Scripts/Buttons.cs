@@ -3,45 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Buttons : MonoBehaviour {
+public class Buttons : MonoBehaviour
+{
 
     public GameObject resumeButton;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void ExitToMenu()
     {
-        SceneManager.LoadScene("Personal_1Start");
+        SceneManager.LoadScene("1Start");
+        Time.timeScale = 1f;
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Personal_2Login");
+        SceneManager.LoadScene("2Login");
+        Time.timeScale = 1f;
     }
 
     public void Selector()
     {
-        SceneManager.LoadScene("Personal_3Selector");
+        SceneManager.LoadScene("3Selector");
+        Time.timeScale = 1f;
     }
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("Personal_5Scene");
+        SceneManager.LoadScene("5Scene");
+        Time.timeScale = 1f;
     }
 
     public void Score()
     {
-        SceneManager.LoadScene("Personal_6Scoreboard");
+        SceneManager.LoadScene("6Scoreboard");
+        Time.timeScale = 1f;
     }
-    
+
     public void Quit()
     {
         Application.Quit();
@@ -49,6 +57,6 @@ public class Buttons : MonoBehaviour {
 
     public void Resume()
     {
-        resumeButton.GetComponent<PauseMenu>().Resume();
+        resumeButton.GetComponent<PauseMenu>().Score();
     }
 }

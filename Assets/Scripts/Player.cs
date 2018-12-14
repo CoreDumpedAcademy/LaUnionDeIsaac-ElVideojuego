@@ -15,18 +15,25 @@ public class Player : MonoBehaviour {
     public float startDashTime;
     public bool isDashing = false;
     public static float playerHealth;
-    public bool isPlayerDead;
     public static int score;
     public float cont = 0.1f;
     private bool spawn = true;
 
+    // Variables duplicadas para poder modificarlas en unity y a la vez poder acceder al valor sin un getComponent. by raular4322
+    public bool playerHasKey; //raular4322
+    public bool isPlayerDead;
     public static bool hasKey;
+    public static bool playerIsDead; // raular4322
 
     private PlayerHealth PH;
     public GameObject pH;
 
     // Use this for initialization
     void Start () {
+
+        //raular4322
+        playerHasKey = false;
+        isPlayerDead = false;
 
         //Traemos los componentes de player
         rb = GetComponent<Rigidbody2D>();
@@ -48,6 +55,10 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //by raular4322
+        hasKey = playerHasKey;
+        playerIsDead = isPlayerDead;
 
         //spawnear jugador
         cont = cont - Time.deltaTime;

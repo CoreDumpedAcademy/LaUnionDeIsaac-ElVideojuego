@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 4216563947249668}
   - component: {fileID: 114013858731488134}
   - component: {fileID: 114070526379469988}
+  - component: {fileID: 114077432545647804}
+  - component: {fileID: 114433400412004160}
+  - component: {fileID: 114349329390775276}
   m_Layer: 0
   m_Name: ScriptHubGameScene
   m_TagString: Untagged
@@ -65,4 +68,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameIsPaused: 0
+  scoreIsInDisplay: 0
   canvasPause: {fileID: 0}
+  canvasScoreGame: {fileID: 0}
+  rellenarStats: {fileID: 1802098178155622}
+  canvasDead: {fileID: 0}
+--- !u!114 &114077432545647804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802098178155622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2fa2b769ce8f8540878ba2140cf9a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickText: {fileID: 0}
+  stats: {fileID: 0}
+--- !u!114 &114349329390775276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802098178155622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60279e9faee9ecb4b82cff17bf5fa252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114433400412004160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802098178155622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e2ceeabc89fef4482ae6687c6ef85d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: {fileID: 0}

@@ -35,25 +35,19 @@ public class GetRequest : MonoBehaviour {
             {
                 string jsonString = ("{\"Items\":" + www.downloadHandler.text + "}");
                 Rank[] player = JsonHelper.FromJson<Rank>(jsonString);
-                
 
                 RellenarLista.RellenarUser(player[0].name + "\n" + player[1].name + "\n" +
-                                           player[2].name + "\n" );
-
-                /*+ player[3].nickname + "\n" +
-                                           player[4].nickname + "\n" + player[5].nickname + "\n" +
-                                           player[6].nickname + "\n" + player[7].nickname + "\n" +
-                                           player[8].nickname + "\n" + player[9].nickname + "\n"*/
+                                           player[2].name + "\n" + player[3].name + "\n" +
+                                           player[4].name + "\n" + player[5].name + "\n" +
+                                           player[6].name + "\n" + player[7].name + "\n" +
+                                           player[8].name + "\n" + player[9].name + "\n");
 
                 RellenarLista.RellenarScore(player[0].score + "\n" + player[1].score + "\n" +
-                                            player[2].score + "\n" );
-
-                /*+ player[3].maxScore + "\n" +
-                                            player[4].maxScore + "\n" + player[5].maxScore + "\n" +
-                                            player[6].maxScore + "\n" + player[7].maxScore + "\n" +
-                                            player[8].maxScore + "\n" + player[9].maxScore + "\n"*/
-
-
+                                            player[2].score + "\n" + player[3].score + "\n" +
+                                            player[4].score + "\n" + player[5].score + "\n" +
+                                            player[6].score + "\n" + player[7].score + "\n" +
+                                            player[8].score + "\n" + player[9].score + "\n");
+                
                 // Show results as text
                 Debug.Log(www.downloadHandler.text);
 
@@ -64,11 +58,9 @@ public class GetRequest : MonoBehaviour {
     }
 }
 
-
 [System.Serializable]
 public class Rank
 {
     public int score;
     public string name;
 }
-

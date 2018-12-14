@@ -6,21 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PersonalScene/Personal_1Start.unity
-    guid: afd1e80e571c1b64bac007c0a3966e38
+    path: Assets/Scenes/1Start.unity
+    guid: d8ad5413135c52241b7845f97f822298
   - enabled: 1
-    path: Assets/Scenes/PersonalScene/Personal_5Scene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/2Login.unity
+    guid: 749af28e03de99746989027887e5c83b
   - enabled: 1
-    path: Assets/Scenes/PersonalScene/Personal_2Login.unity
-    guid: 651615bdeccfe8b438dd0c86521e210b
+    path: Assets/Scenes/3Selector.unity
+    guid: 67e37fed9eab3104c8abf884d7908f89
   - enabled: 1
-    path: Assets/Scenes/PersonalScene/Personal_3Selector.unity
-    guid: 33aead62da9fc9340a03ed730af7595d
+    path: Assets/Scenes/4Cinematic.unity
+    guid: faced9fd70ba9f8468f17b9dda8b81be
   - enabled: 1
-    path: Assets/Scenes/PersonalScene/Personal_4Cinematic.unity
-    guid: 2910d98b509f5364387a47b498425583
+    path: Assets/Scenes/5Scene.unity
+    guid: 46a4ca57f09c9b34b877af2302adbeda
   - enabled: 1
-    path: Assets/Scenes/PersonalScene/Personal_6Scoreboard.unity
-    guid: 9c6957dc260a2ed46b0a70990cbe743a
+    path: Assets/Scenes/6Scoreboard.unity
+    guid: 7adf695230503564c898395e365cf1ec
   m_configObjects: {}

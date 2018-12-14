@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4333273571678150}
   - component: {fileID: 114603991338502422}
   - component: {fileID: 114988059663498796}
+  - component: {fileID: 114355576188100030}
   m_Layer: 0
   m_Name: ScriptHubScoreBoard
   m_TagString: Untagged
@@ -41,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114355576188100030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1689263321435878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ea798a84c4e8d43b4e50e54f162326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resumeButton: {fileID: 0}
 --- !u!114 &114603991338502422
 MonoBehaviour:
   m_ObjectHideFlags: 1
