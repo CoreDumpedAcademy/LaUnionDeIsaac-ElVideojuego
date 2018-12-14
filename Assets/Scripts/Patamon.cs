@@ -17,7 +17,8 @@ public class Patamon : MonoBehaviour {
     public GameObject projectile;
 
     private Animator anim;
-
+    public bool notInMap = true;
+    private float count = 0.2f;
 
     // Use this for initialization
     void Start()
@@ -44,6 +45,14 @@ public class Patamon : MonoBehaviour {
         else
         {
             timeLeftBtwShots -= Time.deltaTime;
+        }
+
+        //muerte si no se encuentra dentro del mapa
+        count = count - Time.deltaTime;
+
+        if (count <= 0 && notInMap == true)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -97,6 +106,15 @@ public class Patamon : MonoBehaviour {
         if (collision.CompareTag("Arrow"))
         {
             TakeDamage();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+
+            notInMap = false;
         }
     }
 
