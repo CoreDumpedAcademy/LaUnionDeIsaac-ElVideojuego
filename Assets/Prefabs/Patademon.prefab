@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 95321910245901020}
   m_Layer: 0
   m_Name: Patademon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &70530382318603176
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -114,6 +114,7 @@ MonoBehaviour:
   retreatDistance: 0
   timeBtwShots: 3
   projectile: {fileID: 1936905436276478, guid: b550871b58b6ea84daba54e692ea18ab, type: 2}
+  notInMap: 1
 --- !u!212 &212455274097614368
 SpriteRenderer:
   m_ObjectHideFlags: 1
