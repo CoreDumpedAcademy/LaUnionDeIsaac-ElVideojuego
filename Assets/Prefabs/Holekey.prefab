@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95874378448666012}
   - component: {fileID: 114476150191400492}
   - component: {fileID: 50304047176265772}
+  - component: {fileID: 114418502480512256}
   m_Layer: 0
   m_Name: Holekey
   m_TagString: Portal
@@ -107,6 +108,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114418502480512256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1737028010374344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e00c617bf458d6419790c3993cc75d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notInMap: 1
+  floorCounter: 1
+  actualFloor: 0
 --- !u!114 &114476150191400492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -119,6 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notInMap: 1
+  floorCounter: 1
+  actualFloor: 0
 --- !u!212 &212036721504613968
 SpriteRenderer:
   m_ObjectHideFlags: 1

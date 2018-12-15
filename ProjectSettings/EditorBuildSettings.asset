@@ -6,21 +6,45 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/1Start.unity
-    guid: d8ad5413135c52241b7845f97f822298
+    path: Assets/Scenes/TrueScenes/MainMenu.unity
+    guid: 6749634ebe81299439a7865d82358aa0
   - enabled: 1
-    path: Assets/Scenes/2Login.unity
-    guid: 749af28e03de99746989027887e5c83b
+    path: Assets/Scenes/TrueScenes/CharacterSelector.unity
+    guid: 9593148a009d0ec438cecda49298978c
   - enabled: 1
-    path: Assets/Scenes/3Selector.unity
-    guid: 67e37fed9eab3104c8abf884d7908f89
+    path: Assets/Scenes/TrueScenes/Cinematic.unity
+    guid: 9907ec3b034b4ff4faf19e2198d5cca2
   - enabled: 1
-    path: Assets/Scenes/4Cinematic.unity
-    guid: faced9fd70ba9f8468f17b9dda8b81be
+    path: Assets/Scenes/TrueScenes/Floor1.unity
+    guid: 6f2feb68c2277564ab78cbbcdd030841
   - enabled: 1
-    path: Assets/Scenes/5Scene.unity
-    guid: 46a4ca57f09c9b34b877af2302adbeda
+    path: Assets/Scenes/TrueScenes/Floor2.unity
+    guid: 2bc4d74859181e54cbb3641ae8e62015
   - enabled: 1
-    path: Assets/Scenes/6Scoreboard.unity
-    guid: 7adf695230503564c898395e365cf1ec
+    path: Assets/Scenes/TrueScenes/Floor3.unity
+    guid: f371e28470d799d489f74dab905a2c21
+  - enabled: 1
+    path: Assets/Scenes/TrueScenes/Floor4.unity
+    guid: a10193b5ba467a4448966a232729bedb
+  - enabled: 1
+    path: Assets/Scenes/TrueScenes/Floor5.unity
+    guid: baa18654a27e5a643bbb4f8f23e28998
+  - enabled: 1
+    path: Assets/Scenes/TrueScenes/Floor6.unity
+    guid: d6922c2c2341d7145a9c4d6aba247957
+  - enabled: 1
+    path: Assets/Scenes/TrueScenes/Floor7.unity
+    guid: 6611781e08691774fa3262af9be012c9
+  - enabled: 1
+    path: Assets/Scenes/TrueScenes/Floor8.unity
+    guid: f065e68c5c360824eb3273fd81854b94
+  - enabled: 1
+    path: Assets/Scenes/TrueScenes/God'sRoom.unity
+    guid: 414e80440f7c25e44999472090f2ac99
+  - enabled: 1
+    path: Assets/Scenes/TrueScenes/Login.unity
+    guid: 60b83a4dd584ebd4cbb7b0ab8a4efe0c
+  - enabled: 1
+    path: Assets/Scenes/TrueScenes/Scoreboard.unity
+    guid: 3303a57d2b0f93140ae051fc543f4ae7
   m_configObjects: {}

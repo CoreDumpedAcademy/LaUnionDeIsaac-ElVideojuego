@@ -30,7 +30,6 @@ public class WBossProjectile : MonoBehaviour {
     {
         if (collision.CompareTag("Player"))
         {
-            player.SendMessage("TakeDamage", damage);
             DestroyProjectile();
         }
     }

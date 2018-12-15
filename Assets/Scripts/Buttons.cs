@@ -22,31 +22,31 @@ public class Buttons : MonoBehaviour
 
     public void ExitToMenu()
     {
-        SceneManager.LoadScene("1Start");
+        SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("2Login");
+        SceneManager.LoadScene("Login");
         Time.timeScale = 1f;
     }
 
     public void Selector()
     {
-        SceneManager.LoadScene("3Selector");
+        SceneManager.LoadScene("CharacterSelector");
         Time.timeScale = 1f;
     }
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("5Scene");
+        SceneManager.LoadScene("Floor1");
         Time.timeScale = 1f;
     }
 
     public void Score()
     {
-        SceneManager.LoadScene("6Scoreboard");
+        SceneManager.LoadScene("Scoreboard");
         Time.timeScale = 1f;
     }
 
