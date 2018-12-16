@@ -133,6 +133,7 @@ public class Patamon : MonoBehaviour {
         health -= 10;
         if (health <= 0)
         {
+            ObjetsDrop.position = transform.position;
             objetos.GetComponent<ObjetsDrop>().Drop();
             Destroy(gameObject);
         }
