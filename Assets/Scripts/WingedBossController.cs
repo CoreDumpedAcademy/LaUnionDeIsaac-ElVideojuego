@@ -17,13 +17,14 @@ public class WingedBossController : MonoBehaviour {
     public GameObject projectile;
 
     private Animator anim;
-
+    private KeyDrop keyDrop;
 
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
         // hacemos que el target sea el lugar donde se encuentra el jugador (GameObject con tag "Player")
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        keyDrop = GetComponent<KeyDrop>();
         timeLeftBtwShots = timeBtwShots;
         health = healthMax;
 	}
@@ -102,6 +103,8 @@ public class WingedBossController : MonoBehaviour {
         health-=10;
         if (health <= 0)
         {
+            keyDrop.SpawnKey();
+
             Destroy(gameObject);
         }
 

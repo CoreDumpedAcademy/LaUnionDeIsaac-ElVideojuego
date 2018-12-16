@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114090537178897874}
   - component: {fileID: 61706616830152924}
   - component: {fileID: 95337572374318124}
+  - component: {fileID: 114322720523962338}
   m_Layer: 0
   m_Name: MiniBoss
   m_TagString: Enemy
@@ -111,6 +112,18 @@ MonoBehaviour:
   retreatDistance: 5
   timeBtwShots: 1
   projectile: {fileID: 1936905436276478, guid: b550871b58b6ea84daba54e692ea18ab, type: 2}
+--- !u!114 &114322720523962338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1814598237955006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cae9145254bf94ca9c054471ab5727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: {fileID: 1795927034234804, guid: b5f0e73a147a1224199ba87d10de024d, type: 2}
 --- !u!212 &212449068113793946
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -146,7 +159,7 @@ SpriteRenderer:
   m_SortingLayerID: -404216075
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a5f122fbc6e9e7449b4bb64914fff23a, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 336dd8ceee58e1946b1f22148bfed07c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
