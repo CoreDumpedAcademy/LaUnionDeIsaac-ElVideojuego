@@ -64,11 +64,22 @@ public class Portal : MonoBehaviour {
         Debug.Log(collision.gameObject.tag == "Player" && Player.hasKey);
         Debug.Log(collision.gameObject.tag == "Player");
         Debug.Log(Player.hasKey);
+
+
         if (collision.gameObject.tag == "Player" && Player.hasKey)
         {
-            SceneManager.LoadSceneAsync("Floor"+actualFloor);
-            floorCounter++;
-            PlayerPrefs.SetInt("actualFloor",floorCounter);
+            if(actualFloor < 8)
+            {
+                SceneManager.LoadSceneAsync("Floor" + actualFloor);
+                floorCounter++;
+                PlayerPrefs.SetInt("actualFloor", floorCounter);
+            }
+            else
+            {
+                SceneManager.LoadSceneAsync("God'sRoom");
+                floorCounter = 0;
+            }
+            
         }
     }
 }
