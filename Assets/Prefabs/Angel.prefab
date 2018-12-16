@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 70126277448944742}
   - component: {fileID: 50955582931009674}
   - component: {fileID: 114090530845003352}
+  - component: {fileID: 95443896489390402}
   m_Layer: 0
   m_Name: Angel
   m_TagString: Enemy
@@ -78,6 +79,24 @@ CapsuleCollider2D:
   m_Offset: {x: -0.008302093, y: -0.013836741}
   m_Size: {x: 0.8407347, y: 1.7152164}
   m_Direction: 0
+--- !u!95 &95443896489390402
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490159129622278}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c576579043f5a09458978a0de9226778, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114090530845003352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,6 +112,7 @@ MonoBehaviour:
   health: 30
   stopDistance: 5
   retreatDistance: 0
+  isAttacking: 0
   timeBtwShots: 3
   projectile: {fileID: 1936905436276478, guid: b550871b58b6ea84daba54e692ea18ab, type: 2}
   notInMap: 1
