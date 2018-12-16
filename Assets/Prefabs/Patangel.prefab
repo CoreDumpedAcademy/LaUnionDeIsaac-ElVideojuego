@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1110155529501176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.96, y: 2.2, z: 0}
+  m_LocalPosition: {x: -26.461548, y: -31.42636, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,8 +77,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.47999996, y: 0.48}
+  m_Offset: {x: -0.0014925003, y: 0.039068222}
+  m_Size: {x: 1.6391048, y: 1.7692413}
   m_Direction: 0
 --- !u!95 &95477473845146084
 Animator:
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   healthMax: 30
-  chaseRange: 0
+  chaseRange: 7
   stopDistance: 5
   retreatDistance: 0
   timeBtwShots: 3
