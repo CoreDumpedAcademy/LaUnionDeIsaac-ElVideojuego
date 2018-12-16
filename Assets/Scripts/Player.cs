@@ -41,7 +41,7 @@ public class Player : MonoBehaviour {
         anim = GetComponent<Animator>();
 
         dashTime = startDashTime;
-
+        Time.timeScale = 1f;
 
         //Le proporcionamos la vida inicial al personaje
         PlayerPrefs.SetFloat("maxHealth", Stats.health);
