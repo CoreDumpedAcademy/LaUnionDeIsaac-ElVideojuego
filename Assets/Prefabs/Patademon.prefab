@@ -110,7 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   healthMax: 30
-  stopDistance: 5
+  chaseRange: 7
+  stopDistance: 3
   retreatDistance: 0
   timeBtwShots: 3
   projectile: {fileID: 1936905436276478, guid: b550871b58b6ea84daba54e692ea18ab, type: 2}

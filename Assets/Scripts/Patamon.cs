@@ -8,6 +8,7 @@ public class Patamon : MonoBehaviour {
     private float health=30; // la vida a tiempo real del miniboss
     public float healthMax; // vida total del miniboss
 
+    public float chaseRange;
     private Transform target; //el objetivo al que el miniboss perseguirá 
     public float stopDistance; //distancia mínima de separación entre miniboss y player
     public float retreatDistance; //distancia a partir de la cual el miniboss debe huir del jugador
@@ -33,18 +34,26 @@ public class Patamon : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        float distance = Vector3.Distance(target.transform.position, transform.position);
+        Vector3 dir = (target.transform.position - transform.position).normalized;
 
-        moveTwdPlayer(); // función que hace que persiga al jugador y huya de él 
-        movement(); // función que controla las animaciones del boss (work in progress)
+        if (distance < chaseRange)
+        {
 
-        if (timeLeftBtwShots <= 0) //nos aseguramos de que el enemigo lance bolas cada timeBtwShots segundos
-        {
-            Instantiate(projectile, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
-            timeLeftBtwShots = timeBtwShots;
-        }
-        else
-        {
-            timeLeftBtwShots -= Time.deltaTime;
+            moveTwdPlayer(); // función que hace que persiga al jugador y huya de él 
+            movement(); // función que controla las animaciones del boss (work in progress)
+
+
+
+            if (timeLeftBtwShots <= 0) //nos aseguramos de que el enemigo lance bolas cada timeBtwShots segundos
+            {
+                Instantiate(projectile, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
+                timeLeftBtwShots = timeBtwShots;
+            }
+            else
+            {
+                timeLeftBtwShots -= Time.deltaTime;
+            }
         }
 
         //muerte si no se encuentra dentro del mapa
