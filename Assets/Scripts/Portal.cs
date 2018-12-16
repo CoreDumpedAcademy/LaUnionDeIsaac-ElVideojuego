@@ -7,7 +7,6 @@ public class Portal : MonoBehaviour {
 
     public bool notInMap = true;
     private float count = 0.2f;
-    public int floorCounter = 1;
     public int actualFloor;
     Animator anim;
 
@@ -65,13 +64,14 @@ public class Portal : MonoBehaviour {
             if(actualFloor < 8)
             {
                 SceneManager.LoadSceneAsync("Floor" + actualFloor);
-                floorCounter++;
-                PlayerPrefs.SetInt("actualFloor", floorCounter);
+                actualFloor++;
+                PlayerPrefs.SetInt("actualFloor", actualFloor);
             }
             else
             {
                 SceneManager.LoadSceneAsync("God'sRoom");
-                floorCounter = 0;
+                actualFloor = 0;
+                PlayerPrefs.SetInt("actualFloor", actualFloor);
             }
             
         }

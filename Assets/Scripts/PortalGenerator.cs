@@ -63,8 +63,8 @@ public class PortalGenerator : MonoBehaviour {
         {
 
 
-            x = Random.Range(-49f, 49f);
-            y = Random.Range(-49f, 49f);
+            x = Random.Range(-74f, 74f);
+            y = Random.Range(-74f, 74f);
             z = 0;
             pos = new Vector3(x, y, z);
             transform.position = pos;
