@@ -135,7 +135,7 @@ public class Demon : MonoBehaviour {
         health -= 10;
         if(health <= 0)
         {
-            ObjetsDrop.position = transform.position;
+            ObjetsDrop.pos = transform.position;
             objetos.GetComponent<ObjetsDrop>().Drop();
             //Matar al enemigo
             Destroy(gameObject);

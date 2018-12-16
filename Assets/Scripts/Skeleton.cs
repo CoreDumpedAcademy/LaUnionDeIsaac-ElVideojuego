@@ -163,6 +163,7 @@ public class Skeleton : MonoBehaviour {
         health -= 10;
         if (health <= 0)
         {
+            ObjetsDrop.pos = transform.position;
             objetos.GetComponent<ObjetsDrop>().Drop();
             //Matar al enemigo
             Destroy(gameObject);

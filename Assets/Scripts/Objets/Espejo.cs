@@ -19,5 +19,6 @@ public class Espejo : MonoBehaviour {
     {
         Stats.cadencia = Stats.cadencia + value;
         Debug.Log("cadencia aumentado");
+        Destroy(gameObject);
     }
 }
