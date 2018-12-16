@@ -20,6 +20,7 @@ public class Demon : MonoBehaviour {
     public bool notInMap = true;
     private float count = 0.2f;
 
+    public GameObject objetos;
     // Use this for initialization
     void Start () {
 
@@ -134,8 +135,9 @@ public class Demon : MonoBehaviour {
         health -= 10;
         if(health <= 0)
         {
+            objetos.GetComponent<ObjetsDrop>().Drop();
             //Matar al enemigo
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
     }

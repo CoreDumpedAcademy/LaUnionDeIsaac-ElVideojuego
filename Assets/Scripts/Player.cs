@@ -44,7 +44,9 @@ public class Player : MonoBehaviour {
 
 
         //Le proporcionamos la vida inicial al personaje
-        PlayerPrefs.SetFloat("maxHealth", Stats.health);
+        //PlayerPrefs.SetFloat("maxHealth", Stats.health);
+        PlayerPrefs.SetFloat("maxHealth", 1000f);
+
         maxHealth = PlayerPrefs.GetFloat("maxHealth");
         playerHealth = PlayerPrefs.GetFloat("firstHealth"); 
 
@@ -146,14 +148,14 @@ public class Player : MonoBehaviour {
             isPlayerDead = false;
         }
 
-        if (isPlayerDead)
+        /*if (isPlayerDead)
         {
             gameObject.SetActive(false);
         }
         else
         {
             gameObject.SetActive(true);
-        }
+        }*/
 
         //manejamos el dash del personaje
         if (isDashing == false)
