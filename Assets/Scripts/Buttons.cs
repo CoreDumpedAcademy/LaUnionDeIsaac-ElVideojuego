@@ -28,6 +28,16 @@ public class Buttons : MonoBehaviour
 
     public void StartGame()
     {
+        Stats.score = Stats.scoreD;
+        Stats.cadencia = Stats.cadenciaD;
+        Stats.robovida = Stats.robovidaD;
+        Stats.slowdown = Stats.slowdownD;
+        Stats.cooldown = Stats.cooldownD;
+        Stats.health = Stats.healthD;
+        Stats.speed = Stats.speedD;
+        Stats.damage = Stats.damageD;
+        Player.playerIsDead = false;
+
         SceneManager.LoadScene("Login");
         Time.timeScale = 1f;
     }

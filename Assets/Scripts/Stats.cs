@@ -6,11 +6,21 @@ public class Stats
     public static int avatar;
 
     public static int score;
-    public static float cadencia = 0;
-    public static float robovida = 0;
-    public static float slowdown = 0;
-    public static float cooldown = 0;
-    public static float health = 200;
-    public static float speed = 0;
+    public static float cadencia;
+    public static float robovida;
+    public static float slowdown;
+    public static float cooldown;
+    public static float health;
+    public static float speed;
     public static float damage;
+
+
+    public static int scoreD = 0;
+    public static float cadenciaD = 0;
+    public static float robovidaD = 0;
+    public static float slowdownD = 0;
+    public static float cooldownD = 0;
+    public static float healthD = 200;
+    public static float speedD = 10;
+    public static float damageD = 10;
 }
