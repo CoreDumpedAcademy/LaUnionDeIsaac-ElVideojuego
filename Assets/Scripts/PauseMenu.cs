@@ -30,6 +30,7 @@ public class PauseMenu : MonoBehaviour {
             {
                 Pause();
             }
+            rellenarStats.GetComponent<UserValues>().RellenarScore();
         }
 
         if (Player.playerIsDead)

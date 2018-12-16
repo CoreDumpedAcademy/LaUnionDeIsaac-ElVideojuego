@@ -8,7 +8,7 @@ public class UserValues : MonoBehaviour {
 
     public Text nickText;
     public Text stats;
-
+    public Text score;
 	// Use this for initialization
 	void Start () {
 	}
@@ -62,5 +62,11 @@ public class UserValues : MonoBehaviour {
     public static int GetScore()
     {
         return Stats.score;
+    }
+
+    public void RellenarScore()
+    {
+        Debug.Log(GetScore().ToString());
+        score.text = "SCORE: " + GetScore().ToString();
     }
 }
