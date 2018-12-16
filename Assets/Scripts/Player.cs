@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -18,15 +19,15 @@ public class Player : MonoBehaviour {
     public static int score;
     public float cont = 0.1f;
     private bool spawn = true;
+    private float percentageOfHealth;
 
     // Variables duplicadas para poder modificarlas en unity y a la vez poder acceder al valor sin un getComponent. by raular4322
     public bool playerHasKey; //raular4322
     public bool isPlayerDead;
     public static bool hasKey;
+    public Slider healthBar;
+    public float maxHealth;
     public static bool playerIsDead; // raular4322
-
-    private PlayerHealth PH;
-    public GameObject pH;
 
     // Use this for initialization
     void Start () {
@@ -39,14 +40,14 @@ public class Player : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        //obtenemos el script del objeto PlayerHealth
-        PH = pH.GetComponent<PlayerHealth>();
-
         dashTime = startDashTime;
 
+
         //Le proporcionamos la vida inicial al personaje
-        playerHealth = 200f;
-        PH.SetHealth(playerHealth);
+        PlayerPrefs.SetFloat("maxHealth", Stats.health);
+        maxHealth = PlayerPrefs.GetFloat("maxHealth");
+        playerHealth = PlayerPrefs.GetFloat("firstHealth"); 
+
 
         cont = 0.1f;
         spawn = true;
@@ -64,11 +65,15 @@ public class Player : MonoBehaviour {
         cont = cont - Time.deltaTime;
         if (cont<=0 && spawn)
         {
-            Debug.Log(LevelGenerator.playerSpawn);
+
             transform.position = LevelGenerator.playerSpawn;
             spawn = false;
         }
-            
+
+
+        //display de la vida del personaje
+        percentageOfHealth = playerHealth / maxHealth;
+        healthBar.value = percentageOfHealth;
 
         //obtenemos las direcciones que va a obtener el jugador
         float h = Input.GetAxisRaw("Horizontal");

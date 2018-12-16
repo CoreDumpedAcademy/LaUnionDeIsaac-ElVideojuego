@@ -12,6 +12,7 @@ TagManager:
   - Floor
   - Key
   - Portal
+  - Fireball
   layers:
   - Default
   - TransparentFX

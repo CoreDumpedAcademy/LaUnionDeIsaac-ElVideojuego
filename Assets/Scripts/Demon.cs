@@ -6,7 +6,7 @@ public class Demon : MonoBehaviour {
 
     public float speed;
     public float health;
-    public float demonDamage;
+    public static float demonDamage;
 
     private Transform target;
     public float chaseRange;
@@ -23,6 +23,7 @@ public class Demon : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+        
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -34,6 +35,7 @@ public class Demon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        demonDamage = 37f;
 
         float distance = Vector3.Distance(target.transform.position, transform.position);
         Vector3 dir = (target.transform.position - transform.position).normalized;

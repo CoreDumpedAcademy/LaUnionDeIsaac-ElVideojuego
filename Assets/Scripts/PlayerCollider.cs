@@ -6,39 +6,75 @@ public class PlayerCollider : MonoBehaviour {
 
     private float touchDamage;
     private float fireballDamage;
-    private PlayerHealth PH;
-    public GameObject pH;
+    private float hitCooldown=1f;
 
 
     // Use this for initialization
     void Start () {
-        //touchDamage = Demon.demonDamage;
-        PH = pH.GetComponent<PlayerHealth>();
+        
+        hitCooldown = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(Player.hasKey + "Epicidad");
-	}
+
+        touchDamage = Demon.demonDamage;
+        fireballDamage = WBossProjectile.fireballDamage;
+
+        hitCooldown = hitCooldown - Time.deltaTime;
+        Debug.Log(Demon.demonDamage);
+        Debug.Log(WBossProjectile.fireballDamage);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            Player.playerHealth = Player.playerHealth - touchDamage;
-            PH.SetHealth(Player.playerHealth);
+            
+            if (hitCooldown <= 0)
+            {
+                Player.playerHealth = Player.playerHealth - touchDamage;
+                PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
+                Debug.Log(Player.playerHealth);
+                hitCooldown = 1f;
+            }          
         }
 
-        if (collision.gameObject.tag == "Fireball")
+        
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
         {
-            Player.playerHealth = Player.playerHealth - fireballDamage;
-            PH.SetHealth(Player.playerHealth);
+
+            if (hitCooldown <= 0)
+            {
+                Player.playerHealth = Player.playerHealth - touchDamage;
+                PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
+                Debug.Log(Player.playerHealth);
+                hitCooldown = 1f;
+            }
         }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Key")
+        
+        if (collision.gameObject.tag == "Fireball")
+        {
+            if (hitCooldown <= 0)
+            {
+                Player.playerHealth = Player.playerHealth - fireballDamage;
+                PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
+                Debug.Log(Player.playerHealth);
+                hitCooldown = 1f;
+            }
+        }
+
+        if (collision.gameObject.tag == "Key")
         {
             Player.hasKey = true;
             

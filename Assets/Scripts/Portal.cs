@@ -17,7 +17,6 @@ public class Portal : MonoBehaviour {
         //inicializamos variables y pillamos componentes
         notInMap = true;
         anim = GetComponent<Animator>();
-        PlayerPrefs.SetInt("actualFloor", 2);
         actualFloor = PlayerPrefs.GetInt("actualFloor");
     }
 	
@@ -61,12 +60,6 @@ public class Portal : MonoBehaviour {
     //permite pasar al siguiente piso si el jugador tiene la llave
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("estoy entrando al trigger");
-        Debug.Log(collision.gameObject.tag == "Player" && Player.hasKey);
-        Debug.Log(collision.gameObject.tag == "Player");
-        Debug.Log(Player.hasKey);
-
-
         if (collision.gameObject.tag == "Player" && Player.hasKey)
         {
             if(actualFloor < 8)

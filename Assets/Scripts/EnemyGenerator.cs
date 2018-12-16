@@ -22,9 +22,9 @@ public class EnemyGenerator : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        numberEnemies = 20;
+        numberEnemies = 30;
         enemiesSpawned = 0;
-        count = 0;
+        count = 0.2f;
         count2 = 0f;
         maxEnemiesInstantiated = false;
 	}
@@ -32,24 +32,20 @@ public class EnemyGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        
-    }
 
-    private void FixedUpdate()
-    {
+
+
         count = count - Time.deltaTime;
         if (count <= 0)
         {
             EnemySpawn();
         }
-
-        
-
-
     }
+
     //Función que hace aparecer enemigos
     void Spawn()
     {
+        Debug.Log("Aparecí");
         Instantiate(obj[Random.Range(0, obj.Length)], transform.position, Quaternion.identity);     
     }
 

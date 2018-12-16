@@ -18,7 +18,7 @@ public class EpicGenerator : MonoBehaviour {
     // Use this for initialization
     void Start () {
         maxEnemies = false;
-        count = 2f;
+        count = 20f;
     }
 	
 	// Update is called once per frame

@@ -49,7 +49,7 @@ public class GetRequest : MonoBehaviour {
                                             player[8].score + "\n" + player[9].score + "\n");
                 
                 // Show results as text
-                Debug.Log(www.downloadHandler.text);
+
 
                 // Or retrieve results as binary data
                 byte[] results = www.downloadHandler.data;
