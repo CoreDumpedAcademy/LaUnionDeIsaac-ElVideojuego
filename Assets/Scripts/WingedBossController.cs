@@ -18,6 +18,8 @@ public class WingedBossController : MonoBehaviour {
 
     private Animator anim;
     private KeyDrop keyDrop;
+    public bool notInMap = true;
+    private float count = 0.2f;
 
     // Use this for initialization
     void Start () {
@@ -27,7 +29,8 @@ public class WingedBossController : MonoBehaviour {
         keyDrop = GetComponent<KeyDrop>();
         timeLeftBtwShots = timeBtwShots;
         health = healthMax;
-	}
+        notInMap = true;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -45,7 +48,15 @@ public class WingedBossController : MonoBehaviour {
         {
             timeLeftBtwShots -= Time.deltaTime; 
         }
-	}
+
+        count = count - Time.deltaTime;
+
+        if (count <= 0 && notInMap == true)
+        {
+            EpicGenerator.maxEnemies = false;
+            Destroy(gameObject);
+        }
+    }
 
 
     private void movement()
@@ -95,6 +106,15 @@ public class WingedBossController : MonoBehaviour {
         if (collision.CompareTag("Arrow"))
         {
             TakeDamage();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+
+            notInMap = false;
         }
     }
 

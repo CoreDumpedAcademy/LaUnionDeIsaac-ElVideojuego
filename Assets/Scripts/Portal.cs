@@ -17,6 +17,7 @@ public class Portal : MonoBehaviour {
         //inicializamos variables y pillamos componentes
         notInMap = true;
         anim = GetComponent<Animator>();
+        PlayerPrefs.SetInt("actualFloor", 2);
         actualFloor = PlayerPrefs.GetInt("actualFloor");
     }
 	

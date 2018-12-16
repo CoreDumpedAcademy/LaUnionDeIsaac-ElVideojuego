@@ -18,7 +18,7 @@ public class PlayerCollider : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        Debug.Log(Player.hasKey + "Epicidad");
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,10 +41,12 @@ public class PlayerCollider : MonoBehaviour {
         if(collision.gameObject.tag == "Key")
         {
             Player.hasKey = true;
+            
         }
 
         if (collision.gameObject.tag == "Portal")
         {
+            Debug.Log("Perder llave");
             Player.hasKey = false;
         }
     }
