@@ -45,6 +45,7 @@ public class Player : MonoBehaviour {
 
         //Le proporcionamos la vida inicial al personaje
         PlayerPrefs.SetFloat("maxHealth", Stats.health);
+
         maxHealth = Stats.health;
         playerHealth = PlayerPrefs.GetFloat("firstHealth"); 
 
