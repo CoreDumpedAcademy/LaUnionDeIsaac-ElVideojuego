@@ -50,7 +50,7 @@ public class UserValues : MonoBehaviour {
 
     public void Rellenar()
     {
-        stats.text = "\n" + Stats.cadencia + "\n" + Stats.robovida + "\n" + Stats.slowdown + "\n" + Stats.cooldown + "\n" + Stats.health + "\n" + Stats.speed;
+        stats.text = "\n" + Stats.cadencia + "\n" + Stats.robovida + "\n" + Stats.slowdown + "\n" + Stats.cooldown + "\n" + Stats.health + "\n" + Stats.speed + "\n" + Stats.damage;
         Debug.Log("\n" + Stats.cadencia + "\n" + Stats.robovida + "\n" + Stats.slowdown + "\n" + Stats.cooldown + "\n" + Stats.health + "\n" + Stats.speed);
     }
 

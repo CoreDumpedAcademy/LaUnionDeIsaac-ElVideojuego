@@ -305,16 +305,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114445859699289514, guid: 51a38fc796307524eb00164cc226ef57,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 448752511}
-    - target: {fileID: 114383286358951136, guid: 51a38fc796307524eb00164cc226ef57,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 448752511}
     - target: {fileID: 114698335426327566, guid: 51a38fc796307524eb00164cc226ef57,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -325,6 +315,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 448752510}
+    - target: {fileID: 114383286358951136, guid: 51a38fc796307524eb00164cc226ef57,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 448752511}
+    - target: {fileID: 114445859699289514, guid: 51a38fc796307524eb00164cc226ef57,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 448752511}
     - target: {fileID: 1420268510246798, guid: 51a38fc796307524eb00164cc226ef57, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -518,7 +518,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1413605020}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &788842609
 MonoBehaviour:
@@ -686,7 +686,7 @@ Transform:
   - {fileID: 1349848333}
   - {fileID: 2099382670}
   m_Father: {fileID: 1413605020}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1045849932
 Prefab:
@@ -948,13 +948,13 @@ Transform:
   - {fileID: 1837188731}
   - {fileID: 448752508}
   - {fileID: 1913127834}
+  - {fileID: 788842608}
   - {fileID: 1862872280}
   - {fileID: 385644527}
   - {fileID: 1045849934}
   - {fileID: 856179597}
-  - {fileID: 788842608}
-  - {fileID: 1622711997}
   - {fileID: 996840971}
+  - {fileID: 1622711997}
   - {fileID: 1623507384}
   - {fileID: 1382159530}
   - {fileID: 724040620}
