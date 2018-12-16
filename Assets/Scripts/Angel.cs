@@ -8,6 +8,7 @@ public class Angel : MonoBehaviour
     public float speed;
     public float health;
 
+    public float chaseRange;
     private Transform target;
     public float stopDistance;
     public float retreatDistance;
@@ -43,104 +44,113 @@ public class Angel : MonoBehaviour
     void Update()
     {
 
-        //Movimiento
+        float distance = Vector3.Distance(target.transform.position, transform.position);
+        Vector3 dir = (target.transform.position - transform.position).normalized;
 
-        if (Vector2.Distance(transform.position, target.position) > stopDistance)
+        if (distance < chaseRange)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        }
-        else if (Vector2.Distance(transform.position, target.position) < stopDistance && (Vector2.Distance(transform.position, target.position) > retreatDistance))
-        {
-            transform.position = this.transform.position;
-        }
-        else if (Vector2.Distance(transform.position, target.position) < retreatDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);
-        }
 
-        //Fin del movimiento
+            //Movimiento
 
-        //Animaciones
-
-        if(isAttacking == false)
-        {
-            if (target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
+            if (Vector2.Distance(transform.position, target.position) > stopDistance)
             {
-                anim.SetBool("Vertical", false);
-                anim.SetBool("isAttacking", false);
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             }
-            else if (target.position.y > transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
+            else if (Vector2.Distance(transform.position, target.position) < stopDistance && (Vector2.Distance(transform.position, target.position) > retreatDistance))
             {
-                anim.SetBool("Vertical", true);
-                anim.SetBool("isAttacking", false);
-                anim.SetFloat("YSpeed", 1);
+                transform.position = this.transform.position;
             }
-            else if (target.position.y < transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
+            else if (Vector2.Distance(transform.position, target.position) < retreatDistance)
             {
-                anim.SetBool("Vertical", true);
-                anim.SetBool("isAttacking", false);
-                anim.SetFloat("YSpeed", -1);
+                transform.position = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);
             }
-            else if (target.position.x < transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
+
+            //Fin del movimiento
+
+            //Animaciones
+
+            if (isAttacking == false)
             {
-                anim.SetBool("Vertical", false);
-                anim.SetBool("isAttacking", false);
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                if (target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
+                {
+                    anim.SetBool("Vertical", false);
+                    anim.SetBool("isAttacking", false);
+                    transform.localRotation = Quaternion.Euler(0, 180, 0);
+                }
+                else if (target.position.y > transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
+                {
+                    anim.SetBool("Vertical", true);
+                    anim.SetBool("isAttacking", false);
+                    anim.SetFloat("YSpeed", 1);
+                }
+                else if (target.position.y < transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
+                {
+                    anim.SetBool("Vertical", true);
+                    anim.SetBool("isAttacking", false);
+                    anim.SetFloat("YSpeed", -1);
+                }
+                else if (target.position.x < transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
+                {
+                    anim.SetBool("Vertical", false);
+                    anim.SetBool("isAttacking", false);
+                    transform.localRotation = Quaternion.Euler(0, 0, 0);
+                }
             }
-        } else if (isAttacking == true)
-        {
-            if (target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
+            else if (isAttacking == true)
             {
-                anim.SetBool("Vertical", false);
-                anim.SetBool("isAttacking", true);
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                if (target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
+                {
+                    anim.SetBool("Vertical", false);
+                    anim.SetBool("isAttacking", true);
+                    transform.localRotation = Quaternion.Euler(0, 180, 0);
+                }
+                else if (target.position.y > transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
+                {
+                    anim.SetBool("Vertical", true);
+                    anim.SetBool("isAttacking", true);
+                    anim.SetFloat("YSpeed", 1);
+                }
+                else if (target.position.y < transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
+                {
+                    anim.SetBool("Vertical", true);
+                    anim.SetBool("isAttacking", true);
+                    anim.SetFloat("YSpeed", -1);
+                }
+                else if (target.position.x < transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
+                {
+                    anim.SetBool("Vertical", false);
+                    anim.SetBool("isAttacking", true);
+                    transform.localRotation = Quaternion.Euler(0, 0, 0);
+                }
             }
-            else if (target.position.y > transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
+
+
+            if (timeLeftBtwShots <= 0.3f)
             {
-                anim.SetBool("Vertical", true);
-                anim.SetBool("isAttacking", true);
-                anim.SetFloat("YSpeed", 1);
+                isAttacking = true;
             }
-            else if (target.position.y < transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
+            else
             {
-                anim.SetBool("Vertical", true);
-                anim.SetBool("isAttacking", true);
-                anim.SetFloat("YSpeed", -1);
+                isAttacking = false;
             }
-            else if (target.position.x < transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
+
+            //Fin de las animaciones
+
+            //Ataque
+
+            if (timeLeftBtwShots <= 0) //nos aseguramos de que el enemigo lance bolas cada timeBtwShots segundos
             {
-                anim.SetBool("Vertical", false);
-                anim.SetBool("isAttacking", true);
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                Instantiate(projectile, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
+                timeLeftBtwShots = timeBtwShots;
             }
+            else
+            {
+                timeLeftBtwShots -= Time.deltaTime;
+            }
+
+            //Fin del ataque
+
         }
-
-
-        if(timeLeftBtwShots <= 0.3f)
-        {
-            isAttacking = true;
-        }
-        else
-        {
-            isAttacking = false;
-        }
-
-        //Fin de las animaciones
-
-        //Ataque
-
-        if (timeLeftBtwShots <= 0) //nos aseguramos de que el enemigo lance bolas cada timeBtwShots segundos
-        {
-            Instantiate(projectile, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
-            timeLeftBtwShots = timeBtwShots;
-        }
-        else
-        {
-            timeLeftBtwShots -= Time.deltaTime;
-        }
-
-        //Fin del ataque
 
         //muerte si no se encuentra dentro del mapa
         count = count - Time.deltaTime;
@@ -149,6 +159,7 @@ public class Angel : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     //Muerte del enemigo
