@@ -21,6 +21,8 @@ public class Demon : MonoBehaviour {
     private float count = 0.2f;
 
     public GameObject objetos;
+
+    public int value;
     // Use this for initialization
     void Start () {
 
@@ -137,6 +139,10 @@ public class Demon : MonoBehaviour {
         {
             ObjetsDrop.pos = transform.position;
             objetos.GetComponent<ObjetsDrop>().Drop();
+
+            // score
+            Stats.score = Stats.score + value;
+
             //Matar al enemigo
             Destroy(gameObject);
         }

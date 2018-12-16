@@ -19,6 +19,9 @@ public class Saco : MonoBehaviour {
     {
         Stats.robovida = Stats.robovida + value;
         Debug.Log("robovida aumentado");
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 }

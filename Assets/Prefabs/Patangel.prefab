@@ -140,6 +140,7 @@ MonoBehaviour:
   projectile: {fileID: 1936905436276478, guid: b550871b58b6ea84daba54e692ea18ab, type: 2}
   notInMap: 1
   objetos: {fileID: 1110155529501176}
+  value: 10
 --- !u!212 &212956235658887946
 SpriteRenderer:
   m_ObjectHideFlags: 1

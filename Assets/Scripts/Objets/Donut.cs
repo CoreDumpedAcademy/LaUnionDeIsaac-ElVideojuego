@@ -19,6 +19,9 @@ public class Donut : MonoBehaviour {
     {
         Stats.health = Stats.health + value;
         Debug.Log("health aumentado");
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 }

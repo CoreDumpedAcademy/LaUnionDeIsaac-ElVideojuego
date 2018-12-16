@@ -112,6 +112,8 @@ MonoBehaviour:
   retreatDistance: 5
   timeBtwShots: 1
   projectile: {fileID: 1936905436276478, guid: b550871b58b6ea84daba54e692ea18ab, type: 2}
+  notInMap: 1
+  value: 100
 --- !u!114 &114322720523962338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60cae9145254bf94ca9c054471ab5727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obj: {fileID: 0}
+  gos: []
   key: {fileID: 1795927034234804, guid: b5f0e73a147a1224199ba87d10de024d, type: 2}
 --- !u!212 &212449068113793946
 SpriteRenderer:

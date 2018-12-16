@@ -19,6 +19,9 @@ public class Knife : MonoBehaviour {
     {
         Stats.damage = Stats.damage + value;
         Debug.Log("daño aumentado");
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -116,6 +116,7 @@ MonoBehaviour:
   attackDelay: 0
   notInMap: 1
   objetos: {fileID: 1926412494145430}
+  value: 10
 --- !u!114 &114602612670103300
 MonoBehaviour:
   m_ObjectHideFlags: 1
