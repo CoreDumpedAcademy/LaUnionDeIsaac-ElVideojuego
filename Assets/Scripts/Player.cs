@@ -45,7 +45,6 @@ public class Player : MonoBehaviour {
 
         //Le proporcionamos la vida inicial al personaje
         PlayerPrefs.SetFloat("maxHealth", Stats.health);
-
         maxHealth = PlayerPrefs.GetFloat("maxHealth");
         playerHealth = PlayerPrefs.GetFloat("firstHealth"); 
 
@@ -60,7 +59,7 @@ public class Player : MonoBehaviour {
 
         //by raular4322
         
-        playerIsDead = isPlayerDead;
+
 
         //spawnear jugador
         cont = cont - Time.deltaTime;
@@ -140,21 +139,14 @@ public class Player : MonoBehaviour {
         //Muerte del jugador
         if(playerHealth <= 0)
         {
-            isPlayerDead = true;
-        }
-        else
-        {
-            isPlayerDead = false;
-        }
-
-        /*if (isPlayerDead)
-        {
+            playerIsDead = true;
             gameObject.SetActive(false);
         }
         else
         {
+            playerIsDead = false;
             gameObject.SetActive(true);
-        }*/
+        }    
 
         //manejamos el dash del personaje
         if (isDashing == false)
