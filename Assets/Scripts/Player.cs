@@ -45,7 +45,7 @@ public class Player : MonoBehaviour {
 
         //Le proporcionamos la vida inicial al personaje
         PlayerPrefs.SetFloat("maxHealth", Stats.health);
-        maxHealth = PlayerPrefs.GetFloat("maxHealth");
+        maxHealth = Stats.health;
         playerHealth = PlayerPrefs.GetFloat("firstHealth"); 
 
 
@@ -56,11 +56,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        //by raular4322
         
-
-
         //spawnear jugador
         cont = cont - Time.deltaTime;
         if (cont<=0 && spawn)
