@@ -32,7 +32,7 @@ public class Player : MonoBehaviour {
     void Start () {
 
         //raular4322
-        playerHasKey = false;
+        hasKey = false;
         isPlayerDead = false;
 
         //Traemos los componentes de player
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour {
 	void Update () {
 
         //by raular4322
-        hasKey = playerHasKey;
+        
         playerIsDead = isPlayerDead;
 
         //spawnear jugador

@@ -8,7 +8,7 @@ public class KeyDrop : MonoBehaviour {
 
     public void SpawnKey()
     {
-        Instantiate(key);
+        Instantiate(key,transform.position, Quaternion.identity);
     }
 
 }

@@ -94,7 +94,7 @@ public class PortalGenerator : MonoBehaviour {
                 maxPortalsInstantiated = true;
             }
             
-            Debug.Log(gos.Length);
+
             
         }
     }

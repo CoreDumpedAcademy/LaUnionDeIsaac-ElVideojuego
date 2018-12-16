@@ -12,7 +12,6 @@ public class PlayerKey : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("tiene una llave" + Player.hasKey);
         if (Player.hasKey)
         {
             key.SetActive(true);
