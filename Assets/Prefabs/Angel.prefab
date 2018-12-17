@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   health: 30
+  chaseRange: 0
   stopDistance: 5
   retreatDistance: 0
   isAttacking: 0
@@ -118,6 +119,7 @@ MonoBehaviour:
   projectile: {fileID: 1936905436276478, guid: b550871b58b6ea84daba54e692ea18ab, type: 2}
   notInMap: 1
   objetos: {fileID: 1490159129622278}
+  value: 10
 --- !u!114 &114254875349813324
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -19,6 +19,9 @@ public class Tacon : MonoBehaviour {
     {
         Stats.speed = Stats.speed + value;
         Debug.Log("speed aumentado");
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 }

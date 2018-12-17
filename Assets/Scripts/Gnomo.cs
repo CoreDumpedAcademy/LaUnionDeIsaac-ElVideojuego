@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Demon : MonoBehaviour {
+public class Gnomo : MonoBehaviour
+{
 
     public float speed;
     public float health;
@@ -24,9 +25,10 @@ public class Demon : MonoBehaviour {
 
     public int value;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
-        
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -34,58 +36,59 @@ public class Demon : MonoBehaviour {
 
         //Movimiento
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         demonDamage = 37f;
 
         float distance = Vector3.Distance(target.transform.position, transform.position);
         Vector3 dir = (target.transform.position - transform.position).normalized;
 
-        if(distance < chaseRange)
+        if (distance < chaseRange)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
-        
-         //Fin del movimiento
+
+        //Fin del movimiento
 
         //Ataque
 
         //Comprobar si el jugador esta lo suficientemente cerca para atacar
         float distanceToAttack = Vector3.Distance(transform.position, target.position);
-        if(distanceToAttack < attackRange)
+        if (distanceToAttack < attackRange)
         {
             //Comprobar si ha pasado tiempo suficiente desde el ultimo ataque
-            if(Time.time > lastAttackTime + attackDelay)
+            if (Time.time > lastAttackTime + attackDelay)
             {
                 target.SendMessage("TakeDamage", demonDamage);
                 //Guardar la ultima vez que ataco
                 lastAttackTime = Time.time;
             }
-            
+
         }
         //Fin del ataque
 
         count = count - Time.deltaTime;
 
-        if(count <= 0 && notInMap == true)
+        if (count <= 0 && notInMap == true)
         {
             Destroy(gameObject);
         }
 
-        
+
 
         //Animaciones
-        
-        if(distance < chaseRange)
+
+        if (distance < chaseRange)
         {
-            if(target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
+            if (target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
             {
                 anim.SetFloat("XSpeed", 1);
                 anim.SetBool("Vertical", false);
             }
-            else if(target.position.y > transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
+            else if (target.position.y > transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
             {
                 anim.SetBool("Vertical", true);
                 anim.SetFloat("YSpeed", 1);
@@ -108,7 +111,7 @@ public class Demon : MonoBehaviour {
             anim.SetFloat("YSpeed", 0);
         }
     }
-       
+
     //Muerte del enemigo
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -117,8 +120,8 @@ public class Demon : MonoBehaviour {
             TakeDamage();
         }
 
-        
-        
+
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -135,10 +138,10 @@ public class Demon : MonoBehaviour {
     {
         //Restar vida al enemigo
         health -= 10;
-        if(health <= 0)
+        if (health <= 0)
         {
-            ObjetsDrop.pos = transform.position;
-            objetos.GetComponent<ObjetsDrop>().Drop();
+            //ObjetsDrop.pos = transform.position;
+           //objetos.GetComponent<ObjetsDrop>().Drop();
 
             // score
             Stats.score = Stats.score + value;
@@ -150,13 +153,7 @@ public class Demon : MonoBehaviour {
     }
     //Fin de muerte del enemigo
 
-    //Muestra el rango de vision del enemigo en el editor
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, chaseRange);
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-    }
+   
 
 
 

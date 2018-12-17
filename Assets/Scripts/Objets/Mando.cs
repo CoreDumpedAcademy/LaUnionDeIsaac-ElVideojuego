@@ -19,6 +19,9 @@ public class Mando : MonoBehaviour {
     {
         Stats.slowdown = Stats.slowdown + value;
         Debug.Log("slowdown aumentado");
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 }

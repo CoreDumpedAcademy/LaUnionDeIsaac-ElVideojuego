@@ -19,6 +19,9 @@ public class Mascara : MonoBehaviour {
     {
         Stats.cooldown = Stats.cooldown + value;
         Debug.Log("cooldown aumentado");
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -21,6 +21,8 @@ public class WingedBossController : MonoBehaviour {
     public bool notInMap = true;
     private float count = 0.2f;
 
+    public int value;
+
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
@@ -124,6 +126,9 @@ public class WingedBossController : MonoBehaviour {
         if (health <= 0)
         {
             keyDrop.SpawnKey();
+
+            // score
+            Stats.score = Stats.score + value;
 
             Destroy(gameObject);
         }
