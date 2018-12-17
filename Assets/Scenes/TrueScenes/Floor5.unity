@@ -113,29 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &723749873 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1235435933032480, guid: 3641e676735adf74e839c0032fb7c159,
-    type: 2}
-  m_PrefabInternal: {fileID: 1271667682}
---- !u!95 &723749874
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 723749873}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 512045e9d76617f4ab3cf526eccafdda, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1122514382
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +140,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1122514384
 MonoBehaviour:
@@ -184,48 +161,6 @@ MonoBehaviour:
   maxEnemiesInstantiated: 0
   count: 0.2
   count2: 1
---- !u!1001 &1271667682
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4964580626632280, guid: 3641e676735adf74e839c0032fb7c159, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -5.935894
-      objectReference: {fileID: 0}
-    - target: {fileID: 4964580626632280, guid: 3641e676735adf74e839c0032fb7c159, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.87558174
-      objectReference: {fileID: 0}
-    - target: {fileID: 4964580626632280, guid: 3641e676735adf74e839c0032fb7c159, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4964580626632280, guid: 3641e676735adf74e839c0032fb7c159, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4964580626632280, guid: 3641e676735adf74e839c0032fb7c159, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4964580626632280, guid: 3641e676735adf74e839c0032fb7c159, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4964580626632280, guid: 3641e676735adf74e839c0032fb7c159, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4964580626632280, guid: 3641e676735adf74e839c0032fb7c159, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3641e676735adf74e839c0032fb7c159, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1453995460
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +243,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2018522729
 Prefab:
@@ -357,7 +292,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4383600159911592, guid: 30009df80e2718642a06a372eb30b679, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30009df80e2718642a06a372eb30b679, type: 2}
