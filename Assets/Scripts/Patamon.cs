@@ -164,5 +164,12 @@ public class Patamon : MonoBehaviour {
             isTouchingWall = true;
         }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, skeletonChaseRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
 }
 
