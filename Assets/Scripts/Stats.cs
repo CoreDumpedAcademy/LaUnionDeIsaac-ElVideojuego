@@ -21,6 +21,11 @@ public class Stats
     public static float slowdownD = 0;
     public static float cooldownD = 0;
     public static float healthD = 200;
-    public static float speedD = 10;
+    public static float speedD = 3;
     public static float damageD = 10;
+
+    public static float demonDamage = 37f;
+    public static float fireballDamage = 30f;
+    public static float epicAttackDamage = 50f;
+    public static float skeletonDamage = 25f;
 }
