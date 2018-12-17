@@ -9,13 +9,14 @@ public class UserValues : MonoBehaviour {
     public Text nickText;
     public Text stats;
     public Text score;
+    public Text scoreDead;
 	// Use this for initialization
 	void Start () {
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
+
     }
     
     public void SaveUsername()
@@ -68,5 +69,6 @@ public class UserValues : MonoBehaviour {
     {
         Debug.Log(GetScore().ToString());
         score.text = "SCORE: " + GetScore().ToString();
+        scoreDead.text = "SCORE: " + GetScore().ToString();
     }
 }

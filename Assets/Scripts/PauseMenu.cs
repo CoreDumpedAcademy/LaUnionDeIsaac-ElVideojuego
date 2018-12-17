@@ -35,6 +35,7 @@ public class PauseMenu : MonoBehaviour {
 
         if (Player.playerIsDead)
         {
+            rellenarStats.GetComponent<UserValues>().RellenarScore();
             canvasDead.SetActive(true);
             Time.timeScale = 0f;
         }
