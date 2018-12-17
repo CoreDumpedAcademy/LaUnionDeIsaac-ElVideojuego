@@ -17,10 +17,11 @@ public class Tacon : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Stats.speed = Stats.speed + value;
+        
         Debug.Log("speed aumentado");
         if (collision.gameObject.tag == "Player")
         {
+            Stats.speed = Stats.speed + value;
             Destroy(gameObject);
         }
     }

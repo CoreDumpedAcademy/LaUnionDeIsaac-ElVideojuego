@@ -17,10 +17,10 @@ public class Donut : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Stats.health = Stats.health + value;
         Debug.Log("health aumentado");
         if (collision.gameObject.tag == "Player")
         {
+            Stats.health = Stats.health + value;
             Destroy(gameObject);
         }
     }

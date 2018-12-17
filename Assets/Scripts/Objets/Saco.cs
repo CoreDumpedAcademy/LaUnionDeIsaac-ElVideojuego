@@ -17,10 +17,10 @@ public class Saco : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Stats.robovida = Stats.robovida + value;
         Debug.Log("robovida aumentado");
         if (collision.gameObject.tag == "Player")
         {
+            Stats.robovida = Stats.robovida + value;
             Destroy(gameObject);
         }
     }

@@ -17,10 +17,10 @@ public class Mascara : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Stats.cooldown = Stats.cooldown + value;
         Debug.Log("cooldown aumentado");
         if (collision.gameObject.tag == "Player")
         {
+            Stats.cooldown = Stats.cooldown + value;
             Destroy(gameObject);
         }
     }

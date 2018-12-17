@@ -17,10 +17,10 @@ public class Espejo : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Stats.cadencia = Stats.cadencia + value;
         Debug.Log("cadencia aumentado");
         if (collision.gameObject.tag == "Player")
         {
+            Stats.cadencia = Stats.cadencia + value;
             Destroy(gameObject);
         }
     }

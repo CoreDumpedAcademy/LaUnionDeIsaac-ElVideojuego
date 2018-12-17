@@ -17,10 +17,10 @@ public class Knife : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Stats.damage = Stats.damage + value;
         Debug.Log("daño aumentado");
         if (collision.gameObject.tag == "Player")
         {
+            Stats.damage = Stats.damage + value;
             Destroy(gameObject);
         }
     }
