@@ -21,7 +21,7 @@ public class Stats
     public static float slowdownD = 0;
     public static float cooldownD = 0;
     public static float healthD = 200;
-    public static float speedD = 3;
+    public static float speedD = 5;
     public static float damageD = 10;
 
     public static float demonDamage = 37f;
