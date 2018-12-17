@@ -8,29 +8,31 @@ public class WBossProjectile : MonoBehaviour {
     public static float fireballDamage;
     private Transform player;
     private Vector2 target;
-	// Use this for initialization
-	void Start () {
+    private Vector3 normalizeDirection;
+    // Use this for initialization
+    void Start () {
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-         target = new Vector2(player.position.x, player.position.y);
+         normalizeDirection = (player.position - transform.position).normalized;
         //    En caso de que queramos que el proyectil no siga al jugador sino que se lance hacia su dirección, si no: player.position.x && player.position.y
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
         fireballDamage = 30f;
-        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-        if(transform.position.x == target.x && transform.position.y == target.y)
-        {
-            DestroyProjectile();
-        }
-	}
+        transform.position += normalizeDirection * speed * Time.deltaTime;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
+        {
+            DestroyProjectile();
+        }
+
+        if(collision.gameObject.tag == "Wall")
         {
             DestroyProjectile();
         }

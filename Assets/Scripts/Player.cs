@@ -29,6 +29,8 @@ public class Player : MonoBehaviour {
     public float maxHealth;
     public static bool playerIsDead; // raular4322
 
+    
+
     // Use this for initialization
     void Start () {
 
@@ -45,10 +47,12 @@ public class Player : MonoBehaviour {
 
         //Le proporcionamos la vida inicial al personaje
         PlayerPrefs.SetFloat("maxHealth", Stats.health);
-
+        PlayerPrefs.SetFloat("maxHealth", 200f);
+        PlayerPrefs.SetFloat("firstHealth", 200f);
         maxHealth = Stats.health;
-        playerHealth = PlayerPrefs.GetFloat("firstHealth"); 
+        playerHealth = PlayerPrefs.GetFloat("firstHealth");
 
+        
 
         cont = 0.1f;
         spawn = true;

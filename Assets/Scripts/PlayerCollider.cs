@@ -6,8 +6,9 @@ public class PlayerCollider : MonoBehaviour {
 
     private float touchDamage;
     private float fireballDamage;
+    private float epicAttackDamage;
     private float hitCooldown=1f;
-
+    
 
     // Use this for initialization
     void Start () {
@@ -20,10 +21,10 @@ public class PlayerCollider : MonoBehaviour {
 
         touchDamage = Demon.demonDamage;
         fireballDamage = WBossProjectile.fireballDamage;
-
+        epicAttackDamage = EpicAttack.epicAttackDamage;
         hitCooldown = hitCooldown - Time.deltaTime;
-        Debug.Log(Demon.demonDamage);
-        Debug.Log(WBossProjectile.fireballDamage);
+
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,7 +36,7 @@ public class PlayerCollider : MonoBehaviour {
             {
                 Player.playerHealth = Player.playerHealth - touchDamage;
                 PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
-                Debug.Log(Player.playerHealth);
+                
                 hitCooldown = 1f;
             }          
         }
@@ -52,7 +53,7 @@ public class PlayerCollider : MonoBehaviour {
             {
                 Player.playerHealth = Player.playerHealth - touchDamage;
                 PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
-                Debug.Log(Player.playerHealth);
+                
                 hitCooldown = 1f;
             }
         }
@@ -69,6 +70,17 @@ public class PlayerCollider : MonoBehaviour {
             {
                 Player.playerHealth = Player.playerHealth - fireballDamage;
                 PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
+                
+                hitCooldown = 1f;
+            }
+        }
+
+        if (collision.gameObject.tag == "EpicAttack")
+        {
+            if (hitCooldown <= 0 && EpicAttack.touchingEpicAttack == true)
+            {
+                Player.playerHealth = Player.playerHealth - epicAttackDamage;
+                PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
                 Debug.Log(Player.playerHealth);
                 hitCooldown = 1f;
             }
@@ -82,7 +94,7 @@ public class PlayerCollider : MonoBehaviour {
 
         if (collision.gameObject.tag == "Portal")
         {
-            Debug.Log("Perder llave");
+            
             Player.hasKey = false;
         }
     }

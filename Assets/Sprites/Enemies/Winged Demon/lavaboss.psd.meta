@@ -93,12 +93,12 @@ TextureImporter:
       name: lavaboss_0
       rect:
         serializedVersion: 2
-        x: 106
+        x: 112
         y: 8
-        width: 24
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 18
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5062705, y: 0.14735174}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -113,12 +113,12 @@ TextureImporter:
       name: lavaboss_1
       rect:
         serializedVersion: 2
-        x: 156
-        y: 2
-        width: 31
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 160
+        y: 8
+        width: 18
+        height: 34
+      alignment: 9
+      pivot: {x: 0.4874581, y: 0.11157796}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -138,7 +138,7 @@ TextureImporter:
         width: 5
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: lavaboss_3
       rect:
         serializedVersion: 2
-        x: 54
+        x: 61
         y: 6
-        width: 30
+        width: 18
         height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5338623, y: 0.2272193}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,7 +178,7 @@ TextureImporter:
         width: 4
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,7 +198,7 @@ TextureImporter:
         width: 18
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
