@@ -168,8 +168,7 @@ public class Patamon : MonoBehaviour {
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, skeletonChaseRange);
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
 }
 
