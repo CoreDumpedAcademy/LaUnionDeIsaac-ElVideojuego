@@ -14,13 +14,13 @@ public class Demon : MonoBehaviour {
     public float attackRange;
     private float lastAttackTime;
     public float attackDelay;
-    public bool isTouchingWall;
-
+   
     private Rigidbody2D rb;
     private Animator anim;
     public bool notInMap = true;
     private float count = 0.2f;
     private float deathCont = 1f;
+    public bool isTouchingWall;
 
     public GameObject objetos;
 

@@ -52,9 +52,6 @@ public class Player : MonoBehaviour {
 
         //Le proporcionamos la vida inicial al personaje
         PlayerPrefs.SetFloat("maxHealth", Stats.health);
-        PlayerPrefs.SetFloat("maxHealth", 200f);
-        PlayerPrefs.SetFloat("firstHealth", 200f);
-        
         playerHealth = PlayerPrefs.GetFloat("firstHealth");
 
 
@@ -76,12 +73,10 @@ public class Player : MonoBehaviour {
         }
 
         //Dar la vida máxima al jugador
-        //maxHealth = Stats.health;
-        maxHealth = 200f;
+        maxHealth = Stats.health;
 
         //Dar la velocidad al personaje
-        //speed = Stats.speed;
-        speed = 5f;
+        speed = Stats.speed;
 
         //spawnear jugador
         cont = cont - Time.deltaTime;
