@@ -59,7 +59,6 @@ public class Demon : MonoBehaviour {
             //Comprobar si ha pasado tiempo suficiente desde el ultimo ataque
             if(Time.time > lastAttackTime + attackDelay)
             {
-                target.SendMessage("TakeDamage", demonDamage);
                 //Guardar la ultima vez que ataco
                 lastAttackTime = Time.time;
             }

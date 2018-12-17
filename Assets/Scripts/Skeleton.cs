@@ -44,6 +44,7 @@ public class Skeleton : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        skeletonDamage = 37f;
         //Movimiento del esqueleto
 
         float distance = Vector3.Distance(target.transform.position, transform.position);
@@ -119,7 +120,6 @@ public class Skeleton : MonoBehaviour {
             //Comprobar si ha pasado tiempo suficiente desde el ultimo ataque
             if (Time.time > lastAttackTime + attackDelay)
             {
-                target.SendMessage("TakeDamage", skeletonDamage);
                 //Guardar la ultima vez que ataco
                 lastAttackTime = Time.time;
             }
