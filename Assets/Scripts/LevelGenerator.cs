@@ -6,7 +6,6 @@ public class LevelGenerator : MonoBehaviour {
 	enum gridSpace {empty, floor, wall};
 	gridSpace[,] grid;
 	int roomHeight, roomWidth;
-    public static Vector3 playerSpawn;
 	Vector2 roomSizeWorldUnits = new Vector2(150,150);
 	float worldUnitsInOneGridCell = 1.28f;
 	struct walker{
@@ -45,13 +44,14 @@ public class LevelGenerator : MonoBehaviour {
 		//create a walker 
 		walker newWalker = new walker();
 		newWalker.dir = RandomDirection();
-        playerSpawn = newWalker.dir;
+        
 		//find center of grid
 		Vector2 spawnPos = new Vector2(Mathf.RoundToInt(roomWidth/ 2.0f),
 										Mathf.RoundToInt(roomHeight/ 2.0f));
 		newWalker.pos = spawnPos;
-		//add walker to list
-		walkers.Add(newWalker);
+        
+        //add walker to list
+        walkers.Add(newWalker);
 	}
 	void CreateFloors(){
 		int iterations = 0;//loop will not run forever
@@ -86,7 +86,7 @@ public class LevelGenerator : MonoBehaviour {
 					walker newWalker = new walker();
 					newWalker.dir = RandomDirection();
 					newWalker.pos = walkers[i].pos;
-					walkers.Add(newWalker);
+                    walkers.Add(newWalker);
 				}
 			}
 			//move walkers

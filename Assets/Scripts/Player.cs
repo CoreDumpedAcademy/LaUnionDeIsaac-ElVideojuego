@@ -67,7 +67,7 @@ public class Player : MonoBehaviour {
         if (cont<=0 && spawn)
         {
 
-            transform.position = LevelGenerator.playerSpawn;
+            transform.position = PlayerSpawner.playerSpawn;
             spawn = false;
         }
 
