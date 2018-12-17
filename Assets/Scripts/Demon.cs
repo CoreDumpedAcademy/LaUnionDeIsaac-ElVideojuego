@@ -14,11 +14,13 @@ public class Demon : MonoBehaviour {
     public float attackRange;
     private float lastAttackTime;
     public float attackDelay;
+    public bool isTouchingWall;
 
     private Rigidbody2D rb;
     private Animator anim;
     public bool notInMap = true;
     private float count = 0.2f;
+    private float deathCont = 1f;
 
     public GameObject objetos;
 
@@ -29,9 +31,9 @@ public class Demon : MonoBehaviour {
         
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
         notInMap = true;
-
+        deathCont = 1f;
+        isTouchingWall = false;
         //Movimiento
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 	}
@@ -74,11 +76,16 @@ public class Demon : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        
+        deathCont -= Time.deltaTime;
+
+        if (deathCont > 0 && isTouchingWall == true)
+        {
+            Destroy(gameObject);
+        }
 
         //Animaciones
-        
-        if(distance < chaseRange)
+
+        if (distance < chaseRange)
         {
             if(target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
             {
@@ -140,7 +147,10 @@ public class Demon : MonoBehaviour {
             }
         }
 
-
+        if(collision.gameObject.tag == "Wall")
+        {
+            isTouchingWall = true;
+        }
     }
 
     //Muerte del enemigo

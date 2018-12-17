@@ -20,6 +20,8 @@ public class Patamon : MonoBehaviour {
     private Animator anim;
     public bool notInMap = true;
     private float count = 0.2f;
+    private float deathCont = 1f;
+    public bool isTouchingWall;
 
     public GameObject objetos;
 
@@ -32,6 +34,8 @@ public class Patamon : MonoBehaviour {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         timeLeftBtwShots = timeBtwShots;
         health = healthMax;
+        deathCont = 1f;
+        isTouchingWall = false;
     }
 
     // Update is called once per frame
@@ -63,6 +67,13 @@ public class Patamon : MonoBehaviour {
         count = count - Time.deltaTime;
 
         if (count <= 0 && notInMap == true)
+        {
+            Destroy(gameObject);
+        }
+
+        deathCont -= Time.deltaTime;
+
+        if (deathCont > 0 && isTouchingWall == true)
         {
             Destroy(gameObject);
         }
@@ -144,6 +155,14 @@ public class Patamon : MonoBehaviour {
             Destroy(gameObject);
         }
 
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            isTouchingWall = true;
+        }
     }
 }
 

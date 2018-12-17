@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
     public static float playerHealth;
     public static int score;
     public float cont = 0.1f;
+    public float count = 0.1f;
     private bool spawn = true;
     private float percentageOfHealth;
 
@@ -28,8 +29,11 @@ public class Player : MonoBehaviour {
     public Slider healthBar;
     public float maxHealth;
     public static bool playerIsDead; // raular4322
+    public bool notInMap = true;
 
-    
+    public GameObject PSpawner;
+
+
 
     // Use this for initialization
     void Start () {
@@ -53,15 +57,23 @@ public class Player : MonoBehaviour {
         
         playerHealth = PlayerPrefs.GetFloat("firstHealth");
 
-        
 
-        cont = 0.1f;
+
+    count = 0.2f;
+    cont = 0.1f;
         spawn = true;
 
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        count = count - Time.deltaTime;
+
+        if (count <= 0 && notInMap == true)
+        {
+            Instantiate(PSpawner);
+        }
 
         //Dar la vida máxima al jugador
         //maxHealth = Stats.health;
@@ -203,4 +215,13 @@ public class Player : MonoBehaviour {
             }
         }       
 	}
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+
+            notInMap = false;
+        }
+    }
 }

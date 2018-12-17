@@ -2182,10 +2182,13 @@ MonoBehaviour:
   startDashTime: 0.1
   isDashing: 0
   cont: 0.1
+  count: 0.1
   playerHasKey: 0
   isPlayerDead: 0
   healthBar: {fileID: 114980145461017696}
   maxHealth: 0
+  notInMap: 1
+  PSpawner: {fileID: 1756512023106594}
 --- !u!114 &114225045088723766
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -18,6 +18,8 @@ public class Angel : MonoBehaviour
     private float timeLeftBtwShots;
     public float timeBtwShots;
     public GameObject projectile;
+    private float deathCont = 1f;
+    public bool isTouchingWall;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -37,6 +39,8 @@ public class Angel : MonoBehaviour
         timeLeftBtwShots = timeBtwShots;
         isAttacking = false;
         notInMap = true;
+        deathCont = 1f;
+        isTouchingWall = false;
 
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
@@ -163,6 +167,12 @@ public class Angel : MonoBehaviour
             Destroy(gameObject);
         }
 
+        deathCont -= Time.deltaTime;
+
+        if (deathCont > 0 && isTouchingWall == true)
+        {
+            Destroy(gameObject);
+        }
     }
 
     //Muerte del enemigo
@@ -186,6 +196,13 @@ public class Angel : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            isTouchingWall = true;
+        }
+    }
 
     public void TakeDamage()
     {

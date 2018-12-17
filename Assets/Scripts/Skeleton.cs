@@ -20,6 +20,8 @@ public class Skeleton : MonoBehaviour {
     public float attackRange;
     private float lastAttackTime;
     public float attackDelay;
+    private float deathCont = 1f;
+    public bool isTouchingWall;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -34,7 +36,8 @@ public class Skeleton : MonoBehaviour {
 
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
+        deathCont = 1f;
+        isTouchingWall = false;
         notInMap = true;
 
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -135,7 +138,12 @@ public class Skeleton : MonoBehaviour {
             Destroy(gameObject);
         }
 
+        deathCont -= Time.deltaTime;
 
+        if (deathCont > 0 && isTouchingWall == true)
+        {
+            Destroy(gameObject);
+        }
     }
 
     //Muerte del enemigo
@@ -190,7 +198,10 @@ public class Skeleton : MonoBehaviour {
             }
         }
 
-
+        if (collision.gameObject.tag == "Wall")
+        {
+            isTouchingWall = true;
+        }
     }
 
     //Muerte del enemigo
