@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Gnomo : MonoBehaviour
 {
-
+    public static float newspeed= 1f;
     public float speed;
     public float health;
-    public static float demonDamage;
+
+    private static float previousspeed;
+    private bool originalspeed=true;
+    private float originaltimeleft;
+    private float originaltime = 6;
 
     private Transform target;
     public float chaseRange;
@@ -15,6 +19,10 @@ public class Gnomo : MonoBehaviour
     public float attackRange;
     private float lastAttackTime;
     public float attackDelay;
+
+    public GameObject particles;
+    private float timeLeftBtwSlow; //controla el numero de segundos que quedan para que suelte la habilidad especial 
+    public float timeBtwSlow; //tiempo entre habilidad especial 
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -27,7 +35,9 @@ public class Gnomo : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        previousspeed = Player.speed;
+        timeLeftBtwSlow = timeBtwSlow;
+        originaltimeleft = originaltime;
 
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -41,7 +51,21 @@ public class Gnomo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        demonDamage = 37f;
+        // de esta manera nos aseguramos de devolver al jugador su velocidad inicial
+        if (originalspeed == false)
+        {
+            if (originaltimeleft <= 0)
+            {
+                Player.speed = previousspeed;
+                originalspeed = true;
+                originaltimeleft = originaltime;
+            }
+            else
+            {
+                originaltimeleft -= Time.deltaTime;
+            }
+        }
+       
 
         float distance = Vector3.Distance(target.transform.position, transform.position);
         Vector3 dir = (target.transform.position - transform.position).normalized;
@@ -49,6 +73,7 @@ public class Gnomo : MonoBehaviour
         if (distance < chaseRange)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            movement();
         }
 
         //Fin del movimiento
@@ -59,13 +84,9 @@ public class Gnomo : MonoBehaviour
         float distanceToAttack = Vector3.Distance(transform.position, target.position);
         if (distanceToAttack < attackRange)
         {
-            //Comprobar si ha pasado tiempo suficiente desde el ultimo ataque
-            if (Time.time > lastAttackTime + attackDelay)
-            {
-                target.SendMessage("TakeDamage", demonDamage);
-                //Guardar la ultima vez que ataco
-                lastAttackTime = Time.time;
-            }
+
+            slowdown();
+
 
         }
         //Fin del ataque
@@ -78,9 +99,11 @@ public class Gnomo : MonoBehaviour
         }
 
 
+    }
 
-        //Animaciones
-
+    void movement()
+    {
+        float distance = Vector3.Distance(target.transform.position, transform.position);
         if (distance < chaseRange)
         {
             if (target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
@@ -111,7 +134,23 @@ public class Gnomo : MonoBehaviour
             anim.SetFloat("YSpeed", 0);
         }
     }
+    void slowdown()
+    {
+            //Comprobar si ha pasado tiempo suficiente desde el ultimo ataque
+            if (timeLeftBtwSlow <= 0) //nos aseguramos de que el enemigo lance bolas cada timeBtwShots segundos
+            {
+            Instantiate(particles, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
+            Player.speed = newspeed; //Quaternion.identity = no rotation
+                originalspeed = false;
+                timeLeftBtwSlow = timeBtwSlow;
+            Object.Destroy(particles);
+            }
+            else
+            {
+                timeLeftBtwSlow -= Time.deltaTime;
+            }
 
+    }
     //Muerte del enemigo
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -140,8 +179,9 @@ public class Gnomo : MonoBehaviour
         health -= 10;
         if (health <= 0)
         {
+            Player.speed = previousspeed;
             //ObjetsDrop.pos = transform.position;
-           //objetos.GetComponent<ObjetsDrop>().Drop();
+            //objetos.GetComponent<ObjetsDrop>().Drop();
 
             // score
             Stats.score = Stats.score + value;
