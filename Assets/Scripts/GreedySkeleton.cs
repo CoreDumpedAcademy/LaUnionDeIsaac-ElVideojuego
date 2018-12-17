@@ -92,6 +92,17 @@ public class GreedySkeleton : MonoBehaviour {
             }
         }
 
+        //Muerte del enemigo
+        if (health <= 0)
+        {
+            keyDrop.SpawnKey();
+
+            // score
+            Stats.score = Stats.score + value;
+
+            Destroy(gameObject);
+        }
+
         //Comprobar si el jugador esta lo suficientemente cerca para atacar
         float distanceToAttack = Vector3.Distance(transform.position, target.position);
         if (distanceToAttack < attackRange)
@@ -135,15 +146,7 @@ public class GreedySkeleton : MonoBehaviour {
     void TakeDamage()
     {
         health -= 10;
-        if (health <= 0)
-        {
-            keyDrop.SpawnKey();
-
-            // score
-            Stats.score = Stats.score + value;
-
-            Destroy(gameObject);
-        }
+        
 
     }
 

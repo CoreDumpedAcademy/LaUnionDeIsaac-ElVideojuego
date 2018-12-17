@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 70956161964746186}
   - component: {fileID: 50388978044017562}
   - component: {fileID: 114212437777216720}
+  - component: {fileID: 114429841507230836}
   m_Layer: 0
   m_Name: GreedyDemon
   m_TagString: Enemy
@@ -100,6 +101,20 @@ MonoBehaviour:
   projectile: {fileID: 1936905436276478, guid: b550871b58b6ea84daba54e692ea18ab, type: 2}
   notInMap: 1
   value: 0
+--- !u!114 &114429841507230836
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1235435933032480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cae9145254bf94ca9c054471ab5727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 0}
+  gos: []
+  key: {fileID: 1795927034234804, guid: b5f0e73a147a1224199ba87d10de024d, type: 2}
 --- !u!212 &212688764194818216
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -64,10 +64,12 @@ public class Player : MonoBehaviour {
 	void Update () {
 
         //Dar la vida máxima al jugador
-        maxHealth = Stats.health;
+        //maxHealth = Stats.health;
+        maxHealth = 200f;
 
         //Dar la velocidad al personaje
-        speed = Stats.speed;
+        //speed = Stats.speed;
+        speed = 5f;
 
         //spawnear jugador
         cont = cont - Time.deltaTime;
