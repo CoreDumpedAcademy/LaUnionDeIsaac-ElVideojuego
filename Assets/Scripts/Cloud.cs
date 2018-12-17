@@ -46,6 +46,10 @@ public class Cloud : MonoBehaviour {
         if (timeLeftBtwShots <= 0) //nos aseguramos de que el enemigo lance bolas cada timeBtwShots segundos
         {
             Instantiate(projectile, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
+            Instantiate(projectile, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
+            Instantiate(projectile, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
+            Instantiate(projectile, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
+
             timeLeftBtwShots = timeBtwShots;
         }
         else
