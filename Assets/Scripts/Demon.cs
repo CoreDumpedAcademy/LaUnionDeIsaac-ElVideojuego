@@ -6,7 +6,7 @@ public class Demon : MonoBehaviour {
 
     public float speed;
     public float health;
-    public static float demonDamage;
+    private float touchDamage;
 
     private Transform target;
     public float chaseRange;
@@ -38,7 +38,8 @@ public class Demon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        demonDamage = 37f;
+
+        touchDamage = Stats.demonDamage;
 
         float distance = Vector3.Distance(target.transform.position, transform.position);
         Vector3 dir = (target.transform.position - transform.position).normalized;
@@ -107,7 +108,41 @@ public class Demon : MonoBehaviour {
             anim.SetFloat("YSpeed", 0);
         }
     }
-       
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+
+            if (PlayerCollider.hitCooldown <= 0)
+            {
+                Player.playerHealth = Player.playerHealth - touchDamage;
+                PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
+
+                PlayerCollider.hitCooldown = 1f;
+            }
+        }
+
+
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+
+            if (PlayerCollider.hitCooldown <= 0)
+            {
+                Player.playerHealth = Player.playerHealth - touchDamage;
+                PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
+
+                PlayerCollider.hitCooldown = 1f;
+            }
+        }
+
+
+    }
+
     //Muerte del enemigo
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -133,7 +168,7 @@ public class Demon : MonoBehaviour {
     public void TakeDamage()
     {
         //Restar vida al enemigo
-        health -= 10;
+        health -= Arrow.arrowDamage;
         if(health <= 0)
         {
             ObjetsDrop.pos = transform.position;

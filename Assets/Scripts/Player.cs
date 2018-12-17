@@ -38,6 +38,7 @@ public class Player : MonoBehaviour {
         hasKey = false;
         isPlayerDead = false;
 
+
         //Traemos los componentes de player
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -49,7 +50,7 @@ public class Player : MonoBehaviour {
         PlayerPrefs.SetFloat("maxHealth", Stats.health);
         PlayerPrefs.SetFloat("maxHealth", 200f);
         PlayerPrefs.SetFloat("firstHealth", 200f);
-        maxHealth = Stats.health;
+        
         playerHealth = PlayerPrefs.GetFloat("firstHealth");
 
         
@@ -61,7 +62,13 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+
+        //Dar la vida máxima al jugador
+        maxHealth = Stats.health;
+
+        //Dar la velocidad al personaje
+        speed = Stats.speed;
+
         //spawnear jugador
         cont = cont - Time.deltaTime;
         if (cont<=0 && spawn)

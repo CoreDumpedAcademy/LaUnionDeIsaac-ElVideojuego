@@ -6,9 +6,9 @@ public class Skeleton : MonoBehaviour {
 
     public float speed;
     public float health;
-    public float skeletonDamage;
 
     private float skeletonCooldown;
+    private float skeletonDamage;
     private float skeletonDashTime;
     public float startSkeletonDashTime;
     public float startSkeletonCooldown;
@@ -44,7 +44,8 @@ public class Skeleton : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        skeletonDamage = 37f;
+        skeletonDamage = Stats.skeletonDamage;
+
         //Movimiento del esqueleto
 
         float distance = Vector3.Distance(target.transform.position, transform.position);
@@ -156,6 +157,40 @@ public class Skeleton : MonoBehaviour {
 
             notInMap = false;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+
+            if (PlayerCollider.hitCooldown <= 0)
+            {
+                Player.playerHealth = Player.playerHealth - skeletonDamage;
+                PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
+
+                PlayerCollider.hitCooldown = 1f;
+            }
+        }
+
+
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+
+            if (PlayerCollider.hitCooldown <= 0)
+            {
+                Player.playerHealth = Player.playerHealth - skeletonDamage;
+                PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
+
+                PlayerCollider.hitCooldown = 1f;
+            }
+        }
+
+
     }
 
     //Muerte del enemigo

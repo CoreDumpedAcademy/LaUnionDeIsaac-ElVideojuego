@@ -5,10 +5,10 @@ using UnityEngine;
 public class WBossProjectile : MonoBehaviour {
 
     private float speed=10;
-    public static float fireballDamage;
     private Transform player;
     private Vector2 target;
     private Vector3 normalizeDirection;
+    private float fireballDamage;
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -20,8 +20,7 @@ public class WBossProjectile : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        fireballDamage = 30f;
-
+        fireballDamage = Stats.fireballDamage;
         transform.position += normalizeDirection * speed * Time.deltaTime;
     }
 
@@ -29,6 +28,14 @@ public class WBossProjectile : MonoBehaviour {
     {
         if (collision.CompareTag("Player"))
         {
+            if (PlayerCollider.hitCooldown <= 0)
+            {
+                Player.playerHealth = Player.playerHealth - fireballDamage;
+                PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
+
+                PlayerCollider.hitCooldown = 1f;
+            }
+
             DestroyProjectile();
         }
 

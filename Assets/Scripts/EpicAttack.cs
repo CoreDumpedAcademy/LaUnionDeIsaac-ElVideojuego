@@ -2,28 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EpicAttack : MonoBehaviour {
+public class EpicAttack : MonoBehaviour
+{
 
     private float appearCount = 1f;
     private float deadCont = 2.8f;
     private BoxCollider2D bc;
     public static bool touchingEpicAttack;
-    public static float epicAttackDamage;
+    private float epicAttackDamage;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         appearCount = 1f;
         deadCont = 2.8f;
-        epicAttackDamage = 50f;
         bc = GetComponent<BoxCollider2D>();
         bc.enabled = !bc.enabled;
         touchingEpicAttack = false;
 
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
+        epicAttackDamage = Stats.epicAttackDamage;
         appearCount -= Time.deltaTime;
 
         if (appearCount <= 0)
@@ -39,5 +42,20 @@ public class EpicAttack : MonoBehaviour {
             }
 
         }
-	}
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "EpicAttack")
+        {
+            if (PlayerCollider.hitCooldown <= 0 && EpicAttack.touchingEpicAttack == true)
+            {
+                Player.playerHealth = Player.playerHealth - epicAttackDamage;
+                PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
+                Debug.Log(Player.playerHealth);
+                PlayerCollider.hitCooldown = 1f;
+
+            }
+        }
+    }
 }

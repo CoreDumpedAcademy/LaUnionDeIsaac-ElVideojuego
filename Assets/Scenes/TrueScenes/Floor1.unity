@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gos: []
-  WminiBoss: {fileID: 1235435933032480, guid: 3641e676735adf74e839c0032fb7c159, type: 2}
+  WminiBoss: {fileID: 1814598237955006, guid: 43b778b812fff7c448c6143ab4640cc8, type: 2}
 --- !u!4 &185156460
 Transform:
   m_ObjectHideFlags: 0
