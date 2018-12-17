@@ -32,9 +32,12 @@ public class Gnomo : MonoBehaviour
     public GameObject objetos;
 
     public int value;
+    private KeyDrop keyDrop;
+
     // Use this for initialization
     void Start()
     {
+        keyDrop = GetComponent<KeyDrop>();
         previousspeed = Player.speed;
         timeLeftBtwSlow = timeBtwSlow;
         originaltimeleft = originaltime;
@@ -182,7 +185,7 @@ public class Gnomo : MonoBehaviour
             Player.speed = previousspeed;
             //ObjetsDrop.pos = transform.position;
             //objetos.GetComponent<ObjetsDrop>().Drop();
-
+            keyDrop.SpawnKey();
             // score
             Stats.score = Stats.score + value;
 

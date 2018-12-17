@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50846317534541812}
   - component: {fileID: 70956535563634260}
   - component: {fileID: 114728954490504884}
+  - component: {fileID: 114722456852705986}
   m_Layer: 0
   m_Name: Gnomo
   m_TagString: Untagged
@@ -97,6 +98,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114722456852705986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1159065076057156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cae9145254bf94ca9c054471ab5727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 0}
+  gos: []
+  key: {fileID: 1795927034234804, guid: b5f0e73a147a1224199ba87d10de024d, type: 2}
 --- !u!114 &114728954490504884
 MonoBehaviour:
   m_ObjectHideFlags: 1
