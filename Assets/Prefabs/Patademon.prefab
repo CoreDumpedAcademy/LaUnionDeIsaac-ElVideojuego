@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   healthMax: 30
-  chaseRange: 7
+  chaseRange: 10
   stopDistance: 3
   retreatDistance: 0
   timeBtwShots: 3

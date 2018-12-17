@@ -179,7 +179,7 @@ public class Gnomo : MonoBehaviour
     public void TakeDamage()
     {
         //Restar vida al enemigo
-        health -= 10;
+        health -= Stats.arrowDamage;
         if (health <= 0)
         {
             Player.speed = previousspeed;

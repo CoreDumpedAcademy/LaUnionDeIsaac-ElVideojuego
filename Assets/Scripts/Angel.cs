@@ -190,7 +190,7 @@ public class Angel : MonoBehaviour
     public void TakeDamage()
     {
         //Restar vida al enemigo
-        health -= 10;
+        health -= Stats.arrowDamage;
         if (health <= 0)
         {
             ObjetsDrop.pos = transform.position;

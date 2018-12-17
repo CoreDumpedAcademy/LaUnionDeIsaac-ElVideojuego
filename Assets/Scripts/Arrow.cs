@@ -9,7 +9,6 @@ public class Arrow : MonoBehaviour {
     public float arrowSpeed = 0.5f;
     private int selector;
     public float counter = 0.025f;
-    public static float arrowDamage;
 
     // Use this for initialization
     void Start () {
@@ -36,9 +35,6 @@ public class Arrow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        //Le damos el daño a la flecha
-        arrowDamage = Stats.damage;
 
         //darle un vector de velocidad a la flecha
         if (selector == 1)

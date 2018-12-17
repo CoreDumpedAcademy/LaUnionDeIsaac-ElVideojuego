@@ -44,7 +44,7 @@ public class God : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Arrow")
         {
-            health = health - 3f;
+            health = health - Stats.arrowDamage;
         }
     }
 }

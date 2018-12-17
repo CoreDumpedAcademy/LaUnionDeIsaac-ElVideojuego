@@ -145,7 +145,7 @@ public class GreedySkeleton : MonoBehaviour {
 
     void TakeDamage()
     {
-        health -= 10;
+        health -= Stats.arrowDamage;
         
 
     }

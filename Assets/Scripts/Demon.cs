@@ -168,7 +168,7 @@ public class Demon : MonoBehaviour {
     public void TakeDamage()
     {
         //Restar vida al enemigo
-        health -= Arrow.arrowDamage;
+        health -= Stats.arrowDamage;
         if(health <= 0)
         {
             ObjetsDrop.pos = transform.position;

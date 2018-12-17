@@ -132,7 +132,7 @@ public class Patamon : MonoBehaviour {
 
     void TakeDamage()
     {
-        health -= 10;
+        health -= Stats.arrowDamage;
         if (health <= 0)
         {
             ObjetsDrop.pos = transform.position;
