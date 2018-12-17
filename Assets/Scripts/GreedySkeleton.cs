@@ -18,6 +18,8 @@ public class GreedySkeleton : MonoBehaviour {
     private float lastAttackTime;
     public float attackDelay;
 
+    public bool isAttacking;
+
     private Transform target;
     private Vector2 playerPosition;
     public bool isDashing = false;
@@ -39,6 +41,7 @@ public class GreedySkeleton : MonoBehaviour {
         anim = GetComponent<Animator>();
         keyDrop = GetComponent<KeyDrop>();
 
+        isAttacking = false;
         notInMap = true;
         dashCooldown = skeletonCooldown;
 
@@ -54,8 +57,7 @@ public class GreedySkeleton : MonoBehaviour {
         {
 
             skeletonCooldown = skeletonCooldown - Time.deltaTime;
-
-
+            isAttacking = false;
 
             if (skeletonCooldown <= 0)
             {
@@ -80,27 +82,15 @@ public class GreedySkeleton : MonoBehaviour {
                 if (isDashing == true)
                 {
                     transform.position = Vector2.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime);
-                    
+
                     //Fin del movimiento
 
                     //Ataque
-
+                    isAttacking = true;
                     Instantiate(projectile, transform.position, Quaternion.identity);
-
                 }
                 
             }
-        }
-
-        //Muerte del enemigo
-        if (health <= 0)
-        {
-            keyDrop.SpawnKey();
-
-            // score
-            Stats.score = Stats.score + value;
-
-            Destroy(gameObject);
         }
 
         //Comprobar si el jugador esta lo suficientemente cerca para atacar
@@ -117,6 +107,63 @@ public class GreedySkeleton : MonoBehaviour {
 
         }
         //Fin del ataque
+
+        if (isAttacking == false)
+        {
+            if (target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
+            {
+                anim.SetBool("Vertical", false);
+                anim.SetBool("isAttacking", false);
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+            else if (target.position.y > transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
+            {
+                anim.SetBool("Vertical", true);
+                anim.SetBool("isAttacking", false);
+                anim.SetFloat("YSpeed", 1);
+            }
+            else if (target.position.y < transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
+            {
+                anim.SetBool("Vertical", true);
+                anim.SetBool("isAttacking", false);
+                anim.SetFloat("YSpeed", -1);
+            }
+            else if (target.position.x < transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
+            {
+                anim.SetBool("Vertical", false);
+                anim.SetBool("isAttacking", false);
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
+        }
+        else if (isAttacking == true)
+        {
+            if (target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
+            {
+                anim.SetBool("Vertical", false);
+                anim.SetBool("isAttacking", true);
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+            else if (target.position.y > transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
+            {
+                anim.SetBool("Vertical", true);
+                anim.SetBool("isAttacking", true);
+                anim.SetFloat("YSpeed", 1);
+            }
+            else if (target.position.y < transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
+            {
+                anim.SetBool("Vertical", true);
+                anim.SetBool("isAttacking", true);
+                anim.SetFloat("YSpeed", -1);
+            }
+            else if (target.position.x < transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
+            {
+                anim.SetBool("Vertical", false);
+                anim.SetBool("isAttacking", true);
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
+        }
+
+      
 
         count = count - Time.deltaTime;
 
@@ -145,8 +192,16 @@ public class GreedySkeleton : MonoBehaviour {
 
     void TakeDamage()
     {
-        health -= Stats.arrowDamage;
-        
+        health -= 10;
+        if (health <= 0)
+        {
+            keyDrop.SpawnKey();
+
+            // score
+            Stats.score = Stats.score + value;
+
+            Destroy(gameObject);
+        }
 
     }
 
