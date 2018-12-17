@@ -75,8 +75,6 @@ public class Player : MonoBehaviour {
         //display de la vida del personaje
         percentageOfHealth = playerHealth / maxHealth;
         healthBar.value = percentageOfHealth;
-        Debug.Log(percentageOfHealth);
-        Debug.Log(healthBar.value);
 
         //obtenemos las direcciones que va a obtener el jugador
         float h = Input.GetAxisRaw("Horizontal");
