@@ -142,11 +142,10 @@ public class Gnomo : MonoBehaviour
             //Comprobar si ha pasado tiempo suficiente desde el ultimo ataque
             if (timeLeftBtwSlow <= 0) //nos aseguramos de que el enemigo lance bolas cada timeBtwShots segundos
             {
-            Instantiate(particles, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
+            //Instantiate(particles, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
             Player.speed = newspeed; //Quaternion.identity = no rotation
                 originalspeed = false;
                 timeLeftBtwSlow = timeBtwSlow;
-            Object.Destroy(particles);
             }
             else
             {
