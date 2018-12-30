@@ -1,27 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Tacon : MonoBehaviour {
-
-    public float value;
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class Tacon : MonoBehaviour
+{
+    // base speed is 5
+    public float speedUp;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        Debug.Log("speed aumentado");
         if (collision.gameObject.tag == "Player")
         {
-            Stats.speed = Stats.speed + value;
+            Stats.speed += speedUp;
+            Player.speed = Stats.speed;
             Destroy(gameObject);
         }
     }

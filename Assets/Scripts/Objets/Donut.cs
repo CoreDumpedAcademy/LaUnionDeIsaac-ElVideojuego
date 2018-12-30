@@ -1,26 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Donut : MonoBehaviour {
-
-    public float value;
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class Donut : MonoBehaviour
+{
+    // base health is 200
+    public float healthUp;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("health aumentado");
         if (collision.gameObject.tag == "Player")
         {
-            Stats.health = Stats.health + value;
+            Stats.health += healthUp;
             Destroy(gameObject);
         }
     }

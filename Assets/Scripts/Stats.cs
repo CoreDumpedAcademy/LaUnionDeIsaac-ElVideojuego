@@ -16,13 +16,13 @@ public class Stats
 
 
     public static int scoreD = 0;
-    public static float cadenciaD = 0;
-    public static float robovidaD = 0;
-    public static float slowdownD = 0;
-    public static float cooldownD = 0;
-    public static float healthD = 200;
+    public static float cadenciaD = 0.025f; //
+    public static float robovidaD = 0; //
+    public static float slowdownD = 0; //
+    public static float cooldownD = 0.5f; //
+    public static float healthD = 200; //
     public static float speedD = 5;
-    public static float damageD = 10;
+    public static float damageD = 10; //
 
     public static float demonDamage = 37f;
     public static float fireballDamage = 30f;

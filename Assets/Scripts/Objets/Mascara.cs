@@ -1,26 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Mascara : MonoBehaviour {
-
-    public float value;
-    // Use this for initialization
-    void Start () {
-		
-	}
+public class Mascara : MonoBehaviour
+{
+    // base cooldown is 0.5f
+    public float cooldownDown;
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("cooldown aumentado");
         if (collision.gameObject.tag == "Player")
         {
-            Stats.cooldown = Stats.cooldown + value;
+            Stats.cooldown -= cooldownDown;
             Destroy(gameObject);
         }
     }

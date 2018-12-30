@@ -1,26 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Saco : MonoBehaviour {
-
-    public float value;
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class Saco : MonoBehaviour
+{
+    // base robovida is 0
+    public float robovidaUp;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("robovida aumentado");
         if (collision.gameObject.tag == "Player")
         {
-            Stats.robovida = Stats.robovida + value;
+            Stats.robovida += robovidaUp;
             Destroy(gameObject);
         }
     }

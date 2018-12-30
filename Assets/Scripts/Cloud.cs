@@ -128,6 +128,7 @@ public class Cloud : MonoBehaviour {
 
     void TakeDamage()
     {
+        Player.playerHealth += Stats.robovida;
         health -= Stats.arrowDamage;
         if (health <= 0)
         {

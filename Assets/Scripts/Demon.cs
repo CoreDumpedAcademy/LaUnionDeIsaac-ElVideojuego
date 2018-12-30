@@ -177,6 +177,7 @@ public class Demon : MonoBehaviour {
     //Muerte del enemigo
     public void TakeDamage()
     {
+        Player.playerHealth += Stats.robovida;
         //Restar vida al enemigo
         health -= Stats.arrowDamage;
         if(health <= 0)

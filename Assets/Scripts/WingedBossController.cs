@@ -122,7 +122,8 @@ public class WingedBossController : MonoBehaviour {
 
     void TakeDamage()
     {
-        health-= Stats.arrowDamage;
+        Player.playerHealth += Stats.robovida;
+        health -= Stats.arrowDamage;
         if (health <= 0)
         {
             keyDrop.SpawnKey();
