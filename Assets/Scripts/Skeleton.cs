@@ -207,6 +207,7 @@ public class Skeleton : MonoBehaviour {
     //Muerte del enemigo
     public void TakeDamage()
     {
+        speed = speed * Stats.slowdown;
         Player.playerHealth += Stats.robovida;
         //Restar vida al enemigo
         health -= Stats.arrowDamage;

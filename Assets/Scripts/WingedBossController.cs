@@ -122,6 +122,7 @@ public class WingedBossController : MonoBehaviour {
 
     void TakeDamage()
     {
+        speed = speed * Stats.slowdown;
         Player.playerHealth += Stats.robovida;
         health -= Stats.arrowDamage;
         if (health <= 0)

@@ -9,7 +9,7 @@ public class Mando : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Stats.slowdown += slowdownUp;
+            Stats.slowdown -= slowdownUp;
             Destroy(gameObject);
         }
     }

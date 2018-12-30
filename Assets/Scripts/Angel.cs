@@ -206,6 +206,7 @@ public class Angel : MonoBehaviour
 
     public void TakeDamage()
     {
+        speed = speed * Stats.slowdown;
         Player.playerHealth += Stats.robovida;
         //Restar vida al enemigo
         health -= Stats.arrowDamage;

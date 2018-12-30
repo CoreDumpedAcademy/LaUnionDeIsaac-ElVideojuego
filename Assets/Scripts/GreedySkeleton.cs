@@ -192,6 +192,7 @@ public class GreedySkeleton : MonoBehaviour {
 
     void TakeDamage()
     {
+        speed = speed * Stats.slowdown;
         Player.playerHealth += Stats.robovida;
         health -= 10;
         if (health <= 0)
