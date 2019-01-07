@@ -16,7 +16,7 @@ public class PlayerSpawner : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        count = 0.01f;
+        count = 0.1f;
         count2 = 1f;
     }
 
@@ -32,6 +32,7 @@ public class PlayerSpawner : MonoBehaviour {
             pos = new Vector3(x, y, z);
             Debug.Log(pos);
             transform.position = pos;
+            count = 0.1f;
         }
     }
 
@@ -41,6 +42,13 @@ public class PlayerSpawner : MonoBehaviour {
         {
             playerSpawn = transform.position;
             Destroy(gameObject);
+        }
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            playerSpawn = transform.position;
+            Destroy(gameObject);
+            count = 0.1f;
         }
     }
 }

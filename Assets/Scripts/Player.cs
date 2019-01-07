@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     void Start ()
     {
         speed = Stats.speed;
-
+        playerLoad = 0.1f;
         hasKey = false;
         isPlayerDead = false;
         dashTime = Stats.cooldown;
