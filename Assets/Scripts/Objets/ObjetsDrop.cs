@@ -15,7 +15,7 @@ public class ObjetsDrop : MonoBehaviour
 	
     public void Drop()
     {
-        if(Random.value >= Stats.dropRate)
+        if(Random.value <= Stats.dropRate)
         {
             obj = Instantiate(upgrade[Random.Range(0, 6)]);
             obj.transform.SetParent(gos[0].transform);
