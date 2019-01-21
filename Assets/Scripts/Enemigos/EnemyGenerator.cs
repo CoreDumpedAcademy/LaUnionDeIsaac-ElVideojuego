@@ -45,7 +45,6 @@ public class EnemyGenerator : MonoBehaviour {
     //Función que hace aparecer enemigos
     void Spawn()
     {
-        Debug.Log("Aparecí");
         Instantiate(obj[Random.Range(0, obj.Length)], transform.position, Quaternion.identity);     
     }
 

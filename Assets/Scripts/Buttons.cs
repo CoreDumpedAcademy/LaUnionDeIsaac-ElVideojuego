@@ -36,8 +36,10 @@ public class Buttons : MonoBehaviour
         Stats.health = Stats.healthD;
         Stats.speed = Stats.speedD;
         Stats.damage = Stats.damageD;
+        Stats.dropRate = Stats.dropRateD;
+        Stats.potionDropRate = Stats.potionDropRateD;
         Player.playerIsDead = false;
-
+        
         SceneManager.LoadScene("Login");
         Time.timeScale = 1f;
     }

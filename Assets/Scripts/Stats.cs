@@ -14,6 +14,7 @@ public class Stats
     public static float speed;
     public static float damage;
     public static float dropRate;
+    public static float potionDropRate;
 
     public static int scoreD = 0;
     public static float cadenciaD = 0.025f;
@@ -24,6 +25,7 @@ public class Stats
     public static float speedD = 5f;
     public static float damageD = 10f;
     public static float dropRateD = 0.05f;
+    public static float potionDropRateD = 0.25f;
 
     public static float demonDamage = 37f;
     public static float fireballDamage = 30f;
