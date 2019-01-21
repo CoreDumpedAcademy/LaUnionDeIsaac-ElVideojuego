@@ -15,6 +15,7 @@ TagManager:
   - Fireball
   - objetos
   - EpicAttack
+  - HealthPotion
   layers:
   - Default
   - TransparentFX

@@ -35,5 +35,17 @@ public class PlayerCollider : MonoBehaviour {
             
             Player.hasKey = false;
         }
+
+        if (collision.gameObject.tag == "HealthPotion")
+        {
+            if (Player.playerHealth + PlayerPrefs.GetFloat("maxHealth") * 0.4f <= PlayerPrefs.GetFloat("maxHealth"))
+            {
+                Player.playerHealth = Player.playerHealth + PlayerPrefs.GetFloat("maxHealth") * 0.4f;
+            }
+            else
+            {
+                Player.playerHealth = PlayerPrefs.GetFloat("maxHealth");
+            }
+        }
     }
 }

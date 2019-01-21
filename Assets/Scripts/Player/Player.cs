@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public GameObject PSpawner;
     public static float speed;
 
-    // Variables duplicadas para poder modificarlas en unity y a la vez poder acceder al valor sin un getComponent. by raular4322
+    // Variables duplicadas para poder modificarlas en unity y a la vez poder acceder al valor sin un getComponent. by raular4322 (que práctico, suena bastante útil, bien hecho raúl). 
     public bool playerHasKey; //raular4322
     public bool isPlayerDead;
     public static bool hasKey;
