@@ -33,4 +33,6 @@ public class Stats
     public static float skeletonDamage = 25f;
     public static float arrowDamage = 10f;
     public static float slimeDamage = 20f;
+    public static float fireSlimeDamage = 20f;
+    public static float fireSlimeGlueDamage = 5f;
 }

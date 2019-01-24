@@ -147,6 +147,7 @@ MonoBehaviour:
   obj:
   - {fileID: 1926412494145430, guid: ebc0fb19eca798a4ea87a8b29596ec37, type: 3}
   - {fileID: 1524761738910400, guid: eff1adb62e611734aa8dc75ba1d89b28, type: 3}
+  - {fileID: 1235819153741886939, guid: 40d4f31d0bcee39429a2bd9ff19c0c82, type: 3}
   maxEnemiesInstantiated: 0
   count: 0.2
   count2: 1
