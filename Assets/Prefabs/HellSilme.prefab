@@ -139,8 +139,8 @@ MonoBehaviour:
   notInMap: 1
   isTouchingWall: 0
   slimeGlueDelay: 0
-  objetos: {fileID: 0}
-  slimeGlue: {fileID: 5945926840194702151, guid: d6824257d0615f74394d30e232b47554,
+  objetos: {fileID: 1235819153741886939}
+  slimeGlue: {fileID: 5113178189988604009, guid: 386fbf8161ac38d4e8848b77f08f65b6,
     type: 3}
   value: 0
 --- !u!50 &1235819153741886937

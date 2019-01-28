@@ -43,6 +43,8 @@ public class Slime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
         slimeGlueDelay = slimeGlueDelay - Time.deltaTime;
 
         if (slimeGlueDelay <= 0)
@@ -92,6 +94,8 @@ public class Slime : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
 
         //Animaciones
 

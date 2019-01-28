@@ -28,7 +28,7 @@ public class UserValues : MonoBehaviour {
     public void Avatar1()
     {
         Stats.avatar = 1;
-        Debug.Log("avatar 1");
+
     }
 
     public void Avatar2()

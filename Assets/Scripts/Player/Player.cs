@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     public GameObject PSpawner;
     public static float speed;
 
+    public static Renderer rend;
+
     // Variables duplicadas para poder modificarlas en unity y a la vez poder acceder al valor sin un getComponent. by raular4322 (que práctico, suena bastante útil, bien hecho raúl). 
     public bool playerHasKey; //raular4322
     public bool isPlayerDead;
@@ -31,6 +33,8 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        rend = GetComponent<Renderer>();
+        rend.material.SetColor("_Color", Color.white);
         speed = Stats.speed;
         playerLoad = 0.1f;
         hasKey = false;
