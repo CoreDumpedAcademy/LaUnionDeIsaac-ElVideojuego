@@ -66,7 +66,7 @@ public class PlayerCollider : MonoBehaviour {
         }
 
         //Las  colisiones con el HellSlimeGlue están incluídas en "enemy"
-        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Fireball" || collision.gameObject.tag == "EpicAttack")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Fireball" || collision.gameObject.tag == "EpicAttack" || collision.gameObject.tag == "LavaGlue")
         {
             if (setRed == false)
             {
@@ -82,7 +82,7 @@ public class PlayerCollider : MonoBehaviour {
     private void OnTriggerStay2D(Collider2D collision)
     {
         //Las  colisiones con el HellSlimeGlue están incluídas en "enemy"
-        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Fireball" || collision.gameObject.tag == "EpicAttack")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Fireball" || collision.gameObject.tag == "EpicAttack" || collision.gameObject.tag == "LavaGlue")
         {
             if (setRed == false)
             {
@@ -97,7 +97,7 @@ public class PlayerCollider : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Las  colisiones con el HellSlimeGlue están incluídas en "enemy"
-        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Fireball" || collision.gameObject.tag == "EpicAttack")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Fireball" || collision.gameObject.tag == "EpicAttack" || collision.gameObject.tag == "LavaGlue")
         {
             if (setRed == false)
             {
@@ -112,7 +112,7 @@ public class PlayerCollider : MonoBehaviour {
     private void OnCollisionStay2D(Collision2D collision)
     {
         //Las  colisiones con el HellSlimeGlue están incluídas en "enemy"
-        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Fireball" || collision.gameObject.tag == "EpicAttack")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Fireball" || collision.gameObject.tag == "EpicAttack" || collision.gameObject.tag == "LavaGlue")
         {
             if (setRed == false)
             {

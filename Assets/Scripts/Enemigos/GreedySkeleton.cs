@@ -33,9 +33,17 @@ public class GreedySkeleton : MonoBehaviour {
     public int value;
     private float count = 0.2f;
 
+    private float cont;
+    private float deathCont;
+    private bool isTouchingWall;
+
 
     // Use this for initialization
     void Start () {
+
+        cont = 0.2f;
+        deathCont = 1f;
+        isTouchingWall = false;
 
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -52,6 +60,20 @@ public class GreedySkeleton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        count = count - Time.deltaTime;
+
+        if (count <= 0 && notInMap == true)
+        {
+            Destroy(gameObject);
+        }
+
+        deathCont -= Time.deltaTime;
+
+        if (deathCont > 0 && isTouchingWall == true)
+        {
+            Destroy(gameObject);
+        }
 
         if (isDashing == false)
         {
@@ -187,6 +209,15 @@ public class GreedySkeleton : MonoBehaviour {
         if (collision.gameObject.tag == "Floor")
         {
             notInMap = false;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        
+        if (collision.gameObject.tag == "Wall")
+        {
+            isTouchingWall = true;
         }
     }
 

@@ -16,6 +16,7 @@ TagManager:
   - objetos
   - EpicAttack
   - HealthPotion
+  - LavaGlue
   layers:
   - Default
   - TransparentFX

@@ -27,12 +27,15 @@ public class Gnomo : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     public bool notInMap = true;
-    private float count = 0.2f;
 
     public GameObject objetos;
 
     public int value;
     private KeyDrop keyDrop;
+
+    private float deathCont;
+    private bool isTouchingWall;
+    private float count = 0.2f;
 
     // Use this for initialization
     void Start()
@@ -41,6 +44,10 @@ public class Gnomo : MonoBehaviour
         previousspeed = Player.speed;
         timeLeftBtwSlow = timeBtwSlow;
         originaltimeleft = originaltime;
+
+        count = 0.2f;
+        deathCont = 1f;
+        isTouchingWall = false;
 
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -101,6 +108,12 @@ public class Gnomo : MonoBehaviour
             Destroy(gameObject);
         }
 
+        deathCont -= Time.deltaTime;
+
+        if (deathCont > 0 && isTouchingWall == true)
+        {
+            Destroy(gameObject);
+        }
 
     }
 
@@ -163,6 +176,15 @@ public class Gnomo : MonoBehaviour
 
 
 
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            isTouchingWall = true;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

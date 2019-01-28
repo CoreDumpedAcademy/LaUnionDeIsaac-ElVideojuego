@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  healthMax: 150
+  healthMax: 450
   stopDistance: 5
   retreatDistance: 3
   timeBtwShots: 5

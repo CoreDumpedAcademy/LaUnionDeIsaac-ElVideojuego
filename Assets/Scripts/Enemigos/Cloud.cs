@@ -21,6 +21,9 @@ public class Cloud : MonoBehaviour {
     public bool notInMap = true;
     private float count = 0.2f;
 
+    private float deathCont;
+    private bool isTouchingWall;
+
     public int value;
 
     // Use this for initialization
@@ -62,6 +65,13 @@ public class Cloud : MonoBehaviour {
         if (count <= 0 && notInMap == true)
         {
             EpicGenerator.maxEnemies = false;
+            Destroy(gameObject);
+        }
+
+        deathCont -= Time.deltaTime;
+
+        if (deathCont > 0 && isTouchingWall == true)
+        {
             Destroy(gameObject);
         }
     }
@@ -123,6 +133,15 @@ public class Cloud : MonoBehaviour {
         {
 
             notInMap = false;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            isTouchingWall = true;
         }
     }
 
