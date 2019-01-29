@@ -55,9 +55,9 @@ public class PlayerCollider : MonoBehaviour {
 
         if (collision.gameObject.tag == "HealthPotion")
         {
-            if (Player.playerHealth + PlayerPrefs.GetFloat("maxHealth") * 0.4f <= PlayerPrefs.GetFloat("maxHealth"))
+            if (Player.playerHealth + PlayerPrefs.GetFloat("maxHealth") * Stats.potionRegeneration <= PlayerPrefs.GetFloat("maxHealth"))
             {
-                Player.playerHealth = Player.playerHealth + PlayerPrefs.GetFloat("maxHealth") * 0.4f;
+                Player.playerHealth = Player.playerHealth + PlayerPrefs.GetFloat("maxHealth") * Stats.potionRegeneration;
             }
             else
             {
