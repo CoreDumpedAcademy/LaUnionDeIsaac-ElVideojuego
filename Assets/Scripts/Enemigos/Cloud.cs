@@ -65,6 +65,7 @@ public class Cloud : MonoBehaviour {
         if (count <= 0 && notInMap == true)
         {
             EpicGenerator.maxEnemies = false;
+            EpicGenerator.enemySpawned = false;
             Destroy(gameObject);
         }
 
@@ -72,8 +73,12 @@ public class Cloud : MonoBehaviour {
 
         if (deathCont > 0 && isTouchingWall == true)
         {
+            EpicGenerator.maxEnemies = false;
+            EpicGenerator.enemySpawned = false;
             Destroy(gameObject);
         }
+
+
     }
 
 

@@ -65,6 +65,8 @@ public class GreedySkeleton : MonoBehaviour {
 
         if (count <= 0 && notInMap == true)
         {
+            EpicGenerator.maxEnemies = false;
+            EpicGenerator.enemySpawned = false;
             Destroy(gameObject);
         }
 
@@ -72,6 +74,8 @@ public class GreedySkeleton : MonoBehaviour {
 
         if (deathCont > 0 && isTouchingWall == true)
         {
+            EpicGenerator.maxEnemies = false;
+            EpicGenerator.enemySpawned = false;
             Destroy(gameObject);
         }
 
@@ -135,25 +139,25 @@ public class GreedySkeleton : MonoBehaviour {
             if (target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
             {
                 anim.SetBool("Vertical", false);
-                anim.SetBool("isAttacking", false);
+                anim.SetBool("IsAttacking", false);
                 transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
             else if (target.position.y > transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
             {
                 anim.SetBool("Vertical", true);
-                anim.SetBool("isAttacking", false);
+                anim.SetBool("IsAttacking", false);
                 anim.SetFloat("YSpeed", 1);
             }
             else if (target.position.y < transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
             {
                 anim.SetBool("Vertical", true);
-                anim.SetBool("isAttacking", false);
+                anim.SetBool("IsAttacking", false);
                 anim.SetFloat("YSpeed", -1);
             }
             else if (target.position.x < transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
             {
                 anim.SetBool("Vertical", false);
-                anim.SetBool("isAttacking", false);
+                anim.SetBool("IsAttacking", false);
                 transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
         }
@@ -162,25 +166,25 @@ public class GreedySkeleton : MonoBehaviour {
             if (target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
             {
                 anim.SetBool("Vertical", false);
-                anim.SetBool("isAttacking", true);
+                anim.SetBool("IsAttacking", true);
                 transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
             else if (target.position.y > transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
             {
                 anim.SetBool("Vertical", true);
-                anim.SetBool("isAttacking", true);
+                anim.SetBool("IsAttacking", true);
                 anim.SetFloat("YSpeed", 1);
             }
             else if (target.position.y < transform.position.y && Mathf.Abs(target.position.x - transform.position.x) < Mathf.Abs(target.position.y - transform.position.y))
             {
                 anim.SetBool("Vertical", true);
-                anim.SetBool("isAttacking", true);
+                anim.SetBool("IsAttacking", true);
                 anim.SetFloat("YSpeed", -1);
             }
             else if (target.position.x < transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
             {
                 anim.SetBool("Vertical", false);
-                anim.SetBool("isAttacking", true);
+                anim.SetBool("IsAttacking", true);
                 transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
         }
