@@ -45,7 +45,7 @@ public class EpicGenerator : MonoBehaviour {
     void EnemySpawn()
     {
         gos = GameObject.FindGameObjectsWithTag("Enemy");
-        if (gos.Length < 11 && maxEnemies == false && enemySpawned == false)
+        if (gos.Length < 15 && maxEnemies == false && enemySpawned == false)
         {
             x = Random.Range(-74f, 74f);
             y = Random.Range(-74f, 74f);
