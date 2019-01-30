@@ -52,7 +52,7 @@ public class EnemyGenerator : MonoBehaviour {
     public void EnemySpawn()
     {
         gos = GameObject.FindGameObjectsWithTag("Enemy");
-        if (gos.Length < 30 && maxEnemiesInstantiated == false)
+        if (gos.Length < 40 && maxEnemiesInstantiated == false)
         {
             
 
