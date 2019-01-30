@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   health: 30
-  chaseRange: 0
+  chaseRange: 15
   stopDistance: 5
   retreatDistance: 0
   isAttacking: 0
