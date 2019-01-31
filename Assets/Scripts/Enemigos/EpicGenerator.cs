@@ -21,7 +21,7 @@ public class EpicGenerator : MonoBehaviour {
 
         enemySpawned = false;
         maxEnemies = false;
-        count = 20f;
+        count = 40f;
     }
 	
 	// Update is called once per frame
@@ -39,19 +39,20 @@ public class EpicGenerator : MonoBehaviour {
 
     void Spawn()
     {
+        Debug.Log("Pene");
         Instantiate(WminiBoss, transform.position, Quaternion.identity);
     }
 
     void EnemySpawn()
     {
         gos = GameObject.FindGameObjectsWithTag("Enemy");
-        if (gos.Length < 15 && maxEnemies == false && enemySpawned == false)
+        if (gos.Length < 15 && maxEnemies == false)
         {
             x = Random.Range(-74f, 74f);
             y = Random.Range(-74f, 74f);
             z = 0;
             pos = new Vector3(x, y, z);
-            Debug.Log(pos);
+            
             transform.position = pos;
 
 
@@ -60,7 +61,6 @@ public class EpicGenerator : MonoBehaviour {
             {
                 
                 Spawn();
-                enemySpawned = true;
                 maxEnemies = true;
             }
         }
