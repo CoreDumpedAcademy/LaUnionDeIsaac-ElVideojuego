@@ -489,7 +489,7 @@ PrefabInstance:
     - target: {fileID: 114726213320083840, guid: fde9c9914b15b614db2a699484135b61,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadGameScene
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114726213320083840, guid: fde9c9914b15b614db2a699484135b61,
         type: 3}
@@ -539,7 +539,7 @@ PrefabInstance:
     - target: {fileID: 114036493693366456, guid: fde9c9914b15b614db2a699484135b61,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadGameScene
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114036493693366456, guid: fde9c9914b15b614db2a699484135b61,
         type: 3}
@@ -639,7 +639,7 @@ PrefabInstance:
     - target: {fileID: 114943211555627668, guid: fde9c9914b15b614db2a699484135b61,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadGameScene
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114943211555627668, guid: fde9c9914b15b614db2a699484135b61,
         type: 3}
@@ -914,6 +914,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595543613089608, guid: fde9c9914b15b614db2a699484135b61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881943275819346, guid: fde9c9914b15b614db2a699484135b61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972744683415668, guid: fde9c9914b15b614db2a699484135b61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fde9c9914b15b614db2a699484135b61, type: 3}
