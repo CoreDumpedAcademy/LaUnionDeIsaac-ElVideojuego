@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f2d015f6d09f84d99019e9fe2d2ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robovidaUp: 1.5
+  robovidaUp: 1
 --- !u!61 &61103759841716868
 BoxCollider2D:
   m_ObjectHideFlags: 0
