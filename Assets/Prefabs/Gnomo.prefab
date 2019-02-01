@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   health: 400
-  chaseRange: 10
+  chaseRange: 100
   attackRange: 5
   attackDelay: 5
   particles: {fileID: 0}

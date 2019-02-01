@@ -105,6 +105,8 @@ public class Gnomo : MonoBehaviour
 
         if (count <= 0 && notInMap == true)
         {
+            EpicGenerator.maxEnemies = false;
+            EpicGenerator.enemySpawned = false;
             Destroy(gameObject);
         }
 
@@ -112,8 +114,13 @@ public class Gnomo : MonoBehaviour
 
         if (deathCont > 0 && isTouchingWall == true)
         {
+            EpicGenerator.maxEnemies = false;
+            EpicGenerator.enemySpawned = false;
             Destroy(gameObject);
         }
+
+
+
 
     }
 

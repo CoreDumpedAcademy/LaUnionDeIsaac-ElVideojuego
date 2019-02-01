@@ -53,11 +53,15 @@ public class WingedBossController : MonoBehaviour {
 
         count = count - Time.deltaTime;
 
+        count = count - Time.deltaTime;
+
         if (count <= 0 && notInMap == true)
         {
             EpicGenerator.maxEnemies = false;
+            EpicGenerator.enemySpawned = false;
             Destroy(gameObject);
         }
+
     }
 
 

@@ -22,7 +22,7 @@ public class EnemyGenerator : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        numberEnemies = 30;
+        numberEnemies = 40;
         enemiesSpawned = 0;
         count = 0.1f;
         count2 = 0f;
@@ -52,7 +52,7 @@ public class EnemyGenerator : MonoBehaviour {
     public void EnemySpawn()
     {
         gos = GameObject.FindGameObjectsWithTag("Enemy");
-        if (gos.Length < 30 && maxEnemiesInstantiated == false)
+        if (gos.Length < 40 && maxEnemiesInstantiated == false)
         {
             
 

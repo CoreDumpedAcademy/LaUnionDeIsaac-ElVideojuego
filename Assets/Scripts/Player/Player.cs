@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public static float speed;
 
     public static Renderer rend;
+    public GameObject greenArrow;
 
     // Variables duplicadas para poder modificarlas en unity y a la vez poder acceder al valor sin un getComponent. by raular4322 (que práctico, suena bastante útil, bien hecho raúl). 
     public bool playerHasKey; //raular4322
@@ -54,8 +55,23 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        // display de la vida del personaje
-        healthBar.value = playerHealth / Stats.health;
+
+        if (hasKey == true)
+        {
+            greenArrow.SetActive(true);
+        }
+        else
+        {
+            greenArrow.SetActive(false);
+        }
+
+            // display de la vida del personaje
+            healthBar.value = playerHealth / Stats.health;
+
+        if (playerHealth > Stats.health)
+        {
+            playerHealth = Stats.health;
+        }
 
         // checks for a valid player spawn position
         playerLoad -= Time.deltaTime;

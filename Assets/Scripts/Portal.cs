@@ -9,6 +9,7 @@ public class Portal : MonoBehaviour {
     private float count = 0.2f;
     public int actualFloor;
     Animator anim;
+    public static Vector2 portalTransform;
 
 
     // Use this for initialization
@@ -21,6 +22,8 @@ public class Portal : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        portalTransform = new Vector2(transform.position.x, transform.position.y);
 
         //detecta si el jugador tiene la llave para cambiar la animación de cerrado a abierto
         if (Player.hasKey)

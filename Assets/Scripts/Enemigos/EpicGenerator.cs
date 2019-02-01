@@ -6,7 +6,8 @@ public class EpicGenerator : MonoBehaviour {
 
     public GameObject[] gos;
     public GameObject WminiBoss;
-    public static bool maxEnemies=false;
+    public static bool maxEnemies = false;
+    public static bool enemySpawned = false;
 
     private float x;
     private float y;
@@ -17,8 +18,10 @@ public class EpicGenerator : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+        enemySpawned = false;
         maxEnemies = false;
-        count = 20f;
+        count = 40f;
     }
 	
 	// Update is called once per frame
@@ -36,24 +39,27 @@ public class EpicGenerator : MonoBehaviour {
 
     void Spawn()
     {
+        Debug.Log("Pene");
         Instantiate(WminiBoss, transform.position, Quaternion.identity);
     }
 
     void EnemySpawn()
     {
         gos = GameObject.FindGameObjectsWithTag("Enemy");
-        if (gos.Length < 11 && maxEnemies == false)
+        if (gos.Length < 15 && maxEnemies == false)
         {
             x = Random.Range(-74f, 74f);
             y = Random.Range(-74f, 74f);
             z = 0;
             pos = new Vector3(x, y, z);
+            
             transform.position = pos;
 
 
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(transform.position), Vector2.zero);
             if (hit.collider != null && hit.collider.gameObject.tag != "Wall")
             {
+                
                 Spawn();
                 maxEnemies = true;
             }

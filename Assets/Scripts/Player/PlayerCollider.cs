@@ -21,6 +21,8 @@ public class PlayerCollider : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        Debug.Log("Health:" + Player.playerHealth);
+
         hitCooldown = hitCooldown - Time.deltaTime;
 
         if (setRed == true)
@@ -55,13 +57,13 @@ public class PlayerCollider : MonoBehaviour {
 
         if (collision.gameObject.tag == "HealthPotion")
         {
-            if (Player.playerHealth + PlayerPrefs.GetFloat("maxHealth") * 0.4f <= PlayerPrefs.GetFloat("maxHealth"))
+            if (Player.playerHealth + Stats.health * Stats.potionRegeneration <= Stats.health)
             {
-                Player.playerHealth = Player.playerHealth + PlayerPrefs.GetFloat("maxHealth") * 0.4f;
+                Player.playerHealth = Player.playerHealth + Stats.health * Stats.potionRegeneration;
             }
             else
             {
-                Player.playerHealth = PlayerPrefs.GetFloat("maxHealth");
+                Player.playerHealth = Stats.health;
             }
         }
 

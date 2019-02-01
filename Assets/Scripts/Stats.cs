@@ -24,8 +24,9 @@ public class Stats
     public static float healthD = 200f;
     public static float speedD = 5f;
     public static float damageD = 10f;
-    public static float dropRateD = 0.05f;
-    public static float potionDropRateD = 0.25f;
+    public static float dropRateD = 0.15f;
+    public static float potionDropRateD = 0.15f;
+    public static float potionRegeneration = 0.25f;
 
     public static float demonDamage = 37f;
     public static float fireballDamage = 30f;
@@ -34,5 +35,5 @@ public class Stats
     public static float arrowDamage = 10f;
     public static float slimeDamage = 20f;
     public static float fireSlimeDamage = 20f;
-    public static float fireSlimeGlueDamage = 0.5f;
+    public static float fireSlimeGlueDamage = 1f;
 }

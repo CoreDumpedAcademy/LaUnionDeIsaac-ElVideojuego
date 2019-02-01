@@ -30,7 +30,7 @@ public class Slime : MonoBehaviour
     void Start()
     {
 
-        slimeGlueDelay = 1f;
+        slimeGlueDelay = 0.5f;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         notInMap = true;
@@ -50,7 +50,7 @@ public class Slime : MonoBehaviour
         if (slimeGlueDelay <= 0)
         {
             Instantiate(slimeGlue, transform.position, Quaternion.identity);
-            slimeGlueDelay = 1f;
+            slimeGlueDelay = 0.5f;
         }
 
         touchDamage = Stats.slimeDamage;
