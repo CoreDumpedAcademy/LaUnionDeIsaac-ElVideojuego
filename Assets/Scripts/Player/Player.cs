@@ -20,6 +20,13 @@ public class Player : MonoBehaviour
     public GameObject PSpawner;
     public static float speed;
 
+    //variables para el slowdown
+    public static bool slowdown=false;
+    public static float previousSpeed=5;
+    private static float timeSlowLeft;
+    private static float timeSlow=3;
+    private static bool herido = false;
+
     public static Renderer rend;
     public GameObject greenArrow;
 
@@ -176,6 +183,13 @@ public class Player : MonoBehaviour
             }
         }       
 	}
+
+    public static IEnumerator SlowDownSlime()
+    {
+            speed= 2F;
+            yield return new WaitForSeconds(2f);
+            speed = previousSpeed;
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
