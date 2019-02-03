@@ -17,6 +17,7 @@ TagManager:
   - EpicAttack
   - HealthPotion
   - LavaGlue
+  - AngelGlue
   layers:
   - Default
   - TransparentFX

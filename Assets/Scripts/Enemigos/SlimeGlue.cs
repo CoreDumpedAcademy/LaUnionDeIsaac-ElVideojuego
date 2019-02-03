@@ -11,20 +11,7 @@ public class SlimeGlue : MonoBehaviour
     {
         lifeTime = 4f;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            if (Player.slowdown == false)
-            {
-                StartCoroutine(Player.SlowDownSlime());
-                Debug.Log("Ha chocado");
-                
-            }
-        }
 
-
-    }
     // Update is called once per frame
     void Update()
     {

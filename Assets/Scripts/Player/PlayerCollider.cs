@@ -9,6 +9,7 @@ public class PlayerCollider : MonoBehaviour {
     private float redHitCooldown;
     private bool setRed;
     private float betweenColors;
+    private float previousSpeed; //para el slowdown del slime
 
     // Use this for initialization
     void Start () {
@@ -21,9 +22,11 @@ public class PlayerCollider : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        Debug.Log("Health:" + Player.playerHealth);
+       Debug.Log("Health:" + Player.playerHealth);
+      
 
         hitCooldown = hitCooldown - Time.deltaTime;
+        
 
         if (setRed == true)
         {
@@ -43,6 +46,16 @@ public class PlayerCollider : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        if (collision.gameObject.tag == "AngelGlue")
+        {
+            if (Player.speed != 2f)
+            {
+                previousSpeed = Player.speed;
+                Player.speed = 2f;
+            }
+            
+        }
         if (collision.gameObject.tag == "Key")
         {
             Player.hasKey = true;
@@ -67,6 +80,7 @@ public class PlayerCollider : MonoBehaviour {
             }
         }
 
+
         //Las  colisiones con el HellSlimeGlue están incluídas en "enemy"
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Fireball" || collision.gameObject.tag == "EpicAttack" || collision.gameObject.tag == "LavaGlue")
         {
@@ -79,6 +93,14 @@ public class PlayerCollider : MonoBehaviour {
 
         }
         
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "AngelGlue")
+        {
+            Player.speed = previousSpeed;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
