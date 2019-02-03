@@ -161,7 +161,7 @@ MonoBehaviour:
   timeBtwSlow: 20
   notInMap: 1
   objetos: {fileID: 0}
-  value: 0
+  value: 300
 --- !u!114 &114722456852705986
 MonoBehaviour:
   m_ObjectHideFlags: 0

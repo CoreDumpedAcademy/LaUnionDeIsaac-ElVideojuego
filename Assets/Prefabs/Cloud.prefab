@@ -185,7 +185,7 @@ MonoBehaviour:
   timeBtwShots: 5
   projectile: {fileID: 1936905436276478, guid: b550871b58b6ea84daba54e692ea18ab, type: 3}
   notInMap: 1
-  value: 0
+  value: 400
 --- !u!114 &1128414813145427293
 MonoBehaviour:
   m_ObjectHideFlags: 0

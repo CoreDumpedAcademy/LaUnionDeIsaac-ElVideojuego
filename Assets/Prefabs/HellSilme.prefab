@@ -142,7 +142,7 @@ MonoBehaviour:
   objetos: {fileID: 1235819153741886939}
   slimeGlue: {fileID: 5113178189988604009, guid: 386fbf8161ac38d4e8848b77f08f65b6,
     type: 3}
-  value: 0
+  value: 15
 --- !u!50 &1235819153741886937
 Rigidbody2D:
   serializedVersion: 4

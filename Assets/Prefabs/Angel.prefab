@@ -139,12 +139,12 @@ MonoBehaviour:
   stopDistance: 5
   retreatDistance: 0
   isAttacking: 0
-  timeBtwShots: 3
+  timeBtwShots: 1.8
   projectile: {fileID: 1160218890085812, guid: e9d07aa4aad81934886c2dcbcabff24c, type: 3}
   isTouchingWall: 0
   notInMap: 1
   objetos: {fileID: 1490159129622278}
-  value: 10
+  value: 33
 --- !u!95 &95443896489390402
 Animator:
   serializedVersion: 3

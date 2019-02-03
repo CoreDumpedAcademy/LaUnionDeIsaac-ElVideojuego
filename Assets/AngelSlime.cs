@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slime : MonoBehaviour
+public class AngelSlime : MonoBehaviour
 {
     public float speed;
     public float health;
@@ -44,7 +44,7 @@ public class Slime : MonoBehaviour
     void Update()
     {
 
-        
+
         slimeGlueDelay = slimeGlueDelay - Time.deltaTime;
 
         if (slimeGlueDelay <= 0)
@@ -53,7 +53,7 @@ public class Slime : MonoBehaviour
             slimeGlueDelay = 0.5f;
         }
 
-        touchDamage = Stats.redSlimeDamage;
+        touchDamage = Stats.angelSlimeDamage;
 
         float distance = Vector3.Distance(target.transform.position, transform.position);
         Vector3 dir = (target.transform.position - transform.position).normalized;
