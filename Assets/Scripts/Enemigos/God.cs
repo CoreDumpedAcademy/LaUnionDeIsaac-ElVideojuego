@@ -9,12 +9,12 @@ public class God : MonoBehaviour {
     public GameObject projectile;
     private Transform target;
 
-    private float health;
+    public float health = 1000;
     // Use this for initialization
     void Start () {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         timeLeftBtwShots = timeBtwShots;
-        health = 100f;
+        
     }
 	
 	// Update is called once per frame

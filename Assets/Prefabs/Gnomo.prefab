@@ -154,14 +154,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   health: 400
-  chaseRange: 10
+  chaseRange: 100
   attackRange: 5
   attackDelay: 5
   particles: {fileID: 0}
   timeBtwSlow: 20
   notInMap: 1
   objetos: {fileID: 0}
-  value: 0
+  value: 300
 --- !u!114 &114722456852705986
 MonoBehaviour:
   m_ObjectHideFlags: 0

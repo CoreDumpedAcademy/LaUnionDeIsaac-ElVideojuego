@@ -216,6 +216,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1676718612350806, guid: 30009df80e2718642a06a372eb30b679, type: 3}
+      propertyPath: m_Name
+      value: '---------------------------------'
+      objectReference: {fileID: 0}
     - target: {fileID: 4383600159911592, guid: 30009df80e2718642a06a372eb30b679, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.225741
@@ -248,15 +252,32 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4383600159911592, guid: 30009df80e2718642a06a372eb30b679, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383600159911592, guid: 30009df80e2718642a06a372eb30b679, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383600159911592, guid: 30009df80e2718642a06a372eb30b679, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 224401494885634850, guid: 30009df80e2718642a06a372eb30b679,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224511385208740208, guid: 30009df80e2718642a06a372eb30b679,
+    - target: {fileID: 1708187279512802642, guid: 30009df80e2718642a06a372eb30b679,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1708187279512802642, guid: 30009df80e2718642a06a372eb30b679,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30009df80e2718642a06a372eb30b679, type: 3}
@@ -289,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f147aabebc5b7e48b2d248ef56158de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallObj: {fileID: 1506252203158558, guid: 651bf411c8b416046b9709e13bd1ba08, type: 3}
+  wallObj: {fileID: 8226050149308271839, guid: d6a931cc727b1e14f896d8d8985e78ac, type: 3}
   floorObj: {fileID: 1476589879328232, guid: eabe7b23ed31b484eab7fbaa2ac5573b, type: 3}
 --- !u!4 &1887765122
 Transform:

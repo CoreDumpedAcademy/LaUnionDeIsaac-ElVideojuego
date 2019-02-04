@@ -119,16 +119,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   health: 50
-  startSkeletonDashTime: 0.2
-  startSkeletonCooldown: 3
-  skeletonChaseRange: 10
+  startSkeletonDashTime: 0.4
+  startSkeletonCooldown: 2
+  skeletonChaseRange: 20
   isDashing: 0
   attackRange: 0.9
   attackDelay: 1
   isTouchingWall: 0
   notInMap: 1
   objetos: {fileID: 1985837267395154}
-  value: 10
+  value: 17
 --- !u!70 &70755085815402506
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

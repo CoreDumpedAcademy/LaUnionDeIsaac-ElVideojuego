@@ -26,7 +26,7 @@ public class ObjetsDrop : MonoBehaviour
         }
         if (Stats.dropRate >= Random.value)
         {
-            obj = Instantiate(upgrade[Random.Range(0, 6)]);
+            obj = Instantiate(upgrade[Random.Range(0, 7)]);
             obj.transform.SetParent(gos[0].transform);
             obj.transform.position = pos;
         }

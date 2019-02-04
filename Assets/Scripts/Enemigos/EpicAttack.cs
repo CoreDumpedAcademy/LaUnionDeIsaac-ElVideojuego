@@ -46,16 +46,9 @@ public class EpicAttack : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "EpicAttack")
+        if (collision.gameObject.tag == "Player")
         {
-            if (PlayerCollider.hitCooldown <= 0 && EpicAttack.touchingEpicAttack == true)
-            {
-                Player.playerHealth = Player.playerHealth - epicAttackDamage;
-                PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
-                Debug.Log(Player.playerHealth);
-                PlayerCollider.hitCooldown = 1f;
-
-            }
+            Player.playerHealth = Player.playerHealth - Stats.fireSlimeGlueDamage;
         }
     }
 }

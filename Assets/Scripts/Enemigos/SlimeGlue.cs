@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class SlimeGlue : MonoBehaviour
 {
+
     private float lifeTime;
     // Start is called before the first frame update
     void Start()
     {
-        lifeTime = 4f;   
+        lifeTime = 4f;
     }
 
     // Update is called once per frame

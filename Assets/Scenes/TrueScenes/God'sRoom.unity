@@ -755,6 +755,7 @@ MonoBehaviour:
   startDashTime: 0.1
   isDashing: 0
   PSpawner: {fileID: 0}
+  greenArrow: {fileID: 0}
   playerHasKey: 0
   isPlayerDead: 0
   healthBar: {fileID: 1120108134}
@@ -4996,6 +4997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBtwShots: 0.35
   projectile: {fileID: 1936905436276478, guid: b550871b58b6ea84daba54e692ea18ab, type: 3}
+  health: 1000
 --- !u!1 &1713809895
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 61056987958361784}
   - component: {fileID: 114425748721270990}
   - component: {fileID: 50247419818515388}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ArrowDown
   m_TagString: Arrow
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54157c8c67013144a9d18d6e0b019398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 2
+  lifeTime: 1.5
   arrowSpeed: 30
   counter: 0
 --- !u!50 &50247419818515388

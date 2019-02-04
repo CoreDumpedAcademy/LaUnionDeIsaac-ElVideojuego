@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f147aabebc5b7e48b2d248ef56158de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallObj: {fileID: 1125382884625480, guid: 06f517e4a12660e428fb4d6d81012d63, type: 3}
+  wallObj: {fileID: 165742620240909230, guid: c0ad11504d9d2ed40a6f26a9a00c9b34, type: 3}
   floorObj: {fileID: 1415903980353180, guid: 97bb64e15e67d294d8474d132ae5ff38, type: 3}
 --- !u!4 &1831938043
 Transform:

@@ -119,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   healthMax: 30
-  chaseRange: 10
+  chaseRange: 20
   stopDistance: 3
   retreatDistance: 0
   timeBtwShots: 3
@@ -127,7 +127,7 @@ MonoBehaviour:
   notInMap: 1
   isTouchingWall: 0
   objetos: {fileID: 1524761738910400}
-  value: 10
+  value: 12
 --- !u!70 &70530382318603176
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
