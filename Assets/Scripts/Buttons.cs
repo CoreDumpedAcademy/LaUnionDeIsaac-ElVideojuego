@@ -7,7 +7,7 @@ public class Buttons : MonoBehaviour
 {
 
     public GameObject resumeButton;
-
+    public GameObject player;
     // Use this for initialization
     void Start()
     {
@@ -70,5 +70,27 @@ public class Buttons : MonoBehaviour
     public void Resume()
     {
         resumeButton.GetComponent<PauseMenu>().Score();
+    }
+
+    public void Respawn()
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Floor");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        Debug.Log(distance);
+        Debug.Log(player.transform.position); 
+        Debug.Log(closest.transform.position);
     }
 }
