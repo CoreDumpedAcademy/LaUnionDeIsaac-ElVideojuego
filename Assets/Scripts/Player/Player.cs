@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public static Renderer rend;
     public GameObject greenArrow;
     public static Vector2 playerPos;
+
+    public static bool gameStarted;
     // Variables duplicadas para poder modificarlas en unity y a la vez poder acceder al valor sin un getComponent. by raular4322 (que práctico, suena bastante útil, bien hecho raúl). 
     public bool playerHasKey; //raular4322
     public bool isPlayerDead;
@@ -30,7 +32,6 @@ public class Player : MonoBehaviour
     public Slider healthBar;
     public static bool playerIsDead; // raular4322
     public bool notInMap = true;
-    
     // Use this for initialization
     void Start ()
     {
@@ -66,8 +67,8 @@ public class Player : MonoBehaviour
             greenArrow.SetActive(false);
         }
 
-            // display de la vida del personaje
-            healthBar.value = playerHealth / Stats.health;
+        // display de la vida del personaje
+        healthBar.value = playerHealth / Stats.health;
 
         if (playerHealth > Stats.health)
         {
@@ -88,6 +89,13 @@ public class Player : MonoBehaviour
         
         //Hacemos que la velocidad del rigidbody sea la dirección * velocidad
         rb.velocity = new Vector2(h * speed, v* speed);
+
+        if (h > 0 || v>0)
+        {
+            Debug.Log("comprobar si el juego ha empezado");
+            Debug.Log(gameStarted);
+            gameStarted = true;
+        }
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
@@ -175,8 +183,31 @@ public class Player : MonoBehaviour
                     }
                 }
             }
-        }       
-	}
+        }
+
+        if (gameStarted)
+        {
+            GameObject[] gos;
+            gos = GameObject.FindGameObjectsWithTag("Floor");
+            GameObject closest = null;
+            float distance = Mathf.Infinity;
+            Vector3 position = transform.position;
+            foreach (GameObject go in gos)
+            {
+                Vector3 diff = go.transform.position - position;
+                float curDistance = diff.sqrMagnitude;
+                if (curDistance < distance)
+                {
+                    closest = go;
+                    distance = curDistance;
+                }
+            }
+            if (distance > 1)
+            {
+                transform.position = closest.transform.position;
+            }
+        }
+    }
 
 
 

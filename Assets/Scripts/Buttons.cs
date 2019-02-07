@@ -78,7 +78,7 @@ public class Buttons : MonoBehaviour
         gos = GameObject.FindGameObjectsWithTag("Floor");
         GameObject closest = null;
         float distance = Mathf.Infinity;
-        Vector3 position = transform.position;
+        Vector3 position = player.transform.position;
         foreach (GameObject go in gos)
         {
             Vector3 diff = go.transform.position - position;
@@ -90,7 +90,6 @@ public class Buttons : MonoBehaviour
             }
         }
         Debug.Log(distance);
-        Debug.Log(player.transform.position); 
-        Debug.Log(closest.transform.position);
+        //player.transform.position = closest.transform.position;
     }
 }

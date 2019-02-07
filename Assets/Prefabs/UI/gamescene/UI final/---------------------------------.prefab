@@ -1368,6 +1368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resumeButton: {fileID: 1627701731084696}
+  player: {fileID: 1949819389477006}
 --- !u!1 &1313779312295382
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,6 +3708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resumeButton: {fileID: 1627701731084696}
+  player: {fileID: 1949819389477006}
 --- !u!114 &114527242214550196
 MonoBehaviour:
   m_ObjectHideFlags: 0

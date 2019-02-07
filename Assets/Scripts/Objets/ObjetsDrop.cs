@@ -19,7 +19,7 @@ public class ObjetsDrop : MonoBehaviour
         if (Stats.potionDropRate >= Random.value)
         {
             Debug.Log("se supone que hay pocion");
-            obj = Instantiate(pocionDeVida[Random.Range(0,0)]);
+            obj = Instantiate(pocionDeVida[0]);
             obj.transform.SetParent(gos[0].transform);
             obj.transform.position = pos;
             obj.transform.position = new Vector3(pos.x, pos.y + 1);
