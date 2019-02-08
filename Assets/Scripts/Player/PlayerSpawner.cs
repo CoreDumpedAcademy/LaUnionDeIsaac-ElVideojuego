@@ -30,7 +30,6 @@ public class PlayerSpawner : MonoBehaviour {
             y = Random.Range(-74f, 74f);
             z = 0;
             pos = new Vector3(x, y, z);
-            Debug.Log(pos);
             transform.position = pos;
             count = 0.1f;
         }

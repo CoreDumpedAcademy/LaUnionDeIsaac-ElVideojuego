@@ -22,7 +22,6 @@ public class PlayerCollider : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-       Debug.Log("Health:" + Player.playerHealth);
       
 
         hitCooldown = hitCooldown - Time.deltaTime;
@@ -35,7 +34,6 @@ public class PlayerCollider : MonoBehaviour {
 
             if (redHitCooldown <= 0)
             {
-                Debug.Log("Blanco");
                 Player.rend.material.SetColor("_Color", Color.white);
                 setRed = false;
                 redHitCooldown = 1f;
@@ -89,7 +87,7 @@ public class PlayerCollider : MonoBehaviour {
                 Player.rend.material.SetColor("_Color", Color.red);
                 setRed = true;
             }
-            Debug.Log(setRed);
+
 
         }
         

@@ -25,6 +25,10 @@ public class GreedySkeleton : MonoBehaviour {
     public bool isDashing = false;
     public GameObject projectile;
 
+    public GameObject EA2;
+    private float EPICtimeLeftBtwShots; //controla el numero de segundos que quedan para que dispare
+    public float EPICtimeBtwShots;
+
     private Rigidbody2D rb;
     private Animator anim;
     private KeyDrop keyDrop;
@@ -49,6 +53,8 @@ public class GreedySkeleton : MonoBehaviour {
         anim = GetComponent<Animator>();
         keyDrop = GetComponent<KeyDrop>();
 
+        EPICtimeLeftBtwShots = EPICtimeBtwShots;
+
         isAttacking = false;
         notInMap = true;
         dashCooldown = skeletonCooldown;
@@ -60,6 +66,19 @@ public class GreedySkeleton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
+
+        if (EPICtimeLeftBtwShots <= 0) //nos aseguramos de que el enemigo lance bolas cada timeBtwShots segundos
+        {
+            Instantiate(EA2, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
+            EPICtimeLeftBtwShots = EPICtimeBtwShots;
+            Debug.Log("EA2");
+        }
+        else
+        {
+            EPICtimeLeftBtwShots -= Time.deltaTime;
+        }
 
         count = count - Time.deltaTime;
 

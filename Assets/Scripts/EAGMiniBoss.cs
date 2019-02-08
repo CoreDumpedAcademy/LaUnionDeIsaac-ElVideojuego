@@ -25,8 +25,8 @@ public class EAGMiniBoss : MonoBehaviour {
     void Update()
     {
 
-        x = Random.Range(miniBoss.transform.position.x -10f, miniBoss.transform.position.x + 10f);
-        y = Random.Range(miniBoss.transform.position.y - 10f, miniBoss.transform.position.x + 10f);
+        x = Random.Range(miniBoss.transform.position.x -60f, miniBoss.transform.position.x + 60f);
+        y = Random.Range(miniBoss.transform.position.y - 60f, miniBoss.transform.position.x + 60f);
         z = 0;
 
         pos = new Vector3(x, y, z);

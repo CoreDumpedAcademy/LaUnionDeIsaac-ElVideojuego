@@ -143,6 +143,8 @@ MonoBehaviour:
   isAttacking: 0
   isDashing: 0
   projectile: {fileID: 1936905436276478, guid: b550871b58b6ea84daba54e692ea18ab, type: 3}
+  EA2: {fileID: 6260986728899528681, guid: 1121e6b3d69adf34893f7b15d4bdc896, type: 3}
+  EPICtimeBtwShots: 6
   notInMap: 1
   value: 200
 --- !u!114 &114429841507230836

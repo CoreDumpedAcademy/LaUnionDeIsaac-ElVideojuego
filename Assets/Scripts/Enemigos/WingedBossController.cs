@@ -16,6 +16,7 @@ public class WingedBossController : MonoBehaviour {
     public float timeBtwShots; //tiempo entre disparo y disparo
     public GameObject projectile;
 
+
     private Animator anim;
     private KeyDrop keyDrop;
     public bool notInMap = true;
@@ -30,6 +31,7 @@ public class WingedBossController : MonoBehaviour {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         keyDrop = GetComponent<KeyDrop>();
         timeLeftBtwShots = timeBtwShots;
+
         health = healthMax;
         notInMap = true;
     }
@@ -46,6 +48,7 @@ public class WingedBossController : MonoBehaviour {
             Instantiate(projectile, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
             timeLeftBtwShots = timeBtwShots;
         }
+
         else
         {
             timeLeftBtwShots -= Time.deltaTime; 
