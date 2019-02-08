@@ -51,8 +51,8 @@ MonoBehaviour:
   obj:
   - {fileID: 1640494041342678, guid: eb7c8698a5a8e014abba826df7f1363a, type: 3}
   miniBoss: {fileID: 1814598237955006}
-  tiempoMin: 0.1
-  tiempoMax: 0.2
+  tiempoMin: 0.01
+  tiempoMax: 0.02
 --- !u!1 &1814598237955006
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class EA2 : MonoBehaviour
     private Vector3 normalizeDirection;
     private float fireballDamage;
     private bool explode;
-    private float explodeTime;
+    public float explodeTime;
     // Use this for initialization
     void Start()
     {
@@ -21,7 +21,6 @@ public class EA2 : MonoBehaviour
         target = player.position;
         normalizeDirection = (player.position - transform.position).normalized;
         explode = false;
-        explodeTime = 1;
         //    En caso de que queramos que el proyectil no siga al jugador sino que se lance hacia su dirección, si no: player.position.x && player.position.y
     }
 

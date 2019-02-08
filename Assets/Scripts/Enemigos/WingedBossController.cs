@@ -48,7 +48,6 @@ public class WingedBossController : MonoBehaviour {
             Instantiate(projectile, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
             timeLeftBtwShots = timeBtwShots;
         }
-
         else
         {
             timeLeftBtwShots -= Time.deltaTime; 

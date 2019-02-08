@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public static Vector2 playerPos;
 
     public static bool gameStarted;
+    public static float appearTime;
     // Variables duplicadas para poder modificarlas en unity y a la vez poder acceder al valor sin un getComponent. by raular4322 (que práctico, suena bastante útil, bien hecho raúl). 
     public bool playerHasKey; //raular4322
     public bool isPlayerDead;
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        appearTime = 7f;
         rend = GetComponent<Renderer>();
         rend.material.SetColor("_Color", Color.white);
         speed = Stats.speed;
@@ -56,6 +58,8 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        appearTime -= Time.deltaTime;
+
         playerPos = new Vector2(transform.position.x, transform.position.y);
 
         if (hasKey == true)

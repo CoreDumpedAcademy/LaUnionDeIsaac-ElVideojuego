@@ -110,3 +110,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lavaColumn: {fileID: 1640494041342678, guid: eb7c8698a5a8e014abba826df7f1363a, type: 3}
+  explodeTime: 1.5
