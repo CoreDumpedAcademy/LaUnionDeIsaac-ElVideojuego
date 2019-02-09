@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public static Vector2 playerPos;
 
     public static bool gameStarted;
+    private AudioSource AS;
 
     // Variables duplicadas para poder modificarlas en unity y a la vez poder acceder al valor sin un getComponent. by raular4322 (que práctico, suena bastante útil, bien hecho raúl). 
     public bool playerHasKey; //raular4322
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        
+        AS = GetComponent<AudioSource>();
         rend = GetComponent<Renderer>();
         rend.material.SetColor("_Color", Color.white);
         speed = Stats.speed;
@@ -94,10 +95,22 @@ public class Player : MonoBehaviour
         //Hacemos que la velocidad del rigidbody sea la dirección * velocidad
         rb.velocity = new Vector2(h * speed, v* speed);
 
+        if( h == 1 || h == -1 || v == 1 || v == -1)
+        {
+
+            if (!AS.isPlaying)
+            {
+                AS.Play();
+            }
+        }
+        else
+        {
+
+            AS.Stop();
+        }
+
         if (h > 0 || v>0)
         {
-            Debug.Log("comprobar si el juego ha empezado");
-            Debug.Log(gameStarted);
             gameStarted = true;
         }
 
@@ -106,29 +119,33 @@ public class Player : MonoBehaviour
             //aplicamos las direcciones para que el animador sepa cuando hacer qué animación
             anim.SetBool("LH", false);
             anim.SetFloat("SpeedY", 1);
+            
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             //aplicamos las direcciones para que el animador sepa cuando hacer qué animación
             anim.SetBool("LH", false);
             anim.SetFloat("SpeedY", -1);
+            
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             //aplicamos las direcciones para que el animador sepa cuando hacer qué animación
             anim.SetBool("LH", true);
             anim.SetFloat("SpeedX", 1);
+            
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             //aplicamos las direcciones para que el animador sepa cuando hacer qué animación
             anim.SetBool("LH", true);
             anim.SetFloat("SpeedX", -1);
+            
         }
         else if (!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow)&& !Input.GetKey(KeyCode.RightArrow)&& !Input.GetKey(KeyCode.LeftArrow))
         {
             //aplicamos las direcciones para que el animador sepa cuando hacer qué animación
-            if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
             {
                 anim.SetBool("LH", true);
             }

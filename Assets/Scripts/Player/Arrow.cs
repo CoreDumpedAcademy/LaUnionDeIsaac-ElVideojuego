@@ -9,10 +9,15 @@ public class Arrow : MonoBehaviour
     public float arrowSpeed = 0.5f;
     public float counter = Stats.cadencia;
     private Rigidbody2D rb;
+    private AudioSource AS;
 
     // Use this for initialization
     void Start ()
     {
+        AS = GetComponent<AudioSource>();
+
+        AS.Play();
+
         //Elegir la dirección de la flecha
         if (ArrowSpawner.arrowDirection == 1)
         {
