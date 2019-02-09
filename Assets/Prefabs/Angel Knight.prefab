@@ -96,8 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   health: 100
-  startKnightDashTime: 0.2
-  startKnightCooldown: 3
+  startKnightDashTime: 0.4
+  startKnightCooldown: 2
   knightChaseRange: 25
   isDashing: 0
   attackRange: 0.9
@@ -106,7 +106,7 @@ MonoBehaviour:
   notInMap: 1
   fire: {fileID: 5579241553533656761, guid: dc17d6f8920942248b01e1b6cb1ebbba, type: 3}
   objetos: {fileID: 782747956722954034}
-  value: 10
+  value: 30
 --- !u!70 &782747956722954036
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

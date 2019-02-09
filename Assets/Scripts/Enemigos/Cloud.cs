@@ -21,6 +21,10 @@ public class Cloud : MonoBehaviour {
     public bool notInMap = true;
     private float count = 0.2f;
 
+    public GameObject EA3;
+    private float EPICtimeLeftBtwShots; //controla el numero de segundos que quedan para que dispare
+    public float EPICtimeBtwShots;
+
     private float deathCont;
     private bool isTouchingWall;
 
@@ -34,6 +38,7 @@ public class Cloud : MonoBehaviour {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         keyDrop = GetComponent<KeyDrop>();
         timeLeftBtwShots = timeBtwShots;
+        EPICtimeLeftBtwShots = 2;
         health = healthMax;
         notInMap = true;
     }
@@ -41,6 +46,16 @@ public class Cloud : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
+        if (EPICtimeLeftBtwShots <= 0) //nos aseguramos de que el enemigo lance bolas cada timeBtwShots segundos
+        {
+            Instantiate(EA3, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
+            EPICtimeLeftBtwShots = EPICtimeBtwShots;
+        }
+        else
+        {
+            EPICtimeLeftBtwShots -= Time.deltaTime;
+        }
 
         //transform.LookAt(target);
         moveTwdPlayer(); // función que hace que persiga al jugador y huya de él 

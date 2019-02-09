@@ -13,11 +13,16 @@ public class God : MonoBehaviour {
     private float EPICtimeLeftBtwShots; //controla el numero de segundos que quedan para que dispare
     public float EPICtimeBtwShots;
 
+    public GameObject EA3;
+    private float EPICtimeLeftBtwShots2; //controla el numero de segundos que quedan para que dispare
+    public float EPICtimeBtwShots2;
+
     public float health = 1000;
     // Use this for initialization
     void Start () {
 
         EPICtimeLeftBtwShots = EPICtimeBtwShots;
+        EPICtimeLeftBtwShots2 = 2;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         timeLeftBtwShots = timeBtwShots;
         
@@ -35,6 +40,17 @@ public class God : MonoBehaviour {
         else
         {
             EPICtimeLeftBtwShots -= Time.deltaTime;
+        }
+
+        if (EPICtimeLeftBtwShots2 <= 0) //nos aseguramos de que el enemigo lance bolas cada timeBtwShots segundos
+        {
+            Instantiate(EA3, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
+            EPICtimeLeftBtwShots2 = EPICtimeBtwShots2;
+            
+        }
+        else
+        {
+            EPICtimeLeftBtwShots2 -= Time.deltaTime;
         }
 
         float distance = Vector3.Distance(target.transform.position, transform.position);

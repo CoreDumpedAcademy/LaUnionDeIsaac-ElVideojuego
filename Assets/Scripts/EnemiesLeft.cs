@@ -8,6 +8,7 @@ public class EnemiesLeft : MonoBehaviour
 
     private TextMeshProUGUI enemyCounter;
     private int enemiesLeft = 0;
+    public float appearTime;
 
 
     // Start is called before the first frame update
@@ -15,19 +16,19 @@ public class EnemiesLeft : MonoBehaviour
     {
         enemiesLeft = 0;
         enemyCounter = GetComponent<TextMeshProUGUI>();
-        gameObject.SetActive(false);
+        enemyCounter.text = "";
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        appearTime -= Time.deltaTime;
 
-        if(Player.appearTime <= 0)
+        if (appearTime <= 0)
         {
-            gameObject.SetActive(true);
+            enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy").Length;
+            enemyCounter.text = enemiesLeft.ToString();
         }
-        enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        enemyCounter.text = enemiesLeft.ToString();
+        
     }
 }

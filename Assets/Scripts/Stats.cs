@@ -38,4 +38,5 @@ public class Stats
     public static float fireSlimeDamage = 20f;
     public static float fireSlimeGlueDamage = 1f;
     public static float angelProjectileDamage = 45f;
+    public static float holyFire = 1.5f;
 }

@@ -132,7 +132,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.001978077, y: 0.023818135}
+  m_Offset: {x: 0.0028906763, y: 0.021999482}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -143,7 +143,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.46021926, y: 0.3111074}
+  m_Size: {x: 0.323332, y: 0.17288637}
   m_EdgeRadius: 0
 --- !u!50 &50067728533505146
 Rigidbody2D:
@@ -185,6 +185,8 @@ MonoBehaviour:
   timeBtwShots: 5
   projectile: {fileID: 1936905436276478, guid: b550871b58b6ea84daba54e692ea18ab, type: 3}
   notInMap: 1
+  EA3: {fileID: 6058724712384002686, guid: 54ea1daf5bf78bf4e929946d279f77a2, type: 3}
+  EPICtimeBtwShots: 9
   value: 400
 --- !u!114 &1128414813145427293
 MonoBehaviour:

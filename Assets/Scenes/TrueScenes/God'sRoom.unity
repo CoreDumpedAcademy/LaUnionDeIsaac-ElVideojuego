@@ -5001,6 +5001,8 @@ MonoBehaviour:
   projectile: {fileID: 1936905436276478, guid: b550871b58b6ea84daba54e692ea18ab, type: 3}
   EA2: {fileID: 6260986728899528681, guid: 1121e6b3d69adf34893f7b15d4bdc896, type: 3}
   EPICtimeBtwShots: 4
+  EA3: {fileID: 6058724712384002686, guid: 54ea1daf5bf78bf4e929946d279f77a2, type: 3}
+  EPICtimeBtwShots2: 5
   health: 1000
 --- !u!1 &1713809895
 GameObject:
