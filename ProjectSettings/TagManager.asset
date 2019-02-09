@@ -18,6 +18,7 @@ TagManager:
   - HealthPotion
   - LavaGlue
   - AngelGlue
+  - GnomoParticles
   layers:
   - Default
   - TransparentFX

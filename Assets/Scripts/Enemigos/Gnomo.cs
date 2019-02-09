@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class Gnomo : MonoBehaviour
 {
-    public static float newspeed= 1f;
     public float speed;
     public float health;
-
-    private static float previousspeed;
-    private bool originalspeed=true;
-    private float originaltimeleft;
-    private float originaltime = 6;
+    private float touchDamage=20;
 
     private Transform target;
     public float chaseRange;
@@ -20,40 +15,30 @@ public class Gnomo : MonoBehaviour
     private float lastAttackTime;
     public float attackDelay;
 
-    public GameObject particles;
-    private float timeLeftBtwSlow; //controla el numero de segundos que quedan para que suelte la habilidad especial 
-    public float timeBtwSlow; //tiempo entre habilidad especial 
-
     private Rigidbody2D rb;
     private Animator anim;
     public bool notInMap = true;
+    private float count = 0.2f;
+    private float deathCont = 1f;
+    public bool isTouchingWall;
+
+    private float timeLeftBtwShots; //controla el numero de segundos que quedan para que dispare
+    public float timeBtwShots=4f; //tiempo entre disparo y disparo
+    public GameObject projectile;
 
     public GameObject objetos;
 
     public int value;
-    private KeyDrop keyDrop;
-
-    private float deathCont;
-    private bool isTouchingWall;
-    private float count = 0.2f;
-
     // Use this for initialization
     void Start()
     {
-        keyDrop = GetComponent<KeyDrop>();
-        previousspeed = Player.speed;
-        timeLeftBtwSlow = timeBtwSlow;
-        originaltimeleft = originaltime;
 
-        count = 0.2f;
-        deathCont = 1f;
-        isTouchingWall = false;
-
+        timeLeftBtwShots = timeBtwShots;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
         notInMap = true;
-
+        deathCont = 1f;
+        isTouchingWall = false;
         //Movimiento
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
@@ -61,21 +46,6 @@ public class Gnomo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // de esta manera nos aseguramos de devolver al jugador su velocidad inicial
-        if (originalspeed == false)
-        {
-            if (originaltimeleft <= 0)
-            {
-                Player.speed = previousspeed;
-                originalspeed = true;
-                originaltimeleft = originaltime;
-            }
-            else
-            {
-                originaltimeleft -= Time.deltaTime;
-            }
-        }
-       
 
         float distance = Vector3.Distance(target.transform.position, transform.position);
         Vector3 dir = (target.transform.position - transform.position).normalized;
@@ -83,7 +53,6 @@ public class Gnomo : MonoBehaviour
         if (distance < chaseRange)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            movement();
         }
 
         //Fin del movimiento
@@ -94,9 +63,15 @@ public class Gnomo : MonoBehaviour
         float distanceToAttack = Vector3.Distance(transform.position, target.position);
         if (distanceToAttack < attackRange)
         {
-
-            slowdown();
-
+            if (timeLeftBtwShots <= 0) //nos aseguramos de que el enemigo lance bolas cada timeBtwShots segundos
+            {
+                Instantiate(projectile, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
+                timeLeftBtwShots = timeBtwShots;
+            }
+            else
+            {
+                timeLeftBtwShots -= Time.deltaTime;
+            }
 
         }
         //Fin del ataque
@@ -105,8 +80,6 @@ public class Gnomo : MonoBehaviour
 
         if (count <= 0 && notInMap == true)
         {
-            EpicGenerator.maxEnemies = false;
-            EpicGenerator.enemySpawned = false;
             Destroy(gameObject);
         }
 
@@ -114,19 +87,11 @@ public class Gnomo : MonoBehaviour
 
         if (deathCont > 0 && isTouchingWall == true)
         {
-            EpicGenerator.maxEnemies = false;
-            EpicGenerator.enemySpawned = false;
             Destroy(gameObject);
         }
 
+        //Animaciones
 
-
-
-    }
-
-    void movement()
-    {
-        float distance = Vector3.Distance(target.transform.position, transform.position);
         if (distance < chaseRange)
         {
             if (target.position.x > transform.position.x && Mathf.Abs(target.position.x - transform.position.x) > Mathf.Abs(target.position.y - transform.position.y))
@@ -157,22 +122,44 @@ public class Gnomo : MonoBehaviour
             anim.SetFloat("YSpeed", 0);
         }
     }
-    void slowdown()
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-            //Comprobar si ha pasado tiempo suficiente desde el ultimo ataque
-            if (timeLeftBtwSlow <= 0) //nos aseguramos de que el enemigo lance bolas cada timeBtwShots segundos
+        if (collision.gameObject.tag == "Player")
+        {
+
+            if (PlayerCollider.hitCooldown <= 0)
             {
-            //Instantiate(particles, transform.position, Quaternion.identity); //Quaternion.identity = no rotation 
-            Player.speed = newspeed; //Quaternion.identity = no rotation
-                originalspeed = false;
-                timeLeftBtwSlow = timeBtwSlow;
+                Player.playerHealth = Player.playerHealth - touchDamage;
+                PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
+
+                PlayerCollider.hitCooldown = 1f;
             }
-            else
-            {
-                timeLeftBtwSlow -= Time.deltaTime;
-            }
+        }
+
 
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+
+            if (PlayerCollider.hitCooldown <= 0)
+            {
+                Player.playerHealth = Player.playerHealth - touchDamage;
+                PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
+
+                PlayerCollider.hitCooldown = 1f;
+            }
+        }
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            isTouchingWall = true;
+        }
+    }
+
     //Muerte del enemigo
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -183,15 +170,6 @@ public class Gnomo : MonoBehaviour
 
 
 
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-
-        if (collision.gameObject.tag == "Wall")
-        {
-            isTouchingWall = true;
-        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -212,10 +190,9 @@ public class Gnomo : MonoBehaviour
         health -= Stats.arrowDamage;
         if (health <= 0)
         {
-            Player.speed = previousspeed;
-            //ObjetsDrop.pos = transform.position;
-            //objetos.GetComponent<ObjetsDrop>().Drop();
-            keyDrop.SpawnKey();
+            ObjetsDrop.pos = transform.position;
+            objetos.GetComponent<ObjetsDrop>().Drop();
+
             // score
             Stats.score = Stats.score + value;
 
@@ -226,9 +203,14 @@ public class Gnomo : MonoBehaviour
     }
     //Fin de muerte del enemigo
 
-   
-
-
-
-
+    //Muestra el rango de vision del enemigo en el editor
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
 }
+
+
+

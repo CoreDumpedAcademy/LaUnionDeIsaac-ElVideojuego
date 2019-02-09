@@ -8,21 +8,41 @@ public class PlayerCollider : MonoBehaviour {
     public static float hitCooldown=1f;
     private float redHitCooldown;
     private bool setRed;
+    private bool gnomohit = false;
     private float betweenColors;
     private float previousSpeed; //para el slowdown del slime
+    private float timeLeftSlow; 
+    public float timeSlow;
     public AudioSource AS;
 
     // Use this for initialization
     void Start () {
+        timeSlow = 3f;
+        timeLeftSlow = timeSlow;
         betweenColors = 0.25f;
         redHitCooldown = 1f;
         hitCooldown = 0;
         setRed = false;
+        previousSpeed = Player.speed;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+        if (gnomohit)
+        {
+            if (timeLeftSlow > 0)
+            {
+                timeLeftSlow -= Time.deltaTime;
+            }
+            else
+            {
+                timeLeftSlow = timeSlow;
+                gnomohit = false;
+            }
+        }
+        if (!gnomohit)
+            Player.speed = previousSpeed;
       
 
         hitCooldown = hitCooldown - Time.deltaTime;
@@ -45,6 +65,16 @@ public class PlayerCollider : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        if (collision.gameObject.tag == "GnomoParticles")
+        {
+            if (Player.speed != 2f)
+            {
+                gnomohit = true;
+                previousSpeed = Player.speed;
+                Player.speed = 2f;
+            }
+        }
 
         if (collision.gameObject.tag == "AngelGlue")
         {
