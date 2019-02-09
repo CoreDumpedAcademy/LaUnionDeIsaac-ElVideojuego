@@ -8,10 +8,11 @@ public class Buttons : MonoBehaviour
 
     public GameObject resumeButton;
     public GameObject player;
+    private AudioSource AS;
     // Use this for initialization
     void Start()
     {
-
+        AS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,12 +23,14 @@ public class Buttons : MonoBehaviour
 
     public void ExitToMenu()
     {
+        AS.Play();
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
     }
 
     public void StartGame()
     {
+        AS.Play();
         Stats.score = Stats.scoreD;
         Stats.cadencia = Stats.cadenciaD;
         Stats.robovida = Stats.robovidaD;
@@ -46,29 +49,34 @@ public class Buttons : MonoBehaviour
 
     public void Selector()
     {
+        AS.Play();
         SceneManager.LoadScene("CharacterSelector");
         Time.timeScale = 1f;
     }
 
     public void LoadGameScene()
     {
+        AS.Play();
         SceneManager.LoadScene("Floor1");
         Time.timeScale = 1f;
     }
 
     public void Score()
     {
+        AS.Play();
         SceneManager.LoadScene("Scoreboard");
         Time.timeScale = 1f;
     }
 
     public void Quit()
     {
+        AS.Play();
         Application.Quit();
     }
 
     public void Resume()
     {
+        AS.Play();
         resumeButton.GetComponent<PauseMenu>().Score();
     }
 

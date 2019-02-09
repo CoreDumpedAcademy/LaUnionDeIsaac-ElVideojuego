@@ -5,8 +5,9 @@ using UnityEngine;
 public class Key : MonoBehaviour {
 
     public bool grounded = false;
-	// Use this for initialization
-	void Start () {
+    public AudioSource AS;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -41,6 +42,7 @@ public class Key : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player")
         {
+            AS.Play();
             Destroy(gameObject);
         }
 

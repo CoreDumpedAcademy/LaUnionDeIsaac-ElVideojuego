@@ -9,8 +9,13 @@ public class WBossProjectile : MonoBehaviour {
     private Vector2 target;
     private Vector3 normalizeDirection;
     private float fireballDamage;
+    private AudioSource AS;
     // Use this for initialization
     void Start () {
+        AS = GetComponent<AudioSource>();
+
+        AS.Play();
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
          normalizeDirection = (player.position - transform.position).normalized;

@@ -10,6 +10,7 @@ public class PlayerCollider : MonoBehaviour {
     private bool setRed;
     private float betweenColors;
     private float previousSpeed; //para el slowdown del slime
+    public AudioSource AS;
 
     // Use this for initialization
     void Start () {
@@ -90,7 +91,14 @@ public class PlayerCollider : MonoBehaviour {
 
 
         }
-        
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (!AS.isPlaying)
+            {
+                AS.Play();
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

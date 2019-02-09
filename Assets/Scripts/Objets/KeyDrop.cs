@@ -8,6 +8,7 @@ public class KeyDrop : MonoBehaviour {
     public GameObject[] gos;
     public GameObject key;
 
+
     public void Start()
     {
         gos = GameObject.FindGameObjectsWithTag("objetos");

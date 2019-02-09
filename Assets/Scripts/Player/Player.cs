@@ -25,7 +25,8 @@ public class Player : MonoBehaviour
     public static Vector2 playerPos;
 
     public static bool gameStarted;
-    private AudioSource AS;
+    public AudioSource AS;
+
 
     // Variables duplicadas para poder modificarlas en unity y a la vez poder acceder al valor sin un getComponent. by raular4322 (que práctico, suena bastante útil, bien hecho raúl). 
     public bool playerHasKey; //raular4322
@@ -37,7 +38,6 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        AS = GetComponent<AudioSource>();
         rend = GetComponent<Renderer>();
         rend.material.SetColor("_Color", Color.white);
         speed = Stats.speed;

@@ -10,11 +10,13 @@ public class PauseMenu : MonoBehaviour {
     public GameObject canvasScoreGame;
     public GameObject rellenarStats;
     public GameObject canvasDead;
+    private AudioSource AS;
 
     // Use this for initialization
-    void Start () {
-		
-	}
+    void Start ()
+    {
+        AS = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -43,6 +45,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void Resume()
     {
+        AS.Play();
         canvasPause.SetActive(false);
         canvasScoreGame.SetActive(false);
         Time.timeScale = 1f;
@@ -52,6 +55,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void Pause()
     {
+        AS.Play();
         canvasPause.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
@@ -59,6 +63,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void Score()
     {
+        AS.Play();
         if (scoreIsInDisplay)
         {
             scoreIsInDisplay = false;
