@@ -29,7 +29,7 @@ public class PlayerCollider : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (gnomohit)
+        /*if (gnomohit)
         {
             if (timeLeftSlow > 0)
             {
@@ -42,7 +42,7 @@ public class PlayerCollider : MonoBehaviour {
             }
         }
         if (!gnomohit)
-            Player.speed = previousSpeed;
+            Player.speed = previousSpeed;*/
       
 
         hitCooldown = hitCooldown - Time.deltaTime;
@@ -85,6 +85,7 @@ public class PlayerCollider : MonoBehaviour {
             }
             
         }
+
         if (collision.gameObject.tag == "Key")
         {
             Player.hasKey = true;

@@ -19,6 +19,7 @@ TagManager:
   - LavaGlue
   - AngelGlue
   - GnomoParticles
+  - MMMusic
   layers:
   - Default
   - TransparentFX

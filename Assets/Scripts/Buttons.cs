@@ -9,9 +9,11 @@ public class Buttons : MonoBehaviour
     public GameObject resumeButton;
     public GameObject player;
     private AudioSource AS;
+    public static bool stopMMMusic;
     // Use this for initialization
     void Start()
     {
+        stopMMMusic = false;
         AS = GetComponent<AudioSource>();
     }
 
@@ -56,6 +58,7 @@ public class Buttons : MonoBehaviour
 
     public void LoadGameScene()
     {
+        stopMMMusic = true;
         AS.Play();
         SceneManager.LoadScene("Floor1");
         Time.timeScale = 1f;
