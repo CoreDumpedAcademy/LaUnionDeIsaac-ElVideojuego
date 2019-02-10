@@ -321,7 +321,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gos: []
-  WminiBoss: {fileID: 1159065076057156, guid: ea45ac8316783af4a87d69db72d7680e, type: 3}
+  WminiBoss: {fileID: 367762132031529334, guid: ea45ac8316783af4a87d69db72d7680e,
+    type: 3}
 --- !u!4 &1172598698
 Transform:
   m_ObjectHideFlags: 0
