@@ -111,6 +111,7 @@ public class PlayerCollider : MonoBehaviour {
             {
                 Player.playerHealth = Stats.health;
             }
+            PlayerPrefs.SetFloat("firstHealth", Player.playerHealth);
         }
 
 
