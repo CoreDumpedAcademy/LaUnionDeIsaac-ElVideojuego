@@ -7,8 +7,6 @@ public class EpicAttack : MonoBehaviour
 
     private float appearCount = 1f;
     private float deadCont = 2.8f;
-    private BoxCollider2D bc;
-    public static bool touchingEpicAttack;
     private float epicAttackDamage;
 
     // Use this for initialization
@@ -16,9 +14,6 @@ public class EpicAttack : MonoBehaviour
     {
         appearCount = 1f;
         deadCont = 2.8f;
-        bc = GetComponent<BoxCollider2D>();
-        bc.enabled = !bc.enabled;
-        touchingEpicAttack = false;
 
 
     }
@@ -31,13 +26,13 @@ public class EpicAttack : MonoBehaviour
 
         if (appearCount <= 0)
         {
-            touchingEpicAttack = true;
-            bc.enabled = !bc.enabled;
+            
+           
 
             deadCont -= Time.deltaTime;
             if (deadCont <= 0)
             {
-                touchingEpicAttack = false;
+                
                 Destroy(gameObject);
             }
 

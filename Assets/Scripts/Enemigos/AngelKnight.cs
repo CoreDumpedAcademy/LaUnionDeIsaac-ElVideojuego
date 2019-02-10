@@ -70,12 +70,13 @@ public class AngelKnight : MonoBehaviour
                 {
                     isDashing = true;
                     knightDashTime = startKnightDashTime;
-                    Instantiate(fire, transform.position, Quaternion.identity);
+                    
                 }
 
             }
             else
             {
+
                 if (knightDashTime <= 0)
                 {
                     isDashing = false;
@@ -84,6 +85,7 @@ public class AngelKnight : MonoBehaviour
                 else
                 {
                     knightDashTime -= Time.deltaTime;
+                    Instantiate(fire, transform.position, Quaternion.identity);
 
                     if (isDashing == true)
                     {
