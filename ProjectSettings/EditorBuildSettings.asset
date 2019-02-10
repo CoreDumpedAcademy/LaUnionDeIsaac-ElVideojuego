@@ -24,6 +24,18 @@ EditorBuildSettings:
     path: Assets/Scenes/TrueScenes/Floor3.unity
     guid: f371e28470d799d489f74dab905a2c21
   - enabled: 1
+    path: Assets/Scenes/TrueScenes/Boss1.unity
+    guid: 7f0d15bf1f1717c40b32aa68acbe6cc9
+  - enabled: 1
+    path: Assets/Scenes/TrueScenes/Boss2.unity
+    guid: d1b97326f8759814fabbb7bff14792de
+  - enabled: 1
+    path: Assets/Scenes/TrueScenes/Boss3.unity
+    guid: 4f185b9ef0a89244c859c3610780fa2d
+  - enabled: 1
+    path: Assets/Scenes/TrueScenes/Credits.unity
+    guid: 48cbb7cd3b82f034598cf45f31c22ea1
+  - enabled: 1
     path: Assets/Scenes/TrueScenes/Floor4.unity
     guid: a10193b5ba467a4448966a232729bedb
   - enabled: 1

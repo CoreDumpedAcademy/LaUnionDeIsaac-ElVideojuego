@@ -71,6 +71,12 @@ public class Buttons : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+        Time.timeScale = 1f;
+    }
+
     public void Quit()
     {
         AS.Play();
