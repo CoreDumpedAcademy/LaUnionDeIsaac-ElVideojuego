@@ -23,13 +23,13 @@ public class PlayerCollider : MonoBehaviour {
         redHitCooldown = 1f;
         hitCooldown = 0;
         setRed = false;
-        previousSpeed = Player.speed;
+        previousSpeed = 5f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        /*if (gnomohit)
+        if (gnomohit)
         {
             if (timeLeftSlow > 0)
             {
@@ -42,7 +42,7 @@ public class PlayerCollider : MonoBehaviour {
             }
         }
         if (!gnomohit)
-            Player.speed = previousSpeed;*/
+            Player.speed = previousSpeed;
       
 
         hitCooldown = hitCooldown - Time.deltaTime;
