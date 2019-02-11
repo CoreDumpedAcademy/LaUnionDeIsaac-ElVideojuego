@@ -216,7 +216,7 @@ public class AngelKnight : MonoBehaviour
         speed = speed * Stats.slowdown;
         Player.playerHealth += Stats.robovida;
         //Restar vida al enemigo
-        health -= Stats.arrowDamage;
+        health -= Stats.damage;
         if (health <= 0)
         {
             ObjetsDrop.pos = transform.position;

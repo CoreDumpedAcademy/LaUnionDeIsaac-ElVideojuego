@@ -248,7 +248,7 @@ public class GreedySkeleton : MonoBehaviour {
     {
         speed = speed * Stats.slowdown;
         Player.playerHealth += Stats.robovida;
-        health -= 10;
+        health -= Stats.damage;
         if (health <= 0)
         {
             keyDrop.SpawnKey();

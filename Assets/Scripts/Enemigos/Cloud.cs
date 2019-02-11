@@ -169,7 +169,7 @@ public class Cloud : MonoBehaviour {
     {
         speed = speed * Stats.slowdown;
         Player.playerHealth += Stats.robovida;
-        health -= Stats.arrowDamage;
+        health -= Stats.damage;
         if (health <= 0)
         {
             keyDrop.SpawnKey();
